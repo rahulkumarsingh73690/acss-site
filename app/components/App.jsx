@@ -1,6 +1,19 @@
 'use strict';
 var React = require('react');
 
+// components
+var Nav = require('./Nav');
+var PageHome = require('./PageHome');
+var PageOverview = require('./PageOverview');
+var PageCustomize = require('./PageCustomize');
+
+// stores
+var ApplicationStore = require('../stores/ApplicationStore');
+
+// mixins
+var RouterMixin = require('flux-router-component').RouterMixin;
+var StoreMixin = require('fluxible-app').StoreMixin;
+
 /**
  * The app
  *
@@ -8,16 +21,16 @@ var React = require('react');
  * @constructor
  */
 var App = React.createClass({
-    getInitialState: function() {
-        return {
-            builder: {
-                items: [
-                    {name: 'Bd-0', code: 'border: 0'},
-                    {name: 'Bd-1', code: 'border-width: 1px'},
-                    {name: 'Bdx-1', code: 'border-left-width: 1px;\nborder-right-width: 1px;'},
-                ]
-            }
-        };
+    mixins: [RouterMixin, StoreMixin],
+    statics: {
+        storeListeners: [ApplicationStore]
+    },
+    getInitialState: function () {
+        return this.getStore(ApplicationStore).getState();
+    },
+    onChange: function () {
+        var state = this.getStore(ApplicationStore).getState();
+        this.setState(state);
     },
     /**
      * Refer to React documentation render
@@ -26,23 +39,26 @@ var App = React.createClass({
      * @return {Object} HTML head section
      */
     render: function() {
-        var lis = this.state.builder.items.map(function (item) {
-            return (
-                <li className="My-2px">
-                    <label>
-                        <input type="checkbox" className="Va-t" name={item.name} />
-                        <pre className="M-0 D-ib Bd-1 Px-4px Py-2px Bgc-wh">{item.code}</pre>
-                    </label>
-                </li>
-            );
-        });
+        var page = '';
+
+        switch (this.state.currentPageName) {
+            case 'home':
+                page = <PageHome />;
+                break;
+            case 'overview':
+                page = <PageOverview/>;
+                break;
+            case 'customize':
+                page = <PageCustomize/>;
+                break;
+        }
 
         return (
-            <div>
-                <h3>Border</h3>
-                <ul className="List-n P-0">
-                    {lis}
-                </ul>
+            <div id="master-wrapper">
+                <h1>Atomic.css</h1>
+                <p>A collection of single purpose styling units for maximum reuse.</p>
+                <Nav selected={this.state.currentPageName} links={this.state.pages} context={this.props.context}/>
+                {page}
             </div>
         );
     }

@@ -5,12 +5,14 @@ module.exports = function (grunt) {
     grunt.initConfig({
         copy: {
             app: {
-                files: [{
-                    expand: true,
-                    cwd: 'app/assets/',
-                    src: ['**/*.css'],
-                    dest: 'app/build/'
-                }]
+                files: [
+                    {
+                        expand: true,
+                        cwd: 'app/assets/',
+                        src: ['**/*.css'],
+                        dest: 'app/build/'
+                    }
+                ]
             }
         },
         webpack: {
@@ -41,7 +43,15 @@ module.exports = function (grunt) {
                 }
             }
         },
+        getsassvars: {
+            builder: {
+                files: {
+                    './app/build/js/reference.js': ['./parser/*.scss'],
+                }
+            }
+        }
     });
 
-    grunt.registerTask('default', ['copy:app', 'webpack:app', 'nodemon:app']);
+    grunt.task.loadTasks('grunt/');
+    grunt.registerTask('default', ['copy:app', 'getsassvars:builder', 'webpack:app', 'nodemon:app']);
 };
