@@ -3,8 +3,17 @@
   "private": true,
   "version": "0.1.0",
   "description": "Atomic css website",
-  "main": "server.js",
+  "main": "app/server.js",
   "author": "Renato Iwashima <renatoi@yahoo-inc.com>",
+  "yahoo": {
+    "bugzilla": {
+      "product": "Stencil",
+      "component": "General"
+    },
+    "custodian": {
+      "email": "stencil-devel@yahoo-inc.com"
+    }
+  },
   "scripts": {
     "dev": "../node_modules/.bin/grunt",
     "prod": "../node_modules/.bin/grunt prod"
