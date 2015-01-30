@@ -19,6 +19,7 @@
     "prod": "../node_modules/.bin/grunt prod"
   },
   "dependencies": {
+    "atomic-css": "git+ssh://git@github.com:yahoo/atomic.css.git",
     "express-state": "~1.2.0",
     "serve-favicon": "~2.1.7",
     "express": "~4.10.4",
@@ -28,7 +29,7 @@
     "flux-router-component": "~0.4.4",
     "react-router": "~0.11.4",
     "fluxible-plugin-routr": "~0.2.1",
-    "fluxible-app": "~0.1.2"
+    "fluxible": "~0.1.5"
   },
   "devDependencies": {
     "chalk": "^0.5.1",
