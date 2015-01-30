@@ -6,13 +6,14 @@ var Nav = require('./Nav');
 var PageHome = require('./PageHome');
 var PageOverview = require('./PageOverview');
 var PageCustomize = require('./PageCustomize');
+var PageReference = require('./PageReference');
 
 // stores
 var ApplicationStore = require('../stores/ApplicationStore');
 
 // mixins
 var RouterMixin = require('flux-router-component').RouterMixin;
-var StoreMixin = require('fluxible-app').StoreMixin;
+var StoreMixin = require('fluxible').StoreMixin;
 
 /**
  * The app
@@ -46,10 +47,13 @@ var App = React.createClass({
                 page = <PageHome />;
                 break;
             case 'overview':
-                page = <PageOverview/>;
+                page = <PageOverview />;
                 break;
             case 'customize':
-                page = <PageCustomize/>;
+                page = <PageCustomize />;
+                break;
+            case 'reference':
+                page = <PageReference />;
                 break;
         }
 

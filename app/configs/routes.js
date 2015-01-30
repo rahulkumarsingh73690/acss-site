@@ -16,5 +16,11 @@ module.exports = {
         method: 'get',
         page: 'customize',
         label: 'Customize'
+    },
+    reference: {
+        path: '/reference',
+        method: 'get',
+        page: 'reference',
+        label: 'Reference'
     }
 };
