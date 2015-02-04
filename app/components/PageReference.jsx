@@ -18,7 +18,7 @@ var PageReference = React.createClass({
      * @method render
      * @return {Object} HTML head section
      */
-    render: function() {
+    render: function () {
         return (
             <div id="reference">
                 <h2>Reference</h2>

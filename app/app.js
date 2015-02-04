@@ -13,5 +13,6 @@ app.plug(routrPlugin({
 }));
 
 app.registerStore(require('./stores/ApplicationStore'));
+app.registerStore(require('./stores/ReferenceStore'));
 
 module.exports = app;

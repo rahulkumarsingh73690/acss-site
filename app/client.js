@@ -1,22 +1,24 @@
 /*global document, window */
 'use strict';
+
 var React = require('react');
 var app = require('./app');
-var dehydratedState = window.App; // Sent from the server
+var dehydratedState = window.App; // sent from the server
 
-window.React = React; // for chrome dev tool support
-
-var mountNode = document.getElementById('app');
+// for chrome dev tool support
+window.React = React;
 
 app.rehydrate(dehydratedState, function (err, context) {
     if (err) {
         throw err;
     }
+
     window.context = context;
-    React.render(
-        app.getAppComponent()({
-            context: context.getComponentContext()
-        }),
-        document.getElementById('app')
-    );
+
+    React.withContext(context.getComponentContext(), function () {
+        React.render(
+            app.getAppComponent()(),
+            document.getElementById('app')
+        );
+    });
 });

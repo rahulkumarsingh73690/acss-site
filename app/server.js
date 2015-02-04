@@ -3,7 +3,8 @@ require('node-jsx').install({ extension: '.jsx' });
 // package dependencies
 var express = require('express');
 var favicon = require('serve-favicon');
-var expressState = require('express-state');
+var serialize = require('serialize-javascript');
+// var expressState = require('express-state');
 var bodyParser = require('body-parser');
 var React = require('react');
 
@@ -14,7 +15,7 @@ var app = require('./app');
 
 
 var server = express();
-expressState.extend(server);
+// expressState.extend(server);
 server.set('state namespace', 'App');
 server.use(favicon(__dirname + '/../favicon.ico'));
 server.use('/public', express.static(__dirname + '/build'));
@@ -28,8 +29,8 @@ server.use(function(req, res, next) {
 
     var context = app.createContext();
 
-    context.getActionContext().executeAction(navigateAction, {
-        path: req.path
+    context.executeAction(navigateAction, {
+        url: req.url
     }, function (err) {
         if (err) {
             if (err.status && err.status === 404) {
@@ -40,22 +41,37 @@ server.use(function(req, res, next) {
             return;
         }
 
-        res.expose(app.dehydrate(context), 'App');
+        var exposed = 'window.App=' + serialize(app.dehydrate(context)) + ';';
 
         var AppComponent = app.getAppComponent();
-        var html = React.renderToStaticMarkup(
-            HtmlComponent({
-                state: res.locals.state,
-                markup: React.renderToString(
-                    AppComponent({
-                        context: context.getComponentContext()
-                    })
-                )
-            })
-        );
+        var doctype = '<!DOCTYPE html>';
+        React.withContext(context.getComponentContext(), function () {
+            var html = React.renderToStaticMarkup(HtmlComponent({
+                state: exposed,
+                markup: React.renderToString(AppComponent({
+                    context: context.getComponentContext()
+                }))
+            }));
+            res.send(doctype + html);
+        });
 
-        res.write(html);
-        res.end();
+        // res.expose(app.dehydrate(context), 'App');
+
+        // var AppComponent = app.getAppComponent();
+        // var html = React.renderToStaticMarkup(
+        //     HtmlComponent({
+        //         state: res.locals.state,
+        //         context: context.getComponentContext(),
+        //         markup: React.renderToString(
+        //             AppComponent({
+        //                 context: context.getComponentContext()
+        //             })
+        //         )
+        //     })
+        // );
+
+        // res.write(html);
+        // res.end();
     });
 });
 

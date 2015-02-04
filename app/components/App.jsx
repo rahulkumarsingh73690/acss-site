@@ -13,7 +13,7 @@ var ApplicationStore = require('../stores/ApplicationStore');
 
 // mixins
 var RouterMixin = require('flux-router-component').RouterMixin;
-var StoreMixin = require('fluxible').StoreMixin;
+var FluxibleMixin = require('fluxible').Mixin;
 
 /**
  * The app
@@ -22,7 +22,7 @@ var StoreMixin = require('fluxible').StoreMixin;
  * @constructor
  */
 var App = React.createClass({
-    mixins: [RouterMixin, StoreMixin],
+    mixins: [RouterMixin, FluxibleMixin],
     statics: {
         storeListeners: [ApplicationStore]
     },
@@ -39,7 +39,7 @@ var App = React.createClass({
      * @method render
      * @return {Object} HTML head section
      */
-    render: function() {
+    render: function () {
         var page = '';
 
         switch (this.state.currentPageName) {

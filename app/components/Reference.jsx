@@ -1,7 +1,14 @@
 'use strict';
-var React = require('react'),
-    // BuilderData = require('../build/js/reference.js'),
-    Rules = require('atomic-css').rules;
+var React = require('react');
+var Rules = require('atomic-css').rules;
+var SearchBox = require('./SearchBox');
+
+// stores
+var ReferenceStore = require('../stores/ReferenceStore');
+
+// mixins
+var FluxibleMixin = require('fluxible').Mixin;
+
 
 /**
  * Generates atomic.css sass variables
@@ -10,11 +17,21 @@ var React = require('react'),
  * @constructor
  */
 var Reference = React.createClass({
-    getInitialState: function () {
-        return {
-            rules: Rules
-        };
+    mixins: [FluxibleMixin],
+    statics: {
+        storeListeners: [ReferenceStore]
     },
+
+    getInitialState: function () {
+        this.store = this.getStore(ReferenceStore);
+        return this.store.getState();
+    },
+
+    onChange: function () {
+        var state = this.store.getState();
+        this.setState(state);
+    },
+
     /**
      * Refer to React documentation render
      *
@@ -22,30 +39,94 @@ var Reference = React.createClass({
      * @return {Object} HTML head section
      */
     render: function () {
-        var items = this.state.rules.map(function (item) {
-            var values = '';
-            // var values = item.values.map(function (value) {
-            //     value = value.trim();
-            //     return (
-            //         <label key={value} className="Py-2px D-b">
-            //             <input type="checkbox" value={value} name={item.key} />
-            //             <b className="Mstart-4">{value}</b>
-            //         </label>
-            //     );
-            // });
+        var searchRE = this.state.currentQuery ? new RegExp(this.state.currentQuery, 'i') : false;
 
+        var items = Rules.map(function (item) {
+            var values = [],
+                classes = [],
+                properties,
+                searching = !!this.state.currentQuery,
+                searchTitleMatches = null,
+                custom;
+
+            if (searching) {
+                searchTitleMatches = (item.name.search(searchRE) > -1);
+            }
+
+            if (item.type === 'pattern') {
+                if (item.allowCustom) {
+                    custom = "[value" + (item.allowCustomAutoSuffix ? '|suffix' : '') + "]";
+
+                    values.push({
+                        selector: item.prefix + custom, 
+                        styledSelector: <b>{item.prefix}<i>{custom}</i></b>, 
+                        value: <i>value</i>
+                    });
+                }
+
+                if (item.rules) {
+                    values = values.concat(item.rules.map(function (rule) {
+                        var selector = item.prefix + rule.suffix;
+                        return {
+                            selector: selector, 
+                            styledSelector: <b>{selector}</b>, 
+                            value: rule.values.join(' ').replace('$START', 'left').replace('$END', 'right')
+                        };
+                    }));
+                }
+
+                for (var x=0; x < values.length; x++) {
+                    var v = values[x];
+                    properties = [];
+                    if (item.properties && item.properties.length) {
+                        for (var i=0; i < item.properties.length; i++) {
+                            var p = item.properties[i].replace('$START', 'left').replace('$END', 'right');
+                            if (!searching || searchTitleMatches || 
+                                    v.selector.search(searchRE) > -1 || 
+                                    p.search(searchRE) > -1 || 
+                                    (typeof v.value === 'string' && v.value.search(searchRE) > -1)) {
+                                properties.push(<div>{p}: {v.value};</div>);
+                            } 
+                        };
+                    }
+                    if (properties.length) {
+                        classes.push([<dt>{v.styledSelector}</dt>, <dd>{properties}</dd>]);
+                    }
+                };
+            } else if (item.type === 'rule') {
+                properties = [];
+                for (var selector in item.rule) {
+                    for (var declaration in item.rule[selector]) {
+                        var v = item.rule[selector][declaration];
+                        if (!searching || searchTitleMatches || 
+                                selector.search(searchRE) > -1 || 
+                                declaration.search(searchRE) > -1 || 
+                                (typeof v === 'string' && v.search(searchRE) > -1)) {
+                            properties.push(<div>{declaration}: {v};</div>);
+                        }
+                    }
+                }
+
+                if (properties.length) {
+                    classes.push([<dt><b>{selector}</b></dt>, <dd>{properties}</dd>]);
+                }
+            }
+
+            var displayClasses = "Va-t P-10 Bxz-bb W-md-3/12 " + (classes.length ? "D-ib" : "D-n");
             return (
-                <div className="D-ib Va-t P-10 Bxz-bb W-md-3/12">
-                    <h3>{item.id}</h3>
-                    {item.prefix}
-                    {values}
+                <div className={displayClasses}>
+                    <h3>{item.name}</h3>
+                    <dl className="M-10">{classes}</dl>
                 </div>
             );
 
-        });
+        }, this);
 
         return (
-            <div>{items}</div>
+            <div>
+                <SearchBox />
+                {items}
+            </div>
         );
     }
 });
