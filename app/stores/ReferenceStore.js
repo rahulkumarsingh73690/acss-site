@@ -10,8 +10,10 @@ var ReferenceStore = createStore({
         this.currentQuery = '';
     },
     handleSearch: function (payload) {
-        var query = payload.query.trim();
-        if (query === this.getCurrentQuery()) {
+        var query = payload.query;
+        // Don't update if query hasn't changed, or 
+        // there's a query but the query is nothing but spaces
+        if (query === this.getCurrentQuery() || (query && query.trim() === '')) {
             return;
         }
         this.currentQuery = query;
