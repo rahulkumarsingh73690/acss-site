@@ -19,7 +19,7 @@
     "prod": "../node_modules/.bin/grunt prod"
   },
   "dependencies": {
-    "atomic-css": "git+ssh://git@github.com:yahoo/atomic.css.git",
+    "atomizer": "git+ssh://git@github.com:yahoo/atomizer.git",
     "express-state": "~1.2.0",
     "serve-favicon": "~2.1.7",
     "serialize-javascript": "^1.0.0",
