@@ -30,15 +30,6 @@ ul.u-list {
  */
 .OppositeBoxes {
     text-align: justify;
-    font-size: 0;
-}
-
-.OppositeBoxes > * {
-    font-size: 16px; /* should be default size (same as body) */
-}
-
-.OppositeBoxes > small {
-    font-size: 12px; /* this cannot be set in percentage no ems */
 }
 
 .OppositeBoxes:after {
