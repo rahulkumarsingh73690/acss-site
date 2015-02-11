@@ -26,13 +26,13 @@ ul.u-list {
 
 
 /**
- * direct children of "opposite boxes" must have the following class: `D-ib`
+ * direct children of "SpaceBetween" boxes must have the following class: `D-ib`
  */
-.OppositeBoxes {
+.SpaceBetween {
     text-align: justify;
 }
 
-.OppositeBoxes:after {
+.SpaceBetween:after {
     content: "";
     display: inline-block;
     width: 100%;
