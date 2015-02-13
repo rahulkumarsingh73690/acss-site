@@ -23,6 +23,7 @@
     "prod": "grunt prod"
   },
   "dependencies": {
+    "absurd": "~0.3.33",
     "atomizer": "~0.2.0",
     "body-parser": "^1.9.3",
     "debug": "^2.1.1",
@@ -37,6 +38,7 @@
     "minimist": "^1.1.0",
     "node-jsx": "~0.12.4",
     "react": "~0.12.1",
+    "script-loader": "~0.6.1",
     "serialize-javascript": "^1.0.0",
     "serve-favicon": "^2.1.7",
     "ua-parser-js": "^0.7.3",
@@ -44,7 +46,7 @@
   },
   "devDependencies": {
     "grunt": "~0.4.5",
-    "grunt-atomizer": "git+ssh://git@github.com:yahoo/grunt-atomizer.git",
+    "grunt-atomizer": "~0.1.0",
     "grunt-concurrent": "^1.0.0",
     "grunt-contrib-clean": "^0.6.0",
     "grunt-contrib-concat": "^0.5.0",

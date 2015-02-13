@@ -593,7 +593,8 @@ module.exports = {
 
     // pattern
     'overflow': {
-        h: true
+        h: true,
+        s: true
     },
 
     // pattern
