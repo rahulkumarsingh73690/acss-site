@@ -46,13 +46,27 @@ var ReferenceRules = React.createClass({
         var customConfig = this.state.customConfigObj;
         var hasConfig = !!customConfig;
 
+        if (!hasConfig) {
+            customConfig = {};
+        }
+
         var items = Rules.map(function (recipe) {
-            var values = [],
+            var recipeConfig = customConfig[recipe.id],
+                values = [],
                 classDefinitions = [],
                 declarationBlock,
                 searching = !!this.state.currentQuery,
                 searchTitleMatches = null,
-                showRecipeBlock = false;
+                showRecipeBlock = false,
+                custom,
+                value,
+                suffix;
+
+            // If config is provided, filter any rules not used in config
+            if (hasConfig && recipeConfig === undefined) {
+                // console.log(recipe.id + ' not present in config, skipping');
+                return;
+            }
 
             if (searching) {
                 searchTitleMatches = (recipe.name.search(searchRE) > -1);
@@ -61,26 +75,42 @@ var ReferenceRules = React.createClass({
             if (recipe.type === 'pattern') {
                 // Some entries allow custom values to be provided in configuration
                 if (recipe.allowCustom) {
-                    var custom = "[value" + (recipe.allowCustomAutoSuffix ? '|suffix' : '') + "]";
-                    values.push({
-                        rawSelector: recipe.prefix + custom,
-                        rawValue: 'value',
-                        selector: <b>{recipe.prefix}<i>{custom}</i></b>, 
-                        value: <i>value</i>
-                    });
+                    if (!hasConfig) {
+                        custom = [{ suffix: "[value" + (recipe.allowCustomAutoSuffix ? '|suffix' : '') + "]", values: ['value'] }];
+                    } else if (recipeConfig.custom) {
+                        custom = recipeConfig.custom;
+                    } else if (recipe.allowCustomAutoSuffix && recipeConfig['custom-auto-suffix']) {
+                        custom = recipeConfig['custom-auto-suffix'];
+                    } else {
+                        custom = [];
+                    }
+                    // var customValue = "[value" + (recipe.allowCustomAutoSuffix ? '|suffix' : '') + "]";
+                    for (var i = 0; i < custom.length; i++) {
+                        suffix = custom[i].suffix || 'NEXT-SUFFIX'; // FIXME auto-increment suffix
+                        value = custom[i].values.join(' ');
+                        values.push({
+                            rawSelector: recipe.prefix + suffix,
+                            rawValue: value,
+                            selector: <b>{recipe.prefix}<i>{suffix}</i></b>, 
+                            value: <i>{value}</i>
+                        });
+                    }
                 }
                 // Some have pre-defined classes/values
                 if (recipe.rules) {
-                    values = values.concat(recipe.rules.map(function (rule) {
-                        var selector = recipe.prefix + rule.suffix;
-                        var value = rule.values.join(' ').replace('$START', 'left').replace('$END', 'right');
-                        return {
-                            rawSelector: selector, 
-                            rawValue: value,
-                            selector: <b>{selector}</b>, 
-                            value: value
-                        };
-                    }));
+                    for (var i = 0; i < recipe.rules.length; i++) {
+                        var rule = recipe.rules[i];
+                        if (!recipeConfig || recipeConfig[rule.suffix]) {
+                            var selector = recipe.prefix + rule.suffix;
+                            var value = rule.values.join(' ').replace('$START', 'left').replace('$END', 'right');
+                            values.push({
+                                rawSelector: selector, 
+                                rawValue: value,
+                                selector: <b>{selector}</b>, 
+                                value: value
+                            });
+                        }
+                    }
                 }
 
                 // Loop through the selectors and generate the actual styles for each
