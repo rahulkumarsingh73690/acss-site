@@ -76,7 +76,10 @@ var ReferenceRules = React.createClass({
                 // Some entries allow custom values to be provided in configuration
                 if (recipe.allowCustom) {
                     if (!hasConfig) {
-                        custom = [{ suffix: "[value" + (recipe.allowCustomAutoSuffix ? '|suffix' : '') + "]", values: ['value'] }];
+                        custom = [{ 
+                            suffix: "[value" + (recipe.allowCustomAutoSuffix ? '|suffix' : '') + "]", 
+                            values: ['value'] 
+                        }];
                     } else if (recipeConfig.custom) {
                         custom = recipeConfig.custom;
                     } else if (recipe.allowCustomAutoSuffix && recipeConfig['custom-auto-suffix']) {
@@ -87,13 +90,28 @@ var ReferenceRules = React.createClass({
                     // var customValue = "[value" + (recipe.allowCustomAutoSuffix ? '|suffix' : '') + "]";
                     for (var i = 0; i < custom.length; i++) {
                         suffix = custom[i].suffix || 'NEXT-SUFFIX'; // FIXME auto-increment suffix
+                        selector = recipe.prefix + suffix;
                         value = custom[i].values.join(' ');
                         values.push({
-                            rawSelector: recipe.prefix + suffix,
+                            rawSelector: selector,
                             rawValue: value,
-                            selector: <b>{recipe.prefix}<i>{suffix}</i></b>, 
-                            value: <i>{value}</i>
+                            selector: <b>{recipe.prefix}{ hasConfig ? suffix : <i>{suffix}</i>}</b>, 
+                            value: hasConfig ? value : <i>{value}</i>
                         });
+                        if (custom[i].breakPoints) {
+                            var bp = custom[i].breakPoints;
+                            if (bp && bp.length) {
+                                for (var j = 0; j < bp.length; j++) {
+                                    var bpSelector = selector + '--' + bp[j];
+                                    values.push({
+                                        rawSelector: bpSelector, 
+                                        rawValue: value,
+                                        selector: <b>{bpSelector}</b>, 
+                                        value: value
+                                    });
+                                }
+                            }
+                        }
                     }
                 }
                 // Some have pre-defined classes/values
@@ -109,6 +127,20 @@ var ReferenceRules = React.createClass({
                                 selector: <b>{selector}</b>, 
                                 value: value
                             });
+                            if (recipeConfig && typeof recipeConfig[rule.suffix] === 'object') {
+                                var bp = recipeConfig[rule.suffix].breakPoints;
+                                if (bp && bp.length) {
+                                    for (var j = 0; j < bp.length; j++) {
+                                        var bpSelector = selector + '--' + bp[j];
+                                        values.push({
+                                            rawSelector: bpSelector, 
+                                            rawValue: value,
+                                            selector: <b>{bpSelector}</b>, 
+                                            value: value
+                                        });
+                                    }
+                                }
+                            }
                         }
                     }
                 }
