@@ -25,7 +25,7 @@ var PageHome = React.createClass({
      */
     render: function() {
         return (
-            <div className="home">
+            <div className="home-page">
                 <div id='splash' className='D-tb W-100% Bdb-1'>
                     <div className='D-tbc Ta-c Va-m'>
                         <h1 className='Mx-a W-50% Pos-r Ov-h'>
@@ -37,7 +37,7 @@ var PageHome = React.createClass({
                         </p>
                     </div>
                 </div>
-                <div role='main' className='innerwrapper Bxz-bb Pt-20 Mb-50 Px-10 Mx-a--sm W-80%--sm W-a'>
+                <div className='innerwrapper Bxz-bb Pt-20 Px-10 Mb-50 Mx-a--sm W-80%--sm W-a'>
                     <Doc content={this.props.content} />
                 </div>
             </div>
