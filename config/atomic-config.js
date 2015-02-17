@@ -639,7 +639,8 @@ module.exports = {
     'padding-end': {
         'custom': [{
             suffix: '50',
-            values: ['50px']
+            values: ['50px'],
+            breakPoints: ['sm']
         }, {
             suffix: '10',
             values: ['10px'],
@@ -739,8 +740,8 @@ module.exports = {
             suffix: '50%',
             values: ['50%']
         },{
-            suffix: '80%',
-            values: ['80%'],
+            suffix: '90%',
+            values: ['90%'],
             breakPoints: ['sm']
         }, {
             suffix: '100%',
