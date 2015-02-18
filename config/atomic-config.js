@@ -15,6 +15,10 @@ module.exports = {
         }
     },
 
+    // COLORS:
+    // redish: .C-f2438c
+    // blueish: .C-07f
+
     // pattern
     'border-x': {
         'custom': [{
@@ -82,8 +86,8 @@ module.exports = {
         }, ]
     },
 
-//    // pattern
-//    'font-family': {
+    // pattern
+    'font-family': {
 //        s: true,
 //        ss: {
 //            values: ['Arial, sans-serif'],
@@ -91,9 +95,9 @@ module.exports = {
 //        },
 //        c: true,
 //        f: true,
-//        m: true
-//    },
-//
+        m: true
+    },
+
 //    // rule
 //    'background-none': true,
 //    'background-color-transparent': true,
@@ -190,6 +194,13 @@ module.exports = {
         'custom': [{
             suffix: 'fff',
             values: ['#fff !important']
+        },
+        {
+            suffix: 'f2438c',
+            values: ['#f2438c !important']
+        },{
+            suffix: '07f',
+            values: ['#07f !important']
         }]
     },
 
@@ -206,16 +217,16 @@ module.exports = {
 //            values: ['0 0 5px #333']
 //        }]
 //    },
-//
-//    // pattern
-//    'clear': {
+
+    // pattern
+    'clear': {
 //        n: true,
 //        b: true,
-//        start: true,
+        start: true
 //        end: true,
 //        inh: true
-//    },
-//
+    },
+
 //    // pattern
 //    'cursor': {
 //        'a': true,
@@ -254,7 +265,9 @@ module.exports = {
         },
 //        'f': true,
 //        'i': true,
-        'ib': true,
+        'ib': {
+            breakPoints: ['sm']
+        },
 //        'inh': true,
         'tb': {
             breakPoints: ['sm']
@@ -361,15 +374,15 @@ module.exports = {
 //        'w': true,
 //        'wr': true
 //    },
-//
-//    // pattern
-//    'float': {
+
+    // pattern
+    'float': {
 //        'n': true,
-//        'start': true,
+        'start': true
 //        'end': true,
 //        'inh': true
-//    },
-//
+    },
+
 //    // pattern
     'font-weight': {
 //        'n': {
@@ -501,11 +514,24 @@ module.exports = {
         }]
     },
 
+
+    // pattern
+    'margin': {
+        'custom': [{
+            suffix: '0',
+            values: ['0']
+        }]
+    },
+
     // pattern
     'margin-x': {
         a: {
             breakPoints: ['sm']
-        }
+        },
+        'custom': [{
+            suffix: '10',
+            values: ['10px']
+        }]
     },
 
     // pattern
@@ -524,6 +550,9 @@ module.exports = {
         'custom': [{
             suffix: '24',
             values: ['24px']
+        },{
+            suffix: '30',
+            values: ['30px']
         }]
     },
 
@@ -548,6 +577,9 @@ module.exports = {
     // pattern
     'margin-bottom': {
         'custom': [{
+            suffix: '0',
+            values: ['0']
+        },{
             suffix: '10',
             values: ['10px']
         }, {
@@ -563,15 +595,6 @@ module.exports = {
             values: ['10px']
         }]
     },
-
-    // pattern
-    'margin': {
-        'custom': [{
-            suffix: '0',
-            values: ['0']
-        }]
-    },
-
 
     // OFFSETS
     // pattern
@@ -606,6 +629,27 @@ module.exports = {
     'overflow': {
         h: true,
         s: true
+    },
+
+    // pattern
+    'overflow-y': {
+        h: true,
+        s: true
+    },
+
+    // pattern
+    'padding': {
+        'custom': [{
+            suffix: '0',
+            values: ['0'],
+        }, {
+            suffix: '10',
+            values: ['10px'],
+        //            breakPoints: ['sm', 'md', 'lg']
+        }, {
+            suffix: '20',
+            values: ['20px']
+        }]
     },
 
     // pattern
@@ -673,22 +717,6 @@ module.exports = {
     },
 
     // pattern
-    'padding': {
-        'custom': [{
-            suffix: '0',
-            values: ['0'],
-        }, {
-            suffix: '10',
-            values: ['10px'],
-        //            breakPoints: ['sm', 'md', 'lg']
-        }, {
-            suffix: '20',
-            values: ['20px']
-        }]
-    },
-
-
-    // pattern
     'position': {
         a: true,
         f: true,
@@ -726,6 +754,11 @@ module.exports = {
         t: true
     },
 
+// pattern
+    'white-space': {
+        nw: true
+    },
+
 //    // pattern
     'width': {
         a: true,
@@ -739,7 +772,8 @@ module.exports = {
             values: ['0']
         },{
             suffix: '50%',
-            values: ['50%']
+            values: ['50%'],
+            breakPoints: ['sm']
         },{
             suffix: '90%',
             values: ['90%'],
