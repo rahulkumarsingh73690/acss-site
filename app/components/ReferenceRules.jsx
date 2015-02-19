@@ -167,7 +167,7 @@ var ReferenceRules = React.createClass({
                             showRuleset = true;
                             showRecipeBlock = true;
                         } 
-                        classDefinitions.push([<dt className={showRuleset ? 'Pend-10 Fl-start Cl-start' : 'D-n'}>{v.selector}</dt>, <dd className={showRuleset ? 'Ov-h Reset C-f2438c' : 'D-n'}>{styledDeclarationBlock}</dd>]);
+                        classDefinitions.push([<dt className={showRuleset ? 'Pend-10px Fl-start Cl-start' : 'D-n'}>{v.selector}</dt>, <dd className={showRuleset ? 'Ov-h Reset C-f2438c' : 'D-n'}>{styledDeclarationBlock}</dd>]);
                     }
                 };
             } else if (recipe.type === 'rule') {
@@ -191,7 +191,7 @@ var ReferenceRules = React.createClass({
                         showRuleset = true;
                         showRecipeBlock = true;
                     }
-                    classDefinitions.push([<dt className={showRuleset ? 'Pend-10 Fl-start Cl-start' : 'D-n'}>{selector}</dt>, <dd className={showRuleset ? 'Ov-h Reset C-f2438c' : 'D-n'}>{styledDeclarationBlock}</dd>]);
+                    classDefinitions.push([<dt className={showRuleset ? 'Pend-10px Fl-start Cl-start' : 'D-n'}>{selector}</dt>, <dd className={showRuleset ? 'Ov-h Reset C-f2438c' : 'D-n'}>{styledDeclarationBlock}</dd>]);
 
                 }
             }
@@ -199,8 +199,8 @@ var ReferenceRules = React.createClass({
             var displayclassDefinitions = "Va-t W-50%--sm " + (showRecipeBlock ? "D-ib--sm" : "D-n");
             return (
                 <div key={'id-' + recipe.id} className={displayclassDefinitions}>
-                    <h3 className="M-0 P-10">{recipe.name}</h3>
-                    <dl className="M-0 P-10 Pend-50--sm Bdt-1 Ff-m">{classDefinitions}</dl>
+                    <h3 className="M-0 P-10px">{recipe.name}</h3>
+                    <dl className="M-0 P-10px Pend-50px--sm Bdt-1 Ff-m">{classDefinitions}</dl>
                 </div>
             );
 
