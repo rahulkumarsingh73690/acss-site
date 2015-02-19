@@ -63,6 +63,14 @@ dd {
     padding-left: 0;
 }
 
+blockquote {
+    border-left: 7px solid #ccc;
+    font-size: 1.2em;
+    font-style: italic;
+    margin-left: 0;
+    padding: 1px 0 1px 2em;
+}
+
 /**
  * 1. reset UA list-style
  */
@@ -252,14 +260,7 @@ pre {
 }
 
 code {
-    padding: 0.2em;
-    font-size: 85%;
-    background-color: rgba(0,0,0,.04);
-    border-radius: 3px;
-}
-
-pre code {
-    background: none;
+    padding: .2em .2em .1em;
 }
 
 /**
@@ -304,6 +305,15 @@ h5 {
 h6 {
     font-size: .67em;
     margin: 2.33em 0;
+}
+
+h1 *,
+h2 *,
+h3 *,
+h4 *,
+h5 *,
+h6 * {
+    font-size: inherit;
 }
 
 /**
@@ -553,6 +563,7 @@ textarea {
     resize: vertical; /* 1 */
 }
 
+code,
 pre,
 textarea,
 .textarea,
@@ -560,6 +571,10 @@ input[type=search] {
     box-shadow: inset 0 0 3px #ccc;
     border-radius: 3px;
     border: 0;
+}
+
+pre code {
+    box-shadow: none;
 }
 
 /**
