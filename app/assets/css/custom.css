@@ -81,6 +81,20 @@ li.selected a {
     color: #555 !important;
 }
 
+#aside li a {
+    position: relative;
+}
+
+#aside li:hover a:after,
+#aside li.selected a:after {
+    content: "";
+    position: absolute;
+    width: 7px;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background: #0280AE;
+}
 
 /**
  * SPLASH box on home page
