@@ -51,7 +51,7 @@ var SearchBox = React.createClass({
         return (
             <div>
                 <h3 labelfor="searchbox" className="Mb-0">Search:</h3>
-                <input id="searchbox" type="search" className="D-ib P-10" size="50" placeholder="Type classname or CSS declaration here..." onChange={this.onQueryChange} value={this.state.currentQuery}></input>
+                <input id="searchbox" type="search" className="D-ib P-10px" size="50" placeholder="Type classname or CSS declaration here..." onChange={this.onQueryChange} value={this.state.currentQuery}></input>
             </div>
         );
     }

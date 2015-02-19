@@ -69,7 +69,7 @@ module.exports = {
     // pattern
     'border-radius': {
         'custom': [{
-            suffix: '100',
+            suffix: '100px',
             values: ['100px']
 //        }, {
 //            suffix: '3px',
@@ -394,13 +394,13 @@ module.exports = {
     // pattern
     'font-size': {
         'custom': [{
-            suffix: '14',
+            suffix: '14px',
             values: ['14px']
         }, {
-            suffix: '20',
+            suffix: '20px',
             values: ['20px']
         }, {
-            suffix: '30',
+            suffix: '30px',
             values: ['30px']
         }]
 //        '0': true,
@@ -529,7 +529,7 @@ module.exports = {
             breakPoints: ['sm']
         },
         'custom': [{
-            suffix: '10',
+            suffix: '10px',
             values: ['10px']
         }]
     },
@@ -540,7 +540,7 @@ module.exports = {
             suffix: '0',
             values: ['0']
         }, {
-            suffix: '20',
+            suffix: '20px',
             values: ['20px']
         }]
     },
@@ -548,10 +548,7 @@ module.exports = {
     // pattern
     'margin-top': {
         'custom': [{
-            suffix: '24',
-            values: ['24px']
-        },{
-            suffix: '30',
+            suffix: '30px',
             values: ['30px']
         }]
     },
@@ -563,14 +560,8 @@ module.exports = {
             values: ['0'],
             breakPoints: ['sm']
         },{
-            suffix: '10',
+            suffix: '10px',
             values: ['10px']
-        }, {
-            suffix: '20',
-            values: ['20px']
-        }, {
-            suffix: '50',
-            values: ['50px']
         }]
     },
 
@@ -580,10 +571,10 @@ module.exports = {
             suffix: '0',
             values: ['0']
         },{
-            suffix: '10',
+            suffix: '10px',
             values: ['10px']
         }, {
-            suffix: '50',
+            suffix: '50px',
             values: ['50px']
         }]
     },
@@ -591,7 +582,7 @@ module.exports = {
     // pattern
     'margin-start': {
         'custom': [{
-            suffix: '10',
+            suffix: '10px',
             values: ['10px']
         }]
     },
@@ -643,11 +634,11 @@ module.exports = {
             suffix: '0',
             values: ['0'],
         }, {
-            suffix: '10',
+            suffix: '10px',
             values: ['10px'],
         //            breakPoints: ['sm', 'md', 'lg']
         }, {
-            suffix: '20',
+            suffix: '20px',
             values: ['20px']
         }]
     },
@@ -655,18 +646,15 @@ module.exports = {
     // pattern
     'padding-x': {
         'custom': [{
-            suffix: '10',
+            suffix: '10px',
             values: ['10px']
-        }, {
-            suffix: '20',
-            values: ['20px']
         }]
     },
 
     // pattern
     'padding-y': {
         'custom': [{
-            suffix: '5',
+            suffix: '5px',
             values: ['5px'],
             breakPoints: ['sm']
         }]
@@ -675,7 +663,7 @@ module.exports = {
     // pattern
     'padding-top': {
         'custom': [{
-            suffix: '20',
+            suffix: '20px',
             values: ['20px']
         }]
     },
@@ -683,12 +671,12 @@ module.exports = {
     // pattern
     'padding-end': {
         'custom': [{
-            suffix: '50',
-            values: ['50px'],
+            suffix: '10px',
+            values: ['10px'],
             breakPoints: ['sm']
         }, {
-            suffix: '10',
-            values: ['10px'],
+            suffix: '50px',
+            values: ['50px'],
             breakPoints: ['sm']
         }]
     },
@@ -696,10 +684,7 @@ module.exports = {
     // pattern
     'padding-bottom': {
         'custom': [{
-            suffix: '5',
-            values: ['5px']
-        }, {
-            suffix: '40',
+            suffix: '40px',
             values: ['40px']
         }]
     },
@@ -711,7 +696,7 @@ module.exports = {
             values: ['0'],
             breakPoints: ['sm']
         }, {
-            suffix: '10',
+            suffix: '10px',
             values: ['10px']
         }]
     },
