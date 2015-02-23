@@ -1,10 +1,10 @@
-# Atomic class names
+# Atomic classes
 
-Atomic.css class names ultimately increase the speed of development as they follow a consistent and easy to remember syntax. The inspiration comes from [Emmet](http://emmet.io/), a plugin for many popular text editors which greatly improves HTML & CSS workflow.
+Atomic.css classes ultimately increase the speed of development as they follow a consistent and easy to remember syntax. The inspiration comes from [Emmet](http://emmet.io/), a plugin for many popular text editors which greatly improves HTML & CSS workflow.
 
-It might take you a short time to get familiar with these class names but as soon as you start using them you'll be at full speed in no time.
+It might take you a short time to get familiar with these classes but as soon as you start using them you'll be at full speed in no time.
 
-Make sure you check the [reference page](/reference), so you can quickly search for properties, values or class names themselves.
+Make sure you check the [reference page](/reference), so you can quickly search for properties, values or classes themselves.
 
 ## Syntax
 
