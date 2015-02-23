@@ -19,6 +19,21 @@
     zoom: 1;
 }
 
+/**
+ * .Row: class meant to contain boxes on a row (from left to right of containing box)
+ * see: http://cssmojo.com/row_for_grids/
+ */
+.row {
+    clear: both;
+    display: inline-block;
+    vertical-align: top;
+    width: 100%;
+    box-sizing: border-box;
+    *display: block;
+    *width: auto;
+    zoom: 1;
+}
+
 ul.ul-list {
     list-style-type: disc;
     padding-left: 2em;
