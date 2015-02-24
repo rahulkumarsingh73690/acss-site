@@ -133,5 +133,5 @@ Where:
 <hr class="Mt-50px">
 
 <ul id="footnote" class="ul-list">
-    <li>[\[1\]](#footnote-1) classes containing the string `:hover` are associated with both `:hover` and `:focus` pseudo-classes; meaning the styling will apply on mouseover and on focus as well.</li>
+    <li>[\[1\]](#footnote-1) classes containing the string `:hover` are associated with both `:hover` and `:focus` pseudo-classes; meaning the styling will apply on mouseover <em>and on focus as well</em>.</li>
 </ul>
