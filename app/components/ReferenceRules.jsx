@@ -167,7 +167,7 @@ var ReferenceRules = React.createClass({
                             showRuleset = true;
                             showRecipeBlock = true;
                         } 
-                        classDefinitions.push([<dt className={showRuleset ? 'Pend-10px Fl-start Cl-start' : 'D-n'}>{v.selector}</dt>, <dd className={showRuleset ? 'Ov-h Reset C-f2438c' : 'D-n'}>{styledDeclarationBlock}</dd>]);
+                        classDefinitions.push([<dt className={showRuleset ? 'Pend-10px Fl-start Cl-start' : 'D-n'}>{v.selector}</dt>, <dd className={showRuleset ? 'Ov-h reset C-f2438c' : 'D-n'}>{styledDeclarationBlock}</dd>]);
                     }
                 };
             } else if (recipe.type === 'rule') {
@@ -191,7 +191,7 @@ var ReferenceRules = React.createClass({
                         showRuleset = true;
                         showRecipeBlock = true;
                     }
-                    classDefinitions.push([<dt className={showRuleset ? 'Pend-10px Fl-start Cl-start' : 'D-n'}>{selector}</dt>, <dd className={showRuleset ? 'Ov-h Reset C-f2438c' : 'D-n'}>{styledDeclarationBlock}</dd>]);
+                    classDefinitions.push([<dt className={showRuleset ? 'Pend-10px Fl-start Cl-start' : 'D-n'}>{selector}</dt>, <dd className={showRuleset ? 'Ov-h reset C-f2438c' : 'D-n'}>{styledDeclarationBlock}</dd>]);
 
                 }
             }

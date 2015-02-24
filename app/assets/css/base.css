@@ -42,7 +42,7 @@ textarea {
     margin: 0; /* 2 */
 }
 
-.SpaceBetween > * {
+.spaceBetween > * {
     line-height: 1.55; /* must match value from body (above) */
 }
 
