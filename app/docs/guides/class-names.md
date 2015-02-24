@@ -40,7 +40,7 @@ Where:
 ### Examples:
 
 <table class="Ta-start W-100%">
-    <caption class="Hidden">Atomic class Examples</caption>
+    <caption class="hidden">Atomic class Examples</caption>
     <tr>
         <th scope="col" class="P-10px">HTML classes</th>
         <th scope="col" class="P-10px">Declarations</th>
