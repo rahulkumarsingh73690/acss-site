@@ -512,7 +512,7 @@ module.exports = {
 //        'n': true,
 //        'inh': true,
         'custom': [{
-            suffix: '12',
+            suffix: '1.2',
             values: ['1.2']
         }]
     },
