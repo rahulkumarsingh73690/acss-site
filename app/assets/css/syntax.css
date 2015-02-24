@@ -43,6 +43,10 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
     color: #d14;
 }
 
+.hljs-type {
+    color: #008080;
+}
+
 .hljs-literal {
     color: #000080;
 }
@@ -72,6 +76,10 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 .hljs-attribute,
 .hljs-variable {
     color: #008080;
+}
+
+.hljs-rule .hljs-attribute {
+    color: #000080;
 }
 
 .hljs-regexp {
