@@ -49,6 +49,14 @@ module.exports = [
                     type: 'tutorials',
                     key: 'grid'
                 }
+            },
+            {
+                label: 'RWD',
+                routeName: 'docs',
+                navParams: {
+                    type: 'tutorials',
+                    key: 'responsive-web-design'
+                }
             }
         ]
     }
