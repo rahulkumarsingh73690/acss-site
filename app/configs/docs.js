@@ -8,6 +8,13 @@ module.exports = [
                 navParams: {
                     key: 'quick-start'
                 }
+            },
+            {
+                label: 'FAQ',
+                routeName: 'docs',
+                navParams: {
+                    key: 'frequently-asked-questions'
+                }
             }
         ]
     },
