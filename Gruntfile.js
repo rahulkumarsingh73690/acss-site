@@ -24,7 +24,8 @@ module.exports = function(grunt) {
         project: {
             app: './app',
             build: '<%= project.app %>/build',
-            public: '/public'
+            public: '/public',
+            cdnPath: 'http://l.yimg.com/os/acss/'
         },
 
         // clean build
@@ -288,7 +289,8 @@ module.exports = function(grunt) {
                 },
                 module: {
                     loaders: [
-                        { test: /\.jsx$/, loader: 'jsx-loader' }
+                        { test: /\.jsx$/, loader: 'jsx-loader' },
+                        { test: /\.json$/, loader: 'json-loader'}
                     ]
                 },
                 plugins: [
@@ -363,6 +365,31 @@ module.exports = function(grunt) {
         grunt.log.oklns('Files assets.json and images.json successfully created.');
     });
 
+    grunt.registerTask('prodmanifest', function () {
+        var images = {},
+            assets = {},
+            build = grunt.config.get('project.build'),
+            cdnPath = grunt.config.get('project.cdnPath'),
+            images = require('./app/build/images.json'),
+            assets = require('./app/build/assets.json');
+
+        for (var key in images) {
+            if (images.hasOwnProperty(key)) {
+                images[key] = cdnPath + images[key];
+            }
+        }
+
+        for (var key in assets) {
+            if (assets.hasOwnProperty(key)) {
+                assets[key] = cdnPath + assets[key];
+            }
+        }
+
+        grunt.file.write(path.join(build, 'images.json'), JSON.stringify(images, null, 4));
+        grunt.file.write(path.join(build, 'assets.json'), JSON.stringify(assets, null, 4));
+        grunt.log.oklns('Files assets.json and images.json successfully created.');
+    });
+
     // dev
     grunt.registerTask('default', [
         'clean:build',
@@ -387,6 +414,7 @@ module.exports = function(grunt) {
         'hash:css',
         'webpack:prod',
         'hash:js',
-        'clean:cdntrash'
+        'clean:cdntrash',
+        'prodmanifest'
     ]);
 };
