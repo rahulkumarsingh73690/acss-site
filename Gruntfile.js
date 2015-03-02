@@ -410,6 +410,7 @@ module.exports = function(grunt) {
         'clean:cdnimagestrash',
         'replaceimg:images',
         'hash:css',
+        'prodmanifest',
         'webpack:prod',
         'hash:js',
         'clean:cdntrash',
