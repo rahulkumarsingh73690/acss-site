@@ -1,39 +1,47 @@
 # Frequently Asked Questions
 
-This section is intended to answer common questions related to Atomic CSS, its unorthodox way to write CSS, its stance in regard to what is considered best practice, and more.
+This section is intended to answer common questions related to Atomic CSS. Do not hesitate to reach out if nothing on this page answers your question.
 
 <ul class="ul-list">
-   <li><a href="#">What is Atomic CSS?</a></li>
-   <li><a href="#">What is Atomizer?</a></li>
-   <li><a href="#">Should I &quot;<em>atomize</em>&quot; everything?</a></li>
-   <li><a href="#">Do I need to specify a namespace? And if yes, what should I use?</a></li>
-   <li><a href="#">What are the benefits of Atomic CSS?</a></li>
-   <li><a href="#">I was always told to use semantic classes and not use classes related to presentation; isn't Atomic CSS promoting bad practice?</a></li>
-   <li><a href="#">What's the difference between inline styles and Atomic CSS??</a></li>
-   <li><a href="#">How can one remember these cryptic class names?</a></li>
-   <li><a href="#">Aren't you bloating the markup?</a></li>
-   <li><a href="#">How can you distribute presentation changes without asking everyone to change their markup? (How do you make changes across the board?)</a></li>
-   <li><a href="#">How does Atomic CSS work with <abbr title="Responsive Web Design">RWD</abbr>?</a></li>
+   <li><a href="#what-is-atomic-css-">What is Atomic CSS?</a></li>
+   <li><a href="#what-is-the-difference-between-inline-styling-and-atomic-css-">How is Atomic CSS different than using inline styles?</a></li>
+   <li><a href="#what-are-the-benefits-of-atomic-css-">What are the benefits of Atomic CSS?</a></li>
+   <li><a href="#what-is-atomizer-">What is Atomizer?</a></li>
+   <li><a href="#how-does-atomic-css-compare-to-bootstrap-or-purecss-">How does Atomic CSS compare to Bootstrap, PureCSS, or other CSS frameworks?</a></li>
+   <li><a href="#should-i-quot-atomize-quot-everything-">Should I &quot;<em>atomize</em>&quot; everything? Should I style everything using atomic classes?</a></li>
+   <li><a href="#do-i-need-to-specify-a-namespace-and-if-yes-what-should-i-use-">Do I need to specify a namespace? And if yes, what should I use?</a></li>
+   <li><a href="#i-was-always-told-to-use-semantic-classes-and-not-use-declarative-css-classes-isn-t-atomic-css-using-a-bad-practice-">I was always told to use semantic classes and not use classes related to presentation; isn't Atomic CSS promoting bad practice?</a></li>
+   <li><a href="#how-can-one-remember-atomic-class-names-">Atomic class names look rather cryptic to me, how can I quickly find what class I need?</a></li>
+   <li><a href="#aren-t-you-bloating-the-markup-">Atomic CSS does reduce the size of the style sheet but isn't it moving bloat to HTML?</a></li>
+   <li><a href="#how-can-you-distribute-presentation-changes-without-asking-everyone-to-change-their-markup-">How can we change the styling of elements across the board without having to edit many different files?</a></li>
+   <li><a href="#how-does-atomic-css-work-with-abbr-title-responsive-web-design-rwd-abbr-">How does Atomic CSS work with Responsive Web Design (RWD)?</a></li>
 </ul>
 
-## What is Atomic CSS
+## What is Atomic CSS?
 
-Atomic CSS is a Front-End (FE) framework that has the ambition to solve common FE challenges seen at the scale of Yahoo!. Problems that become more evident and more complex as the size and diversity of a web site increases.
+Atomic CSS is a Front-End (FE) library that has the ambition to solve 2 main <abbr title="Cascading Style Sheets">CSS</abbr> challenges:
 
-To achieve this goal, Atomic CSS uses granular CSS rules that include one or more (but few) declarations, relying on component rules only when they make more sense than using generic classes. Atomic CSS also contains "helpers" that provide much more than basic styling (i.e. media blocks).
+<ul class="ul-list">
+   <li>bloat</li>
+   <li>maintenance</li>
+</ul>
 
-## Should I &quot;atomize&quot; everything?
+The library is a collection of single purpose styling units (*single responsibility principle for maximum reuse*) that fits well with components in templated frameworks such as [React](https://github.com/facebook/react), [Ember](https://github.com/emberjs/ember.js/) or [Angular](https://github.com/angular/angular.js).
 
-We also heavily rely on helper classes. We have many of these. And notice here that even if we could style the “stretched” box using atomic classes alone, we still offer a component rule for this.
-That’s because many developers are not sure about how all patterns work (the padding trick in this case) so less granularity helps here.
+Atomic classes and their associated styling are **immutable**, meaning you'd use the same classes whatever the project you're working on or the team you're working with. In other words, Atomic CSS is a common &quot;vocabulary&quot; meant to style documents *regardless of context or content*.
 
-## What's the difference between inline styling and Atomic CSS?
+For more information about Atomic CSS, we recommend that you read [Challenging CSS best practices](http://www.smashingmagazine.com/2013/10/21/challenging-css-best-practices-atomic-approach/) on Smashing Magazine, watch the [Atomic CSS presentation](https://www.youtube.com/watch?v=ojj_-6Xiud4) on youtube, or check the [Atomic CSS slide deck](https://www.haikudeck.com/atomic-css-uncategorized-presentation-dJ0xlFjhBQ) on haikudeck.
 
-Inline styling, the good parts: Scope is limited to the element onto which we apply the classes and that styling is <strong>portable</strong> because the styling <em>&quot;follows&quot; the markup</em>.
+## How is Atomic CSS different than using inline styles?
 
-Inline styling, the bad parts: The high specificity, the verbosity, the fact that those bytes are not cached, and also the fact that browsers have to assess those styles once they get to them in the markup.
+<dl class="dl-list">
+    <dt>Inline styling, the bad parts:</dt>
+    <dd>The high specificity, the verbosity, the fact that those bytes are not cached, and also the fact that browsers have to assess those styles once they get to them in the markup.</dd>
+    <dt>Inline styling, the good parts:</dt>
+    <dd>Scope is limited to the element onto which we apply the classes and the styling is <em>portable</em> because that styling is <em>associated</em> to the markup.</dd>
+</dl>
 
-<img className="Va-m Pos-r" alt="Venn diagram showing the difference between Atomic CSS and inline styling" height="400" src="/public/images/atomic-vs-style.gif" />
+<img className="Va-m Pos-r Mt-30px" alt="Venn diagram showing the difference between Atomic CSS and inline styling" height="400" src="/public/images/atomic-vs-style.gif" />
 
 <table cellspacing="0" class="W-100% Ta-start">
     <caption class="hidden">The difference between inline styling and Atomic CSS</caption>
@@ -63,10 +71,68 @@ Inline styling, the bad parts: The high specificity, the verbosity, the fact tha
     </tbody>
 </table>
 
+## What is Atomizer?
+
+[Atomizer](https://www.npmjs.com/package/atomizer) is a node package designed to create <em>atomic.css</em> which is a collection of Atomic classes.
+
+The beauty of Atomizer is that it produces a style sheet based on the Atomic classes it finds in your documents. This means that this file is *always up-to-date without you having to write a single CSS declaration* [\[6\]](#footnote)<a id="footnote-6" class="D-ib"></a>.
+
+For example, if your project was a single page containing:
+
+```html
+<div class="D-b Va-t Fz-20px">Hello World!</div>
+```
+
+Atomizer would create a <em>atomic.css</em> file with these rules:
+
+```css
+.D-b {
+    display: block;
+}
+.Va-t {
+    vertical-align: top;
+}
+.Fz-20px {
+    font-size: 20px;
+}
+```
+
+If, for example, you decided to change the classes like below:
+
+```html
+<div class="Va-t Fz-18px">Hello World!</div>
+```
+
+Then Atomizer would update the file (removing `D-b` and replacing `Fz-20` with `Fz-18`) to match exactly *what is being used* inside the project:
+
+```css
+.Va-t {
+    vertical-align: top;
+}
+.Fz-18px {
+    font-size: 18px;
+}
+```
+
+And there is no need to declare a set of Atomic classes beforehand (via a config or else) for Atomizer to work.
+As long as you follow <a href="./guides/class-names.html#syntax">the proper syntax</a> Atomizer will create the rules for all the Atomic classes it finds in your project.
+
+How cool is that? No bloat, no maintenance, no problem.
+
+## Should I &quot;atomize&quot; everything? Should I style everything using atomic classes?
+
+If changing some styling requires you to edit multiple files, then you should use classic CSS rules (1 class/many declarations) in a style sheet. If changing styles can be done in one place, other than a style sheet, then you should go with Atomic CSS.
+
+An example of the former could be headings meant to look the same across many modules, or any other styling meant to be shared across different modules. An example of the latter is a component that lives in a template or a JS file, like a specific widget.
+
+## How does Atomic CSS compare to Bootstrap, PureCSS, or other CSS framework?
+
+Atomic CSS has nothing in common with these frameworks. It is not a set of UI components nor a grid system. It is a solution that allows you to create **your own UI** *without creating bloat*.
+
 ## Do I need to specify a namespace? And if yes, what should I use?
 
-Also, note that all atomic rules use an ID so we can easily overwrite a style from a component rule like the one below.
-A atomic class can overwrite any rule based on class selectors - regardless of how many are being used.
+You do not need to use a namespace per se but this is extremely useful to bump the specificity of Atomic rules.
+Our advice is to use an `id` (we use `#atomic`) so all Atomic rules can easily overwrite declarations from other rules; for example:
 
 ```css
 .hero-module .button {
@@ -85,17 +151,30 @@ A atomic class can overwrite any rule based on class selectors - regardless of h
 </div>
 ```
 
+The value for `font-weight` in the `.hero-module .button {...}` rule is overwritten by the Atomic class in the markup.
 
-## What are Atomic CSS's benefits?
+## What are the benefits of Atomic CSS?
 
-By dramatically reducing redundancy, Atomic CSS reduces bloat.
-It does "self-cleaning".
-reduce bloat help re-use stuff
-presentational classes can be use anywhere
-less redundancy
+The main benefit of Atomic CSS is that it prevents bloat by *dramatically reducing redundancy*. This is possible because rules are content agnostic which makes them much more re-usable than rules based on semantic selectors.
 
-Maximum re-use of rules because they are content agnostic.
-Single responsibility rules are easier to manage (add/update/delete). Deleting a module is enough to delete all the styles associated with it.
+It also:
+
+<dl class="dl-list">
+    <dt>moves specificity out of the way:</dt>
+    <dd>authors do not have to sandbox their styling via contextual selectors, everything is done via generic classes through markup - which reduces <em>weight</em> and <em>scope</em>.</dd>
+    <dt>improves performance:</dt>
+    <dd>less bloat means less bytes (much less).</dd>
+    <dt>removes dependencies:</dt>
+    <dd>"components" (or "objects") rely on generic CSS rules, so there is no need to associate them with their own rules or styles sheet.</dd>
+    <dt>allows to share content and assets easily:</dt>
+    <dd>UI patterns can be easily shared across projects as their styling relies on the same generic set of rules (the same style sheet).</dd>
+    <dt>leverages cache:</dt>
+    <dd>The style sheet can be cached for a much longer time because authors re-use existing rules rather than adding new ones to the style sheet.</dd>
+    <dt>facilitates RTL/LTR interface switch:</dt>
+    <dd>Direction values are abstracted which allows authors to style without much concern for script direction.</dd>
+</dl>
+
+This speaks for itself:
 
 ```css
 .headline,
@@ -115,7 +194,7 @@ versus:
 }
 ```
 
-Atomic CSS reduces the size of style sheets because it produces less of everything.
+Such approach produces less of everything:
 
 <table cellspacing="0" class="W-100% Ta-c">
     <caption class="hidden">Table comparing yahoo.com against other web sites</caption>
@@ -203,12 +282,28 @@ Atomic CSS reduces the size of style sheets because it produces less of everythi
 
 The table above uses yahoo.com for reference as this site uses an early version of Atomic CSS.
 
-## I was always told to use semantic classes and not use declarative CSS classes. Isn't Atomic CSS using a bad practice?
+## I was always told to use classes related to content, *not to presentation*. Isn't Atomic CSS promoting bad practice?
 
-classes are for developers, they don’t make a document more “semantic” (microformats is a different story though).
-The main goal here is to reduce bloat, so to better achieve this we must ignore content and context as much as possible.
+<blockquote>
+    <div>
+        <p class="Mt-0">
+        Despite the <a href="http://dev.w3.org/html5/spec/global-attributes.html#classes">HTML5 specification section on classes</a> repeating the assumed “best practice” that…
+        </p>
+        <blockquote>
+            <div>
+                <p>…authors are encouraged to use [class attribute] values that describe the nature of the content, rather than values that describe the desired presentation of the content.</p>
+            </div>
+        </blockquote>
+        <p>…there is no inherent reason to do this. In fact, it’s often a hindrance when working on large websites or applications.</p>
+    <small><a href="http://nicolasgallagher.com/about-html-semantics-front-end-architecture/">About HTML semantics and front-end architecture</a></small>
+    </div>
+</blockquote>
 
-Look at this snippet for example (a carousel without a `.carousel`). It creates a working carousel.
+Classes are for developers, they don’t make a document more &quot;semantic&quot; [\[4\]](#footnote)<a id="footnote-4" class="D-ib"></a>.
+
+The main goal of Atomic CSS is to reduce bloat, so to better achieve this we must ignore content and context as much as possible.
+
+Look at the following snippet for example (a carousel without a `carousel` class). It creates a working carousel.
 We put things together in the markup, there is no need for “carousel” rules in the style sheet.
 If we wanted to show only 2 items per view, we would simply replace W-20% with W-50% - that’s it.
 
@@ -226,9 +321,11 @@ If we wanted to show only 2 items per view, we would simply replace W-20% with W
 </div>
 ```
 
+Unlike `.carousel`, all the above classes can be re-used to style any other widget.
+
 ## How do you make changes across the board?
 
-Use Atomic classes where it makes sense; for example:
+Use Atomic classes where it makes sense; for example the following creates much of the content of our <a href="./reference">reference</a> page. If we decided to change the styling of this content this would be the only place we'd need to go to.
 
 ```js
 return (
@@ -239,18 +336,18 @@ return (
 );
 ```
 
-## How can one remember these cryptic class names?
+## How can one remember Atomic class names?
 
 The syntax comes from <a href="http://emmet.io">Emmet</a>, which is a plugin for many IDEs. It allows you to type a few characters and get property/value pairs.
-Atomic classes are for the most part simple abbreviations.
+Like Emmet shortcuts, Atomic classes are for the most part simple abbreviations.
 
-Also, note that we do not use “left” and “right” but instead “start” and “end”. So we can easily output a RTL style sheet using a pre-processor.
+Also, note that we do not use “left” and “right” but instead “start” and “end”. So we can easily output a RTL style sheet using a pre/post-processor.
 
-## Aren't you bloating the markup?
+The <a href="reference">reference page</a> is here to help you with this; and we may have a plugin for your IDE in the near future...
 
-Is Atomic CSS moving bloat from the style sheet to the markup?
+## Isn't Atomic CSS moving bloat from style sheets to HTML?
 
-And this represents the average number of characters per class attribute on the page.
+The table below represents the average number of characters per class attribute on a page.
 Note that Facebook appears to uglify some classes.
 
 <table cellspacing="0" class="Ta-c">
@@ -268,7 +365,7 @@ Note that Facebook appears to uglify some classes.
         </tr>
         <tr class="Bdt-1">
             <th scope="row" class="Ta-start P-10px">facebook.com</th>
-            <td class="P-10px">17 [\[4\]](#footnote)<a id="footnote-4" class="D-ib"></a></td>
+            <td class="P-10px">17 [\[5\]](#footnote)<a id="footnote-5" class="D-ib"></a></td>
         </tr>
         <tr class="Bdt-1">
             <th scope="row" class="Ta-start P-10px">usatoday.com</th>
@@ -292,10 +389,18 @@ From a few tests we ran, it’s about 35% for semantic classes versus 48% for At
 
 ## How can you distribute presentation changes without asking everyone to change their markup?
 
+
+## How does Atomic CSS work with <abbr title="Responsive Web Design">RWD</abbr>?
+
+
+
+
 <hr class="Mt-50px">
 
 <ul id="footnote" class="ul-list">
     <li>[\[1\]](#footnote-1) Specificity of Atomic rules can be increased via namespace. You'd use a type selector for `0.0.1.1`, a class for `0.0.2.0`, and an id for `0.1.1.0`.</li>
     <li>[\[2\]](#footnote-2)[\[3\]](#footnote-3) Maximum number of rules for IE9: 4,095 (65,534 for IE10+).</li>
-    <li>[\[4\]](#footnote-4) Thanks to some uglification.</li>
+    <li>[\[4\]](#footnote-4) [microformats](http://microformats.org/) is a different story.</li>
+    <li>[\[5\]](#footnote-5) Thanks to some uglification.</li>
+    <li>[\[6\]](#footnote-6) As long as your styling relies on <em>atomic</em> classes.</li>
 </ul>
