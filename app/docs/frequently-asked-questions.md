@@ -151,7 +151,9 @@ Our advice is to use an `id` (we use `#atomic`) so all Atomic rules can easily o
 </div>
 ```
 
-The value for `font-weight` in the `.hero-module .button {...}` rule is overwritten by the Atomic class in the markup. Choosing a namespace `id` (i.e. `#atomic`) guarantees that Atomic CSS styles overwrite any other rule in a project based on classes &mdash; regardless how many are being used. We do not use `!important` as such styling would overwrite inline styles as well as other rules in the project that could be using an `id` to create more specific styling.
+The value for `font-weight` in the `.hero-module .button {...}` rule is overwritten by the Atomic class in the markup.
+
+<p class="noteBox info">Choosing a `i` for the namespace (i.e. `#atomic`) guarantees that Atomic CSS styles overwrite any other rule in a project based on classes &mdash; regardless how many classes are being used. <br> We do not use `!important` as such styling would overwrite inline styles as well as other rules in a project that could be using an `id` to create more specific styling.</p>
 
 ## What are the benefits of Atomic CSS?
 
