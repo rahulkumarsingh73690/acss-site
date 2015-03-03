@@ -19,7 +19,7 @@ This section is intended to answer common questions related to Atomic CSS. Do no
 
 ## What is Atomic CSS?
 
-Atomic CSS is a Front-End (FE) library that has the ambition to solve 2 main <abbr title="Cascading Style Sheets">CSS</abbr> challenges:
+Atomic CSS is a Front-End (FE) library / CSS &quot;architecture&quot; that has the ambition to solve 2 main <abbr title="Cascading Style Sheets">CSS</abbr> challenges:
 
 <ul class="ul-list">
    <li>bloat</li>
@@ -123,7 +123,7 @@ How cool is that? No bloat, no maintenance, no problem.
 
 If changing some styling requires you to edit multiple files, then you should use classic CSS rules (1 class/many declarations) in a style sheet. If changing styles can be done in one place, other than a style sheet, then you should go with Atomic CSS.
 
-An example of the former could be headings meant to look the same across many modules, or any other styling meant to be shared across different modules. An example of the latter is a component that lives in a template or a JS file, like a specific widget.
+An example of the former could be headings (unless they are "components") meant to look the same across many modules, or any other styling meant to be shared across different modules. An example of the latter is a component that lives in a template or a JS file, like a specific widget.
 
 ## How does Atomic CSS compare to Bootstrap, PureCSS, or other CSS framework?
 
@@ -151,7 +151,7 @@ Our advice is to use an `id` (we use `#atomic`) so all Atomic rules can easily o
 </div>
 ```
 
-The value for `font-weight` in the `.hero-module .button {...}` rule is overwritten by the Atomic class in the markup.
+The value for `font-weight` in the `.hero-module .button {...}` rule is overwritten by the Atomic class in the markup. Choosing a namespace `id` (i.e. `#atomic`) guarantees that Atomic CSS styles overwrite any other rule in a project based on classes &mdash; regardless how many are being used. We do not use `!important` as such styling would overwrite inline styles as well as other rules in the project that could be using an `id` to create more specific styling.
 
 ## What are the benefits of Atomic CSS?
 

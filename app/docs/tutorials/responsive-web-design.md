@@ -145,6 +145,6 @@
 <h3 class="penResult">Result</h3>
 
 <p data-height="265" data-theme-id="12469" data-slug-hash="jExMYr" data-default-tab="result" data-user="thierry" class='codepen'>See the Pen <a href='http://codepen.io/thierry/pen/jExMYr/'>jExMYr</a> by Thierry (<a href='http://codepen.io/thierry'>@thierry</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
-<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
 
 <p class="noteBox info">The breakpoints have been chosen so you can see the changes in the embedded Pen above within this page. Give it a try!</p>
