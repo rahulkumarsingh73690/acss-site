@@ -9,6 +9,7 @@ This section is intended to answer common questions related to Atomic CSS. Do no
    <li><a href="#what-is-atomizer-">What is Atomizer?</a></li>
    <li><a href="#how-does-atomic-css-compare-to-bootstrap-or-purecss-">How does Atomic CSS compare to Bootstrap, PureCSS, or other CSS frameworks?</a></li>
    <li><a href="#should-i-quot-atomize-quot-everything-">Should I &quot;<em>atomize</em>&quot; everything? Should I style everything using atomic classes?</a></li>
+   <li><a href="#">Why are Atomic classes capitalized? As far as I know. no other frameworks do that?</a></li>
    <li><a href="#do-i-need-to-specify-a-namespace-and-if-yes-what-should-i-use-">Do I need to specify a namespace? And if yes, what should I use?</a></li>
    <li><a href="#i-was-always-told-to-use-semantic-classes-and-not-use-declarative-css-classes-isn-t-atomic-css-using-a-bad-practice-">I was always told to use semantic classes and not use classes related to presentation; isn't Atomic CSS promoting bad practice?</a></li>
    <li><a href="#how-can-one-remember-atomic-class-names-">Atomic class names look rather cryptic to me, how can I quickly find what class I need?</a></li>
@@ -153,21 +154,21 @@ Our advice is to use an `id` (we use `#atomic`) so all Atomic rules can easily o
 
 The value for `font-weight` in the `.hero-module .button {...}` rule is overwritten by the Atomic class in the markup.
 
-<p class="noteBox info">Choosing a `i` for the namespace (i.e. `#atomic`) guarantees that Atomic CSS styles overwrite any other rule in a project based on classes &mdash; regardless how many classes are being used. <br> We do not use `!important` as such styling would overwrite inline styles as well as other rules in a project that could be using an `id` to create more specific styling.</p>
+<p class="noteBox info">Choosing a `id` for the namespace (i.e. `#atomic`) guarantees that Atomic CSS styles overwrite any other rule in a project based on classes &mdash; regardless how many classes are being used. <br> We do not use `!important` as such styling would overwrite inline styles as well as other rules in a project that could be using an `id` to create more specific styling.</p>
 
 ## What are the benefits of Atomic CSS?
 
-The main benefit of Atomic CSS is that it prevents bloat by *dramatically reducing redundancy*. This is possible because rules are content agnostic which makes them much more re-usable than rules based on semantic selectors.
+The main benefit of Atomic CSS is that it prevents bloat by *dramatically reducing redundancy*. This is possible because rules are content agnostic which makes them much more re-usable than rules based on &quot;semantic&quot; selectors.
 
 It also:
 
 <dl class="dl-list">
     <dt>moves specificity out of the way:</dt>
-    <dd>authors do not have to sandbox their styling via contextual selectors, everything is done via generic classes through markup - which reduces <em>weight</em> and <em>scope</em>.</dd>
+    <dd>authors do not have to sandbox their styling via contextual selectors, everything is done via generic classes through markup - which normalizes <em>weight</em> and reduces <em>scope</em>.</dd>
     <dt>improves performance:</dt>
-    <dd>less bloat means less bytes (much less).</dd>
+    <dd>less bloat means less bytes (<em>much less</em>).</dd>
     <dt>removes dependencies:</dt>
-    <dd>"components" (or "objects") rely on generic CSS rules, so there is no need to associate them with their own rules or styles sheet.</dd>
+    <dd>"components" (or "objects") <em>rely on generic CSS rules</em>, so there is no need to associate them with their own rules or styles sheet.</dd>
     <dt>allows to share content and assets easily:</dt>
     <dd>UI patterns can be easily shared across projects as their styling relies on the same generic set of rules (the same style sheet).</dd>
     <dt>leverages cache:</dt>
