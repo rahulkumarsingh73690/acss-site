@@ -17,6 +17,10 @@
     color: #0280AE !important;
 }
 
+.home-page .home-page_D-b\! {
+    display: block !important;
+}
+
 /**
  * stands for inline-block box
  * this rule styles elements with inline-block + vertical-align:top + IE7 patch
