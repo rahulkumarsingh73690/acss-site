@@ -1,161 +1,173 @@
 # Atomic classes
 
-Atomic CSS classes ultimately increase the speed of development as they follow a consistent and easy to remember syntax. The inspiration comes from [Emmet](http://emmet.io/), a plugin for many popular text editors which greatly improves HTML & CSS workflow.
+Atomic classes ultimately increase the speed of development as they follow a consistent and easy to remember syntax. The inspiration comes from [Emmet](http://emmet.io/), a plugin for many popular text editors which greatly improves HTML & CSS workflow.
 
 It might take you a short time to get familiar with these class names but as soon as you start using them you'll be at full speed in no time.
 
-Make sure to check the [reference page](/reference) which lets you quickly search for properties, values, or class names.
+<div class="noteBox info">The [reference page](/reference) lets you quickly search for properties, values, or class names.</div>
 
-## Syntax
+You use a config object to create the styles you need but you can also *rely on the tool to create many of these styles for you* (to some extend).
 
-<pre>
-.[ancestor][:pseudo-class][_][>]<strong>Property</strong>-[neg]<strong>value_identifier</strong><em>[:pseudo-class][::pseudo-element][--breakpoint_identifier]</em>
-</pre>
+## Simple classes
 
-Where:
+These classes are the ones Atomizer can make sense of without the need to check the config object; classes like `W-20px` (`width:20px`), `Lh-1.5` (`line-height:1.5`), etc.
 
-<dl class="dl-list">
-    <dt>[ancestor]</dt>
-    <dd>An optional *class* that is applied to an ancestor of the node.</dd>
-    <dt>[:pseudo-class]</dt>
-    <dd>optional suffix indicating that this class applies to a [pseudo-classes](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes) only. List of abbreviations to use for pseudo-classes:
-    <ul>
-        <li>`:h` for `:hover`</li>
-        <li>`:f` for `:focus`</li>
-        <li>TODO: add others here</li>
-    </ul>
-    </dd>
-    <dt>[\_]</dt>
-    <dd>Optional underscore character (`_`) to create a contextual style based on the [descendant combinator](http://www.w3.org/wiki/CSS/Selectors/combinators/descendant).</dd>
-    <dt>[&gt;]</dt>
-    <dd>Optional right angle bracket character (`>`) to create a contextual style based on the [child combinator](http://www.w3.org/wiki/CSS/Selectors/combinators/child).</dd>
-    <dt>Property-</dt>
-    <dd>[capitalized](http://en.wikipedia.org/wiki/Capitalization) following [Emmet](http://docs.emmet.io/cheat-sheet/) syntax with no separator between words such as dashes or new capitals. For any occurrences of `left` and `right` keywords or its abbreviated form in [Emmet](http://docs.emmet.io/cheat-sheet/) `l` and `r`, the `start` and `end` keywords should be used respectively. e.g. `Mend`, `Bdstart`, etc.</dd>
-    <dt>[neg]</dt>
-    <dd>To denote a negative value, for example `M-neg10px`.</dd>
-    <dt>value\_identifier</dt>
-    <dd>Value identifier should be written in lowercase following [Emmet](http://docs.emmet.io/cheat-sheet/) syntax. For any occurrences of `left` and `right` keywords, `start` and `end` should be used respectively. **Values that are not present in Emmet** should be named using the rules below:
-    <ul class="ul-list">
-        <li>Value should be abbreviated with the first letter of the value.</li>
-        <li>If two values share the same initial letter then the next value in alphabetical order is [abbreviated](http://en.wikipedia.org/wiki/Abbreviation), sometimes in [contracted](http://en.wikipedia.org/wiki/Contraction_%28grammar%29) form with no general rule for when it is in this form, it should just follow the same [Emmet CSS Syntax style guide](http://docs.emmet.io/css-abbreviations/).</li>
-        <li>If **one value** is composed by two or more words (e.g. "inline-block") then the first letter of each word should be used with no separator between them (e.g. `inline-block` becomes `ib`, `space-between` becomes `sb`).</li>
-        <li>If **two or more values** need to be specified, they should be separated by underscore (e.g. `start_t` for `start top` values in `background-position: left top` in a LTR context).</li>
-        <li>Valid CSS **number values** should always be followed by its unit if any (e.g. `100%` and `100px`). These numbers can also be represented as keywords such as `top` and `bottom` if it makes sense in the context of the property.  Negative values should be prefixed with the word `neg` before the number as in `neg30px` for `-30px`. Fraction values should be represented with a forward-slash between the numbers as in `1/12` (the forward slash is escaped in CSS).</li>
-        <li>Custom  values should use arbitrary keywords such as `.Bxs-heading` or `.Fz-xl`. These keywords are arbitrary and are defined by the consumer of atomic.css.</li>
-        <li>The `inherit` value should always use the keyword `inh` as a special exception because it is available almost globally.</li>
-    </ul>
-    </dd>
-    <dt>[:pseudo-class]</dt>
-    <dd>optional suffix indicating that this class applies to a [pseudo-classes](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes) only. This should be all lower-case with no abbreviations. Words should be separated by one dash, exactly like the original pseudo class (e.g. `Td-u:h`, `Td-u:only-child`).</dd>
-    <dt>[::pseudo-element]</dt>
-    <dd>optional suffix indicating that this class applies to [pseudo-elements](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements) only. This should be all lower-case with no abbreviations. Words should be separated by one dash, exactly like the original pseudo element (e.g. `Td-u::before`).</dd>
-    <dt>[--breakpoint_identifier]</dt>
-    <dd>optional property suffix that adds the breakpoint context to the rule. A breakpoint indicates that this rule will only take effect within a CSS media query breakpoint. Valid values are `sm` for small, `md` for medium and `lg` for large. The length values of each breakpoint are defined in the config object.</dd>
-</dl>
+## Custom classes
 
-### Examples:
+The value identifier of these classes is mapped to a custom value set in the config object. For example, the following:
+
+```javascript
+'font-size': {
+    custom: [
+        {suffix: 'verylarge', values: ['3em']}
+    ]
+},
+'padding': {
+    'custom': [
+        {suffix: 'gutter', values: ['10px']}
+    ]
+}
+```
+
+creates 2 classes:
+
+<ul class="ul-list">
+    <li>`Fz-verylarge` (`font-size:3em`)</li>
+    <li>`P-gutter` (`padding:10px`)</li>
+</ul>
+
+## Aliases
+
+Atomic CSS uses aliases whenever they make more sense than the class the regular [Atomic syntax](syntax.html) creates. For example, most `transform` properties have aliases:
 
 <table class="Ta-start W-100%">
-    <caption class="hidden">Atomic class Examples</caption>
+    <caption class="hidden">Aliases for Atomic classes</caption>
     <thead>
         <tr>
-            <th scope="col" class="P-10px">HTML classes</th>
-            <th scope="col" class="P-10px">What it does</th>
+            <th scope="col" class="P-10px">Atomic classes</th>
+            <th scope="col" class="P-10px">Styles</th>
+            <th scope="col" class="P-10px">Aliases</th>
         </tr>
     </thead>
     <tbody>
         <tr class="Bdt-1">
-            <th scope="row" class="Va-t Whs-nw P-10px">D-n</th>
-            <td class="Va-t P-10px">This is mapped to `display: none`</td>
+            <th scope="row" class="Va-t Whs-nw P-10px">`Trfr-90deg`</th>
+            <td class="Va-t P-10px">`transform:rotate(90°)`</td>
+            <td class="Va-t P-10px">`Rot-90deg`</td>
         </tr>
         <tr class="Bdt-1">
-            <th scope="row" class="Va-t Whs-nw P-10px">D-n!</th>
-            <td class="Va-t P-10px">This is mapped to `display: none !important`</td>
+            <th scope="row" class="Va-t Whs-nw P-10px">`Trfsc-1,2`</th>
+            <td class="Va-t P-10px">`transform:scale(1,2)`</td>
+            <td class="Va-t P-10px">`Scale-1,2`</td>
         </tr>
         <tr class="Bdt-1">
-            <th scope="row" class="Va-t Whs-nw P-10px">Fz-s</th>
-            <td class="Va-t P-10px">This is mapped to `font-size: small`</td>
+            <th scope="row" class="Va-t Whs-nw P-10px">`Trfscx-2`</th>
+            <td class="Va-t P-10px">`transform:scaleX(2)`</td>
+            <td class="Va-t P-10px">`Scalex-2`</td>
         </tr>
         <tr class="Bdt-1">
-            <th scope="row" class="Va-t Whs-nw P-10px">Fz-18px</th>
-            <td class="Va-t P-10px">This is mapped to `font-size: 18px`</td>
+            <th scope="row" class="Va-t Whs-nw P-10px">`Trfscy-2`</th>
+            <td class="Va-t P-10px">`transform:scaleY(2)`</td>
+            <td class="Va-t P-10px">`Scaley-2`</td>
         </tr>
         <tr class="Bdt-1">
-            <th scope="row" class="Va-t Whs-nw P-10px">Td-u:h</th>
-            <td class="Va-t P-10px">Underlines text on mouseover [\[1\]](#footnote)<a id="footnote-1" class="D-ib"></a></td>
+            <th scope="row" class="Va-t Whs-nw P-10px">`Trfskx-20deg`</th>
+            <td class="Va-t P-10px">`transform:skewX(20°)`</td>
+            <td class="Va-t P-10px">`Skewx-20deg`</td>
         </tr>
         <tr class="Bdt-1">
-            <th scope="row" class="Va-t Whs-nw P-10px">Td-u:dir(rtl)</th>
-            <td class="Va-t P-10px">Underlines text within a RTL context</td>
+            <th scope="row" class="Va-t Whs-nw P-10px">`Trfsky-20deg`</th>
+            <td class="Va-t P-10px">`transform:skewY(20°)`</td>
+            <td class="Va-t P-10px">`Skewy-20deg`</td>
         </tr>
         <tr class="Bdt-1">
-            <th scope="row" class="Va-t Whs-nw P-10px">Td-u::first-letter</th>
-            <td class="Va-t P-10px">Underlines the first letter</td>
+            <th scope="row" class="Va-t Whs-nw P-10px">`Trft-10px,20px`</th>
+            <td class="Va-t P-10px">`transform:translate(10px,20px)`</td>
+            <td class="Va-t P-10px">`Trans-10px,20px`</td>
         </tr>
         <tr class="Bdt-1">
-            <th scope="row" class="Va-t Whs-nw P-10px">Td-u::first-line</th>
-            <td class="Va-t P-10px">Underlines the first line</td>
+            <th scope="row" class="Va-t Whs-nw P-10px">`Trftx-10px`</th>
+            <td class="Va-t P-10px">`transform:translateX(10px)`</td>
+            <td class="Va-t P-10px">`Transx-10px`</td>
         </tr>
         <tr class="Bdt-1">
-            <th scope="row" class="Va-t Whs-nw P-10px">Td-u::selection</th>
-            <td class="Va-t P-10px">Underlines selected text</td>
+            <th scope="row" class="Va-t Whs-nw P-10px">`Trfty-10px`</th>
+            <td class="Va-t P-10px">`transform:translateY(10px)`</td>
+            <td class="Va-t P-10px">`Transy-10px`</td>
         </tr>
         <tr class="Bdt-1">
-            <th scope="row" class="Va-t Whs-nw P-10px">Rot-neg90deg</th>
-            <td class="Va-t P-10px">This is mapped to `transform: rotate(-90deg)`</td>
+            <th scope="row" class="Va-t Whs-nw P-10px">`Trfo-50%`</th>
+            <td class="Va-t P-10px">`transform-origin:50%`</td>
+            <td class="Va-t P-10px">No alias</td>
         </tr>
         <tr class="Bdt-1">
-            <th scope="row" class="Va-t Whs-nw P-10px">Bxs-n</th>
-            <td class="Va-t P-10px">This is mapped to `box-shadow: none`</td>
-        </tr>
-        <tr class="Bdt-1">
-            <th scope="row" class="Va-t Whs-nw P-10px">Bxs-foo--lg</th>
-            <td class="Va-t P-10px">Applies a custom box-shadow inside a "lg" breakpoint</td>
-        </tr>
-        <tr class="Bdt-1">
-            <th scope="row" class="Va-t Whs-nw P-10px">Bxs-foo:h--sm</th>
-            <td class="Va-t P-10px">Same styling as above but on mouseover and inside a "sm" breakpoint [\[1\]](#footnote)<a id="footnote-1" class="D-ib"></a> inside a "lg" breakpoint</td>
-        </tr>
-        <tr class="Bdt-1">
-            <th scope="row" class="Va-t Whs-nw P-10px">Mend-0</th>
-            <td class="Va-t P-10px">This is mapped to `margin-right: 0` in a LTR context [\[2\]](#footnote)<a id="footnote-3" class="D-ib"></a></td>
-        </tr>
-        <tr class="Bdt-1">
-            <th scope="row" class="Va-t Whs-nw P-10px">Bgp-start_t</th>
-            <td class="Va-t P-10px">This is mapped to `background-position: left top` in a LTR context [\[2\]](#footnote)<a id="footnote-2" class="D-ib"></a></td>
-        </tr>
-        <tr class="Bdt-1">
-            <th scope="row" class="Va-t Whs-nw P-10px">Ta-start</th>
-            <td class="Va-t P-10px">This is mapped to `text-align: left` in a LTR context [\[2\]](#footnote)<a id="footnote-2" class="D-ib"></a></td>
-        </tr>
-        <tr class="Bdt-1">
-            <th scope="row" class="Va-t Whs-nw P-10px">Cl-start</th>
-            <td class="Va-t P-10px">This is mapped to `clear: left` in a LTR context [\[2\]](#footnote)<a id="footnote-2" class="D-ib"></a></td>
-        </tr>
-        <tr class="Bdt-1">
-            <th scope="row" class="Va-t Whs-nw P-10px">Bdstartw-0</th>
-            <td class="Va-t P-10px">This is mapped to `border-left-width: 0` in a LTR context [\[2\]](#footnote)<a id="footnote-2" class="D-ib"></a></td>
-        </tr>
-        <tr class="Bdt-1">
-            <th scope="row" class="Va-t Whs-nw P-10px">list_D-ib</th>
-            <td class="Va-t P-10px">This element is styled with `display: inline-block` when it is a descendant of a node to which the class`list` is applied.</td>
-        </tr>
-        <tr class="Bdt-1">
-            <th scope="row" class="Va-t Whs-nw P-10px">list>D-ib</th>
-            <td class="Va-t P-10px">This element is styled with `display: inline-block` when it is a direct child of a node to which the class`list` is applied to.</td>
-        </tr>
-        <tr class="Bdt-1">
-            <th scope="row" class="Va-t Whs-nw P-10px">box:h_D-n</th>
-            <td class="Va-t P-10px">Hides the element when users hover over its ancestor with the class `.box`.</td>
+            <th scope="row" class="Va-t Whs-nw P-10px">`Trfs-p3`</th>
+            <td class="Va-t P-10px">`transform-style:preserve-3d(2)`</td>
+            <td class="Va-t P-10px">No alias</td>
         </tr>
     </tbody>
 </table>
 
-<p class="noteBox info">CSS class selectors contain proper escape character where needed (i.e. `.Td-u\:h`).</p>
+## Variables
 
-<hr class="Mt-50px">
+You can use custom value identifiers to be used as variables across different styles. You set such classes via the config object, for example:
 
-<ul id="footnote" class="ul-list">
-    <li>[\[1\]](#footnote-1) classes containing the string `:h` are associated with both `:hover` and `:focus` pseudo-classes; meaning the styling will apply on mouseover <em>and on focus as well</em>.</li>
-    <li>[\[2\]](#footnote-2) `start` is mapped to either "left" or "right" depending on the config file.</li>
-</ul>
+```javascript
+custom: {
+    "headerHeight": "20px"
+}
+```
+
+Then you could use this value identifier like this:
+
+```javascript
+<body class="Pt-headerHeight">
+    <header class="Mih-headerHeight Bgc-primary">...</header>
+```
+
+This way, even if the value of `headerHeight` changes, the padding of body will allways be in sync with the height of the header.
+
+Variables are also an easy way to abstract colors to create themes:
+
+```javascript
+custom: {
+    "primaryColor": "blue",
+    "secondaryColor": "orange",
+    "tertiaryColor": "tomato"
+}
+```
+
+## Advanced classes
+
+These classes are mostly contextual; they take into consideration ancestor nodes or media query breakpoints.
+
+### Descendant selectors
+
+You can style a node according to its relationship with a parent or ancestor, for example:
+
+The class `myList_Td-u` on links inside an element to which the class `myList` is applied to will be underline.
+
+The class `myList>V-h` on list items that are direct children of the `myList` will be invisible.
+
+<p class="noteBox info"><strong>Practical example</strong>: we use the class `home-page_D-b!` to style `#main` differently on the home page.</p>
+
+#### pseudo-classes on ancestors
+
+You can use pseudo-classes with classes relying on contextual selectors, for example `myList:h>V-h` will hide the direct children of `.myList` only when users hover over the said list.
+
+### Breakpoints
+
+You use the config object to create breakpoints then you can add a modifier to your classes so its styling comes into play only within the breakpoint it relates to.
+
+```javascript
+'padding': {
+    'custom': [
+        {suffix: '10', values: ['10px'], breakPoints: ['sm']},
+        {suffix: '20', values: ['20px'], breakPoints: ['lg']}
+    ]
+}
+```
+
+The above creates 2 classes: `P-10--sm` and `P-20--lg`. The former will be applied inside the small (`--sm`) breakpoint, the latter inside the large (`--lg`) breakpoint.
+
+<p class="noteBox info">You can choose any name you want for the breakpoints you create via the config object.</p>

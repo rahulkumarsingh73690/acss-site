@@ -1,6 +1,6 @@
 # Responsive Web Design
 
-<p>You can set your **own** breakpoints in config.js and then use Atomic classes scoped to media queries tied to those breakpoints.</p>
+<p>You can set your **own** breakpoints in the config object and then use Atomic classes scoped to media queries tied to those breakpoints.</p>
 
 <p class="noteBox info">Classes bound to media queries contain 2 dashes (`--`) followed by the breakpoint &quot;name&quot; (i.e. `sm`).</p>
 
@@ -15,9 +15,9 @@
     ...
     },
     'breakPoints': {
-        'sm': '600px',
-        'md': '900px',
-        'lg': '1200px'
+        'sm': '@media (min-width: 380px)',
+        'md': '@media (min-width: 800px)',
+        'lg': '@media (min-width: 1200px)'
     }
 },
 ```
@@ -147,4 +147,4 @@
 <p data-height="265" data-theme-id="12469" data-slug-hash="jExMYr" data-default-tab="result" data-user="thierry" class='codepen'>See the Pen <a href='http://codepen.io/thierry/pen/jExMYr/'>jExMYr</a> by Thierry (<a href='http://codepen.io/thierry'>@thierry</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
 
 
-<p class="noteBox info">The breakpoints have been chosen so you can see the changes in the embedded Pen above within this page. Give it a try!</p>
+<p class="noteBox info">The breakpoints have been chosen so you can see the changes in the embedded Pen above within this page. <strong>Give it a try!</strong></p>

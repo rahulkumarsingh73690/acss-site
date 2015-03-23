@@ -6,7 +6,6 @@ This section is intended to answer common questions related to Atomic CSS. Do no
    <li><a href="#what-is-atomic-css-">What is Atomic CSS?</a></li>
    <li><a href="#what-is-the-difference-between-inline-styling-and-atomic-css-">How is Atomic CSS different than using inline styles?</a></li>
    <li><a href="#what-are-the-benefits-of-atomic-css-">What are the benefits of Atomic CSS?</a></li>
-   <li><a href="#what-is-atomizer-">What is Atomizer?</a></li>
    <li><a href="#how-does-atomic-css-compare-to-bootstrap-or-purecss-">How does Atomic CSS compare to Bootstrap, PureCSS, or other CSS frameworks?</a></li>
    <li><a href="#should-i-quot-atomize-quot-everything-">Should I &quot;<em>atomize</em>&quot; everything? Should I style everything using atomic classes?</a></li>
    <li><a href="#">Why are Atomic classes capitalized? As far as I know. no other frameworks do that?</a></li>
@@ -72,63 +71,17 @@ For more information about Atomic CSS, we recommend that you read [Challenging C
     </tbody>
 </table>
 
-## What is Atomizer?
-
-[Atomizer](https://www.npmjs.com/package/atomizer) is a node package designed to create <em>atomic.css</em> which is a collection of Atomic classes.
-
-The beauty of Atomizer is that it produces a style sheet based on the Atomic classes it finds in your documents. This means that this file is *always up-to-date without you having to write a single CSS declaration* [\[6\]](#footnote)<a id="footnote-6" class="D-ib"></a>.
-
-For example, if your project was a single page containing:
-
-```html
-<div class="D-b Va-t Fz-20px">Hello World!</div>
-```
-
-Atomizer would create a <em>atomic.css</em> file with these rules:
-
-```css
-.D-b {
-    display: block;
-}
-.Va-t {
-    vertical-align: top;
-}
-.Fz-20px {
-    font-size: 20px;
-}
-```
-
-If, for example, you decided to change the classes like below:
-
-```html
-<div class="Va-t Fz-18px">Hello World!</div>
-```
-
-Then Atomizer would update the file (removing `D-b` and replacing `Fz-20` with `Fz-18`) to match exactly *what is being used* inside the project:
-
-```css
-.Va-t {
-    vertical-align: top;
-}
-.Fz-18px {
-    font-size: 18px;
-}
-```
-
-And there is no need to declare a set of Atomic classes beforehand (via a config or else) for Atomizer to work.
-As long as you follow <a href="./guides/class-names.html#syntax">the proper syntax</a> Atomizer will create the rules for all the Atomic classes it finds in your project.
-
-How cool is that? No bloat, no maintenance, no problem.
-
 ## Should I &quot;atomize&quot; everything? Should I style everything using atomic classes?
 
-If changing some styling requires you to edit multiple files, then you should use classic CSS rules (1 class/many declarations) in a style sheet. If changing styles can be done in one place, other than a style sheet, then you should go with Atomic CSS.
+If changing some styling requires you to edit multiple files, then you should use the classic CSS approach: apply a "meaningful" class to the element you want to style and use that hook to write rules in a style sheet. But if changing styles of an element can be done in one place - other than a style sheet - then you should go with Atomic CSS.
 
 An example of the former could be headings (unless they are "components") meant to look the same across many modules, or any other styling meant to be shared across different modules. An example of the latter is a component that lives in a template or a JS file, like a specific widget.
 
 ## How does Atomic CSS compare to Bootstrap, PureCSS, or other CSS framework?
 
 Atomic CSS has nothing in common with these frameworks. It is not a set of UI components nor a grid system. It is a solution that allows you to create **your own UI** *without creating bloat*.
+
+Also, unlike other libraries, Atomic CSS's "footprint" is limited to what a project is actually <em>using</em> &mdash; meaning there is no "entry cost". Simply installing [Atomizer](atomizer.html) in your project does not add any bytes to your pages.
 
 ## Do I need to specify a namespace? And if yes, what should I use?
 
@@ -164,11 +117,11 @@ It also:
 
 <dl class="dl-list">
     <dt>moves specificity out of the way:</dt>
-    <dd>authors do not have to sandbox their styling via contextual selectors, everything is done via generic classes through markup - which normalizes <em>weight</em> and reduces <em>scope</em>.</dd>
+    <dd>authors do not have to sandbox their styling via contextual selectors, everything is done via generic classes through markup - which normalizes selector <em>weight</em> and reduces <em>scope</em>.</dd>
     <dt>improves performance:</dt>
     <dd>less bloat means less bytes (<em>much less</em>).</dd>
     <dt>removes dependencies:</dt>
-    <dd>"components" (or "objects") <em>rely on generic CSS rules</em>, so there is no need to associate them with their own rules or styles sheet.</dd>
+    <dd>"components" (or "objects") <em>rely on generic CSS rules</em>, so there is no need to associate them with their own style block or styles sheet.</dd>
     <dt>allows to share content and assets easily:</dt>
     <dd>UI patterns can be easily shared across projects as their styling relies on the same generic set of rules (the same style sheet).</dd>
     <dt>leverages cache:</dt>
@@ -185,15 +138,15 @@ This speaks for itself:
 .icon-large,
 .title,
 .intro {
-    font-size: 1.8em;
+    font-size: 18px;
 }
 ```
 
 versus:
 
 ```css
-.Fz-1\.8em {
-    font-size: 1.8em;
+.Fz-large {
+    font-size: 18px;
 }
 ```
 
@@ -313,7 +266,7 @@ If we wanted to show only 2 items per view, we would simply replace W-20% with W
 ```html
 <div data-plugin="carousel">
     <div class="Ov-h Pos-r">
-        <ul class="Row Reset Wh-snw">
+        <ul class="M-0 P-0 Whs-nw">
             <li class="D-ib W-20%">...</li><!--
          --><li class="D-ib W-20%">...</li><!--
          --><li class="D-ib W-20%">...</li><!--
@@ -325,19 +278,6 @@ If we wanted to show only 2 items per view, we would simply replace W-20% with W
 ```
 
 Unlike `.carousel`, all the above classes can be re-used to style any other widget.
-
-## How do you make changes across the board?
-
-Use Atomic classes where it makes sense; for example the following creates much of the content of our <a href="./reference">reference</a> page. If we decided to change the styling of this content this would be the only place we'd need to go to.
-
-```js
-return (
-    <div key={'id-' + recipe.id} className={displayclassDefinitions}>
-        <h3 className="M-0 Mt-10px P-10px">{recipe.name}</h3>
-        <dl className="M-0 P-10px Pt-0 Pend-50px--sm Ff-m">{classDefinitions}</dl>
-    </div>
-);
-```
 
 ## How can one remember Atomic class names?
 
@@ -392,10 +332,20 @@ From a few tests we ran, it’s about 35% for semantic classes versus 48% for At
 
 ## How can you distribute presentation changes without asking everyone to change their markup?
 
+Use Atomic classes where it makes sense; for example the following creates much of the content of our <a href="./reference">reference</a> page. If we decided to change the styling of this content this would be the only place we'd need to go to.
+
+```js
+return (
+    <div key={'id-' + recipe.id} className={displayclassDefinitions}>
+        <h3 className="M-0 Mt-10px P-10px">{recipe.name}</h3>
+        <dl className="M-0 P-10px Pt-0 Pend-50px--sm Ff-m">{classDefinitions}</dl>
+    </div>
+);
+```
 
 ## How does Atomic CSS work with <abbr title="Responsive Web Design">RWD</abbr>?
 
-
+Please visit our [RWD docs](tutorials/responsive-web-design.html) to see examples of how you can use Atomic CSS to create styles in the context of breakpoints.
 
 
 <hr class="Mt-50px">
@@ -405,5 +355,4 @@ From a few tests we ran, it’s about 35% for semantic classes versus 48% for At
     <li>[\[2\]](#footnote-2)[\[3\]](#footnote-3) Maximum number of rules for IE9: 4,095 (65,534 for IE10+).</li>
     <li>[\[4\]](#footnote-4) [microformats](http://microformats.org/) is a different story.</li>
     <li>[\[5\]](#footnote-5) Thanks to some uglification.</li>
-    <li>[\[6\]](#footnote-6) As long as your styling relies on <em>atomic</em> classes.</li>
 </ul>
