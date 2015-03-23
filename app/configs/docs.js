@@ -30,11 +30,27 @@ module.exports = [
                 }
             },
             {
-                label: 'Class names',
+                label: 'Atomic classes',
                 routeName: 'docs',
                 navParams: {
                     type: 'guides',
-                    key: 'class-names'
+                    key: 'atomic-classes'
+                }
+            },
+            {
+                label: 'Helper classes',
+                routeName: 'docs',
+                navParams: {
+                    type: 'guides',
+                    key: 'helper-classes'
+                }
+            },
+            {
+                label: 'The syntax',
+                routeName: 'docs',
+                navParams: {
+                    type: 'guides',
+                    key: 'syntax'
                 }
             }
         ]
