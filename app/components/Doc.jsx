@@ -43,7 +43,7 @@ var Component = React.createClass({
 
         return (
             <div id="main" role="main" className="D-tbc--sm home-page_D-b! Px-10px">
-                <div className="spaceBetween">
+                <div className="SpaceBetween">
                     <h1 className="D-ib Va-m Fz-30px">
                         {this.props.title}
                     </h1> {editEl}
