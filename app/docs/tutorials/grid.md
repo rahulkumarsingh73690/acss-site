@@ -157,7 +157,7 @@ How to create the above classes via config.js?
 
 <p data-height="190" data-theme-id="12469" data-slug-hash="emMPaw" data-default-tab="result" data-user="thierry" class='codepen'>See the Pen <a href='http://codepen.io/thierry/pen/emMPaw/'>emMPaw</a> by Thierry (<a href='http://codepen.io/thierry'>@thierry</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
 
-<p class="noteBox info">Atomic.css also provides a helper class (`ib-box`) that can be used in lieu of `D-ib` and `Va-t` as it groups those 2 styles and also contains the IE7 patch.</p>
+<p class="noteBox info">Atomic.css also provides a helper class (`ibBox`) that can be used in lieu of `D-ib` and `Va-t` as it groups those 2 styles and also contains the IE7 patch.</p>
 
 ### `float` <a id="footnote-2" class="D-ib"></a>
 

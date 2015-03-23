@@ -79,5 +79,5 @@ You can create any custom class you want via the [config object](https://github.
 <hr class="Mt-50px">
 
 <ul id="footnote" class="ul-list">
-    <li>[\[1\]](#footnote-1) As long as your styling relies on <em>atomic</em> classes.</li>
+    <li>[\[1\]](#footnote-1) This is true for non-custom classes.</li>
 </ul>
