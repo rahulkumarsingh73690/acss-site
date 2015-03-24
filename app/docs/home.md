@@ -2,13 +2,13 @@
 
 A collection of single purpose styling units for maximum reuse.
 
-## Atomic CSS creates the UI you want
+## Atomic CSS is not opinionated
 
-Atomic CSS is not a *out-of-the-box* solution that comes with an opinionated grid system or UI. What it gives you instead is the freedom to style things the way you want *without creating bloat*.
+Atomic CSS does not contain UI components nor a grid system. It is a solution that allows you to to create **your own UI** while preventing bloat.
 
 ## Atomic CSS has no footprint
 
-Unlike other libraries, the simple fact of including Atomizer into your project does not add *a single byte* to your style sheets.
+Atomic CSS's "footprint" is limited to what a project uses - meaning there is no "entry cost". Simply installing [Atomizer](atomizer.html) in your project does not add any bytes to your pages.
 
 ## Atomic CSS is Gzip-friendly
 

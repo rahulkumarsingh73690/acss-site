@@ -79,7 +79,7 @@ An example of the former could be headings (unless they are "components") meant 
 
 ## How does Atomic CSS compare to Bootstrap, PureCSS, or other CSS framework?
 
-Atomic CSS is very different than these frameworks. It does not contain UI components nor a grid system. It is a solution that allows you to to create **your own UI** without creating bloat.
+Atomic CSS is very different than these frameworks. It does not contain UI components nor a grid system. It is a solution that allows you to to create **your own UI** while preventing bloat.
 
 Atomic CSS's "footprint" is limited to what a project uses - meaning there is no "entry cost". Simply installing [Atomizer](atomizer.html) in your project does not add any bytes to your pages.
 
