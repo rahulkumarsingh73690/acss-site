@@ -79,9 +79,9 @@ An example of the former could be headings (unless they are "components") meant 
 
 ## How does Atomic CSS compare to Bootstrap, PureCSS, or other CSS framework?
 
-Atomic CSS has nothing in common with these frameworks. It is not a set of UI components nor a grid system. It is a solution that allows you to create **your own UI** *without creating bloat*.
+Atomic CSS is very different than these frameworks. It does not contain UI components nor a grid system. It is a solution that allows you to to create **your own UI** without creating bloat.
 
-Also, unlike other libraries, Atomic CSS's "footprint" is limited to what a project is actually <em>using</em> &mdash; meaning there is no "entry cost". Simply installing [Atomizer](atomizer.html) in your project does not add any bytes to your pages.
+Atomic CSS's "footprint" is limited to what a project uses - meaning there is no "entry cost". Simply installing [Atomizer](atomizer.html) in your project does not add any bytes to your pages.
 
 ## Do I need to specify a namespace? And if yes, what should I use?
 
@@ -105,9 +105,7 @@ Our advice is to use an `id` (we use `#atomic`) so all Atomic rules can easily o
 </div>
 ```
 
-The value for `font-weight` in the `.hero-module .button {...}` rule is overwritten by the Atomic class in the markup.
-
-<p class="noteBox info">Choosing a `id` for the namespace (i.e. `#atomic`) guarantees that Atomic CSS styles overwrite any other rule in a project based on classes &mdash; regardless how many classes are being used. <br> We do not use `!important` as such styling would overwrite inline styles as well as other rules in a project that could be using an `id` to create more specific styling.</p>
+The value for `font-weight` in the `.hero-module .button {...}` rule is overwritten by the Atomic class in the markup [\[6\]](#footnote)<a id="footnote-6" class="D-ib"></a>.
 
 ## What are the benefits of Atomic CSS?
 
@@ -355,4 +353,5 @@ Please visit our [RWD docs](tutorials/responsive-web-design.html) to see example
     <li>[\[2\]](#footnote-2)[\[3\]](#footnote-3) Maximum number of rules for IE9: 4,095 (65,534 for IE10+).</li>
     <li>[\[4\]](#footnote-4) [microformats](http://microformats.org/) is a different story.</li>
     <li>[\[5\]](#footnote-5) Thanks to some uglification.</li>
+    <li>[\[6\]](#footnote-6) Choosing a `id` for the namespace (i.e. `#atomic`) guarantees that Atomic CSS styles overwrite any other rule in a project based on classes &mdash; regardless how many classes are being used. <br> We do not use `!important` as such styling would overwrite inline styles as well as other rules in a project that could be using an `id` to create more specific styling.</li>
 </ul>
