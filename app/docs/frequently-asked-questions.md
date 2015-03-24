@@ -10,6 +10,7 @@ This section is intended to answer common questions related to Atomic CSS. Do no
    <li><a href="#should-i-quot-atomize-quot-everything-">Should I &quot;<em>atomize</em>&quot; everything? Should I style everything using atomic classes?</a></li>
    <li><a href="#">Why are Atomic classes capitalized? As far as I know. no other frameworks do that?</a></li>
    <li><a href="#do-i-need-to-specify-a-namespace-and-if-yes-what-should-i-use-">Do I need to specify a namespace? And if yes, what should I use?</a></li>
+   <li><a href="#">Why is my "descendant selector class" not working?</a></li>
    <li><a href="#i-was-always-told-to-use-semantic-classes-and-not-use-declarative-css-classes-isn-t-atomic-css-using-a-bad-practice-">I was always told to use semantic classes and not use classes related to presentation; isn't Atomic CSS promoting bad practice?</a></li>
    <li><a href="#how-can-one-remember-atomic-class-names-">Atomic class names look rather cryptic to me, how can I quickly find what class I need?</a></li>
    <li><a href="#aren-t-you-bloating-the-markup-">Atomic CSS does reduce the size of the style sheet but isn't it moving bloat to HTML?</a></li>
@@ -340,6 +341,37 @@ return (
     </div>
 );
 ```
+
+
+## Why is my "descendant selector class" not working?
+
+The ancestor node you reference in your class (i.e. `open` in `open_D-b`) must be inside the scope of the node onto which the namespace is applied.
+For example this would not work:
+
+```html
+<html id="atomic" class="open">
+    ...
+    <div className="open_D-b">...</div>
+</div>
+```
+
+This is because Atomic classes are &quot;sandboxed&quot; via the namespace (i.e. `#atomic`) like this:
+
+```css
+#atomic .open .open_D-b {
+    display: block;
+}
+```
+
+but `id` and `class` should be chained for the above to work, like below:
+
+```css
+#atomic.open .open_D-b {
+    display: block;
+}
+```
+
+In other words, when creating contextual classes, you *cannot* use a class that is on the same node or above the node you use to namespace Atomic classes.
 
 ## How does Atomic CSS work with <abbr title="Responsive Web Design">RWD</abbr>?
 
