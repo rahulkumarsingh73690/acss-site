@@ -36,7 +36,7 @@ var PageDocs = React.createClass({
 
         wrapperClasses = cx({
             'menu-on': this.state.isMenuVisible,
-            'docs-page innerwrapper D-tb--sm Tbl-f Pt-20px Mb-50px Mx-a--sm W-90%--sm W-a--sm': true
+            'docs-page innerwrapper D-tb--sm Tbl-f Pt-20px Mb-50px Miw-1000px--lg Mx-a--sm W-96%--sm': true
         });
 
         return (
