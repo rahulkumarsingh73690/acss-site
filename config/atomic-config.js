@@ -4,7 +4,7 @@ module.exports = {
     // blueish: .C-07f
     'breakPoints': {
         'sm': '@media screen and (min-width:700px)',
-        'md': '@media screen and (min-width:992px)',
+        'md': '@media screen and (min-width:999px)',
         'lg': '@media screen and (min-width:1200px)'
     },
     // custom atomic classes mapped to their values
