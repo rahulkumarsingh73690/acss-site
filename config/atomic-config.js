@@ -1,8 +1,9 @@
 module.exports = {
     // COLORS:
-    // redish: .C-f2438c
-    // blueish: .C-07f
+    // redish: .C-#f2438c
+    // blueish: .C-#07f
     'breakPoints': {
+        'xs': '@media screen and (max-width:700px)',
         'sm': '@media screen and (min-width:700px)',
         'md': '@media screen and (min-width:999px)',
         'lg': '@media screen and (min-width:1200px)'
@@ -16,6 +17,7 @@ module.exports = {
         'Bdb-1': '1px solid rgba(2, 128, 174, .3)',
         'Bgc-logo': '#0262AA',
         'Bg-splash': 'url("../images/splash_background.jpg") no-repeat #0262AA',
+        'Bgi-hamburger': 'url(../images/menu.png)',
         'Tsh-1': '0 1px 0 rgba(0, 0, 0, 0.8)',
         'Bxsh-light': '0 2px 3px rgba(0, 0, 0, 0.2)',
         'leftRailWidth': '190px',
@@ -23,6 +25,7 @@ module.exports = {
         'regularBuffer': '8px',
         'relaxBuffer': '16px',
         'backgroundSwap': '#f5f5f5',
+        'colorLogo': '#0280ae',
         'Bgc-selected': '#e5e1ea!important',
         'Fz-xs': '11px',
         'Fz-s': '13px',
