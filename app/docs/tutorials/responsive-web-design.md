@@ -18,7 +18,7 @@
 
 <h3>Atomic classes and Breakpoints</h3>
 
-<p>Appending `--<breakpoint name>` to **any** Atomic class will associate that styling to the breakpoint. For example, `D-b--sm` and `C-#0b0--md` will create rules in the related media queries:</p>
+<p>Appending `--<breakpoint name>` to **any** Atomic class will associate that styling to the breakpoint. For example, `D-b--sm` and `C-#000--md` will create rules in the related media queries:</p>
 
 ```css
 @media screen and (min-width:380px) {
@@ -28,8 +28,8 @@
 }
 
 @media screen and (min-width:680px) {
-    #atomic .C-\#0b0--md {
-        color: #0b0;
+    #atomic .C-\#000--md {
+        color: #000;
     }
 }
 ```

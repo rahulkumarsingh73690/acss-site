@@ -4,7 +4,7 @@
 
 ## Widths
 
-You can choose from creating a unit-base system, using percentages, or using any arbitrary value you see fit (i.e. `15em`). In other words, the way you apply widths onto boxes is entirely up to you!
+You can choose from creating a unit-base system (i.e. `1/12`), using percentages (i.e. `20%`), or using any arbitrary value you see fit (i.e. `15em`). In other words, the way you apply widths onto boxes is entirely up to you!
 
 <p class="noteBox info">All classes related to `width` start with `W-` &mdash; for example: `W-15em`.</p>
 
