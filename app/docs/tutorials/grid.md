@@ -105,13 +105,13 @@ When creating inline-block constructs, you should use our helper class (`IbBox()
 
 ```html
 <div>
-   <div class="IbBox W-1/3 P-20px Bgc-#CCC">Box 1</div><!--
+   <div class="IbBox W-1/3 P-20px Bgc-#ccc">Box 1</div><!--
 --><div class="IbBox W-1/3 P-20px Bgc-#999">Box 2</div><!--
 --><div class="IbBox W-1/3 P-20px Bgc-#777">Box 3</div>
 </div>
 <hr />
 <div dir="rtl">
-   <div class="IbBox W-1/3 P-20px Bgc-#CCC">Box 1</div><!--
+   <div class="IbBox W-1/3 P-20px Bgc-#ccc">Box 1</div><!--
 --><div class="IbBox W-1/3 P-20px Bgc-#999">Box 2</div><!--
 --><div class="IbBox W-1/3 P-20px Bgc-#777">Box 3</div>
 </div>
@@ -146,7 +146,7 @@ If you do not run [Atomizer](https://github.com/yahoo/atomizer), you then must a
 
 ```html
 <div>
-   <div class="Fl-start W-50% P-20px Bgc-#CCC">Box 1</div>
+   <div class="Fl-start W-50% P-20px Bgc-#ccc">Box 1</div>
    <div class="Fl-start W-50% P-20px Bgc-#999">Box 2</div>
 </div>
 ```
@@ -182,14 +182,14 @@ If you do not run [Atomizer](https://github.com/yahoo/atomizer), you then must a
 
 ```html
 <div class="D-tb W-100% Ta-c">
-    <div class="D-tbc Va-m P-20px Bgc-#CCC">Box <br />Number <br />1</div>
+    <div class="D-tbc Va-m P-20px Bgc-#ccc">Box <br />Number <br />1</div>
     <div class="D-tbc Va-m P-20px Bgc-#999">Box Number 2</div>
     <div class="D-tbc Va-m P-20px Bgc-#777">Box Number 3</div>
     <div class="D-tbc Va-m P-20px Bgc-#555">BoxNumber 4</div>
 </div>
 <hr />
 <div class="D-tb W-100% Va-m Ta-c" dir="rtl">
-    <div class="D-tbc Va-m P-20px Bgc-#CCC">Box <br />Number <br />1</div>
+    <div class="D-tbc Va-m P-20px Bgc-#ccc">Box <br />Number <br />1</div>
     <div class="D-tbc Va-m P-20px Bgc-#999">Box Number 2</div>
     <div class="D-tbc Va-m P-20px Bgc-#777">Box Number 3</div>
     <div class="D-tbc Va-m P-20px Bgc-#555">BoxNumber 4</div>
@@ -204,7 +204,7 @@ If you do not run [Atomizer](https://github.com/yahoo/atomizer), you then must a
 
 ```html
 <div class="D-tb W-100% Ta-c">
-    <div class="D-tbfg Fz-20px Bgc-#CCC">Box Number 1</div>
+    <div class="D-tbfg Fz-20px Bgc-#ccc">Box Number 1</div>
     <div class="D-tbc  Fz-20px Bgc-#999">Box Number 2</div>
     <div class="D-tbhg Fz-20px Bgc-#777">Box Number 3</div>
 </div>
@@ -234,10 +234,10 @@ If you do not run [Atomizer](https://github.com/yahoo/atomizer), you then must a
 
 ```html
 <div class="D-f Flf-w Jc-sb">
-  <div class="W-100px H-100px Lh-100px Fz-30px Ta-c Bgc-#CCC">Box 1</div>
-  <div class="W-100px H-100px Lh-100px Fz-30px Ta-c Bgc-#CCC">Box 2</div>
-  <div class="W-100px H-100px Lh-100px Fz-30px Ta-c Bgc-#CCC">Box 3</div>
-  <div class="W-100px H-100px Lh-100px Fz-30px Ta-c Bgc-#CCC">Box 3</div>
+  <div class="W-100px H-100px Lh-100px Fz-30px Ta-c Bgc-#ccc">Box 1</div>
+  <div class="W-100px H-100px Lh-100px Fz-30px Ta-c Bgc-#ccc">Box 2</div>
+  <div class="W-100px H-100px Lh-100px Fz-30px Ta-c Bgc-#ccc">Box 3</div>
+  <div class="W-100px H-100px Lh-100px Fz-30px Ta-c Bgc-#ccc">Box 3</div>
 </div>
 ```
 

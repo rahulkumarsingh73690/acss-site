@@ -6,7 +6,7 @@ Following a <em>common</em> syntax favors better collaboration between teams and
 ## The building blocks
 
 <pre>
-[&lt;ancestor>][:&lt;pseudo-class>][_ || > + >]<strong>&lt;Property></strong>-[neg]<strong>&lt;value_identifier></strong>[!][:&lt;pseudo-class>][::&lt;pseudo-element>][--&lt;breakpoint_identifier>]
+[&lt;ancestor>][:&lt;pseudo-class>][_ || > || +]<strong>&lt;Property></strong>-[neg]<strong>&lt;value_identifier></strong>[!][:&lt;pseudo-class>][::&lt;pseudo-element>][--&lt;breakpoint_identifier>]
 </pre>
 
 <p class="noteBox info">Pseudo-classes *can be chained*, see [examples](#examples-) below.</p>
