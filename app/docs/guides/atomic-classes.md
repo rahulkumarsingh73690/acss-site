@@ -143,13 +143,42 @@ These classes are mostly contextual; they take into consideration ancestor nodes
 
 ### Descendant selectors
 
-You can style a node according to its relationship with a parent or ancestor, for example:
+You can style a node according to its relationship with its parent or ancestor, for example:
 
-The class `myList_Td-u` on links inside an element to which the class `myList` is applied to will be underline.
+The class `someElement_C-#0b0` on a node inside an element to which the class `someElement` is applied to changes the text color to lime in that node.
 
-The class `myList>V-h` on list items that are direct children of the `myList` will be invisible.
+```html
+<p class="someElement">The following text is <b class="someElement_C-#0b0">lime/green</b>.</p>
+```
+<p class="someElement C-#0b0">The following text is <b class="someElement_C-#0b0">lime/green</b>.</p>
+
+The class `someElement>Fw-800` on list items that are direct children of the `someElement` list will be bold.
+
+```html
+<ul class="someElement">
+    <li class="someElement>Td-u">I'm bold
+        <ul>
+            <li>I'm nested</li>
+            <li>Me too!</li>
+        <ul>
+    </li>
+    <li class="someElement>Td-u">I'm bold too</li>
+</ul>
+```
+<ul class="someElement">
+    <li class="someElement>Td-u">I'm bold
+        <ul>
+            <li>I'm nested</li>
+            <li>Me too!</li>
+        <ul>
+    </li>
+    <li class="someElement>Td-u">I'm bold too</li>
+</ul>
+
 
 <p class="noteBox info"><strong>Practical example</strong>: we use the class `home-page_D-b!` to style `#main` differently on the home page.</p>
+
+<p class="noteBox important">Unlike all other Atomic classes, the ones containing descendant selectors are **not** sandboxed via the namespace (if you have chosen to set one in the config). Instead, Atomizer adds `!important` to these styles.</p>
 
 #### pseudo-classes on ancestors
 

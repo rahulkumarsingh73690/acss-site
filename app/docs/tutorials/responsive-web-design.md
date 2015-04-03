@@ -6,7 +6,7 @@
 
 ## Setting up Breakpoints
 
-<p>Pick the names and media queries you want:</p>
+<p>Pick the names and media queries you want, for example:</p>
 
 ```json
 'breakPoints': {
@@ -18,7 +18,7 @@
 
 <h3>Atomic classes and Breakpoints</h3>
 
-<p>Appending `--<breakpoint name>` to **any** Atomic class will associate that styling to the breakpoint. For example, `D-b--sm` and `C-#000--md` will create rules in the related media queries:</p>
+<p>Append `--<breakpoint name>` to **any** Atomic class to associate that styling to the breakpoint of your choice. For example, `D-b--sm` and `C-#000--md` will create rules in the related media queries:</p>
 
 ```css
 @media screen and (min-width:380px) {
@@ -36,7 +36,7 @@
 
 ## Usage
 
-<p>You may apply different styles to apply in the context of various breakpoints. For example:</p>
+<p>Use different classes to see styles being applied in the context of various breakpoints, for example:</p>
 
 ```html
    <div class="D-ib--sm W-50%--sm W-25%--lg P-20px Bgc-#CCC">1</div><!--
