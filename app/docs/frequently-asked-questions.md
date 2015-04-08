@@ -66,17 +66,17 @@ For more information about Atomic CSS, we recommend that you read [Challenging C
       </tr>
     </thead>
     <tbody>
-        <tr class="Bdt-1">
+        <tr class="BdT Bdc-#cecece">
             <th scope="row" class="Va-t P-10px">Specificity</th>
             <td class="Va-t P-10px">1.0.0.0</td>
             <td class="Va-t P-10px">0.0.1.0 [\[1\]](#footnote)<a id="footnote-1" class="D-ib"></a></td>
         </tr>
-        <tr class="Bdt-1">
+        <tr class="BdT Bdc-#cecece">
             <th scope="row" class="Va-t P-10px">Verbosity</th>
             <td class="Va-t P-10px">High</td>
             <td class="Va-t P-10px">Minimal</td>
         </tr>
-        <tr class="Bdt-1">
+        <tr class="BdT Bdc-#cecece">
             <th scope="row" class="Va-t P-10px">Abstraction</th>
             <td class="Va-t P-10px">None</td>
             <td class="Va-t P-10px">Fallbacks, tweaks, LTR/RTL support, etc.</td>
@@ -120,11 +120,12 @@ This speaks for itself:
 versus:
 
 ```css
-.Fz-large {
+.Fz(large) {
     font-size: 18px;
 }
 ```
 
+<p class="noteBox info">For the sake of readability, CSS classes on this page *do not* include the escape character (`\`) where it should be needed.</p>
 Such approach produces less of everything:
 
 <table cellspacing="0" class="W-100% Ta-c">
@@ -141,7 +142,7 @@ Such approach produces less of everything:
       </tr>
     </thead>
     <tbody>
-        <tr class="Bdt-1">
+        <tr class="BdT Bdc-#cecece">
             <th scope="row" class="Ta-start P-10px">twitter.com</th>
             <td class="P-10px">6,372 [\[2\]](#footnote)<a id="footnote-2" class="D-ib"></a></td>
             <td class="P-10px">9,104</td>
@@ -150,7 +151,7 @@ Such approach produces less of everything:
             <td class="P-10px">755</td>
             <td class="P-10px">585</td>
         </tr>
-        <tr class="Bdt-1">
+        <tr class="BdT Bdc-#cecece">
             <th scope="row" class="Ta-start P-10px">facebook.com</th>
             <td class="P-10px">3,316</td>
             <td class="P-10px">4,018</td>
@@ -159,7 +160,7 @@ Such approach produces less of everything:
             <td class="P-10px">157</td>
             <td class="P-10px">281</td>
         </tr>
-        <tr class="Bdt-1">
+        <tr class="BdT Bdc-#cecece">
             <th scope="row" class="Ta-start P-10px">medium.com</th>
             <td class="P-10px">3,090</td>
             <td class="P-10px">4,030</td>
@@ -168,7 +169,7 @@ Such approach produces less of everything:
             <td class="P-10px">432</td>
             <td class="P-10px">282</td>
         </tr>
-        <tr class="Bdt-1">
+        <tr class="BdT Bdc-#cecece">
             <th scope="row" class="Ta-start P-10px">youtube.com</th>
             <td class="P-10px">3,530</td>
             <td class="P-10px">4,684</td>
@@ -177,7 +178,7 @@ Such approach produces less of everything:
             <td class="P-10px">336</td>
             <td class="P-10px">352</td>
         </tr>
-        <tr class="Bdt-1">
+        <tr class="BdT Bdc-#cecece">
             <th scope="row" class="Ta-start P-10px">tumblr.com</th>
             <td class="P-10px">5,647 [\[3\]](#footnote)<a id="footnote-3" class="D-ib"></a></td>
             <td class="P-10px">7,616</td>
@@ -186,7 +187,7 @@ Such approach produces less of everything:
             <td class="P-10px">499</td>
             <td class="P-10px">733</td>
         </tr>
-        <tr class="Bdt-1 Bgc-#ff0">
+        <tr class="BdT Bdc-#cecece Bgc-#ff0">
             <th scope="row" class="Ta-start P-10px">yahoo.com</th>
             <td class="P-10px Fw-b">1,891</td>
             <td class="P-10px Fw-b">2,311</td>
@@ -211,7 +212,7 @@ Such approach produces less of everything:
 
 <small>Source: <a href="http://cssstats.com">cssstats.com</a></small>
 
-The table above uses yahoo.com for reference as this site uses an early version of Atomic CSS.
+<p>The table above uses yahoo.com for reference as this site uses an early version of Atomic CSS.</p>
 
 ### How does Atomic CSS compare to Bootstrap, PureCSS, or other CSS framework?
 
@@ -241,17 +242,18 @@ Classes are for developers, they don’t make a document more &quot;semantic&quo
 The main goal of Atomic CSS is to reduce bloat, so to better achieve this we must ignore content and context as much as possible.
 
 Look at the following snippet for example (a carousel without a `carousel` class). It creates a working carousel.
-We put things together in the markup, there is no need for “carousel” rules in the style sheet.
-If we wanted to show only 2 items per view, we would simply replace W-20% with W-50% - that’s it.
+We put things together in the markup, there is no need for &quot;carousel&quot; rules in the style sheet.
+If we wanted to show only 2 items per view, we would simply replace W(20%) with W(50%) - that’s it.
+
 
 ```html
 <div data-plugin="carousel">
-    <div class="Ov-h Pos-r">
-        <ul class="M-0 P-0 Whs-nw">
-            <li class="D-ib W-20%">...</li><!--
-         --><li class="D-ib W-20%">...</li><!--
-         --><li class="D-ib W-20%">...</li><!--
-         --><li class="D-ib W-20%">...</li><!--
+    <div class="Ov(h) Pos(r)">
+        <ul class="M(0) P(0) Whs(nw)">
+            <li class="D(ib) W(20%)">...</li><!--
+         --><li class="D(ib) W(20%)">...</li><!--
+         --><li class="D(ib) W(20%)">...</li><!--
+         --><li class="D(ib) W(20%)">...</li><!--
             ...
         </ul>
     </div>
@@ -274,23 +276,23 @@ Note that Facebook appears to uglify some classes.
       </tr>
     </thead>
     <tbody>
-        <tr class="Bdt-1">
+        <tr class="BdT Bdc-#cecece">
             <th scope="row" class="Ta-start P-10px">twitter.com</th>
             <td class="P-10px">28</td>
         </tr>
-        <tr class="Bdt-1">
+        <tr class="BdT Bdc-#cecece">
             <th scope="row" class="Ta-start P-10px">facebook.com</th>
             <td class="P-10px">17 [\[5\]](#footnote)<a id="footnote-5" class="D-ib"></a></td>
         </tr>
-        <tr class="Bdt-1">
+        <tr class="BdT Bdc-#cecece">
             <th scope="row" class="Ta-start P-10px">usatoday.com</th>
             <td class="Va-t P-10px">38</td>
         </tr>
-        <tr class="Bdt-1">
+        <tr class="BdT Bdc-#cecece">
             <th scope="row" class="Ta-start Va-t P-10px">theguardian.com</th>
             <td class="P-10px">36</td>
         </tr>
-        <tr class="Bdt-1">
+        <tr class="BdT Bdc-#cecece">
             <th scope="row" class="Ta-start P-10px">yahoo.com</th>
             <td class="P-10px Fw-b">22</td>
         </tr>
@@ -309,8 +311,8 @@ Use Atomic classes where it makes sense; for example the following creates much 
 ```js
 return (
     <div key={'id-' + recipe.id} className={displayclassDefinitions}>
-        <h3 className="M-0 Mt-10px P-10px">{recipe.name}</h3>
-        <dl className="M-0 P-10px Pt-0 Pend-50px--sm Ff-m">{classDefinitions}</dl>
+        <h3 className="M(0) Mt(10px) P(10px)">{recipe.name}</h3>
+        <dl className="M(0) P(10px) Pt(0) Pend(50px)--sm Ff(m)">{classDefinitions}</dl>
     </div>
 );
 ```
@@ -338,14 +340,14 @@ Our advice is to use an `id` (we use `#atomic`) so all Atomic rules can easily o
     font-weight: bold;
 }
 ...
-#atomic .Fw-n {
+#atomic .Fw(n) {
     font-weight: normal;
 }
 ```
 
 ```html
 <div class="hero-module">
-    <button class="button Fw-n">...</button>
+    <button class="button Fw(n)">...</button>
 </div>
 ```
 
@@ -371,7 +373,7 @@ We took advantage of the fact that nobody seems to capitalize classes and that C
 
 To prevent redundancy, we made the choice to favor lowercase over uppercase, even though the latter is valid.
 
-This is because classes such as `C-#fff` and `C-#FFF` would not duplicate the declaration but would add an unnecessary selector to the style sheet.
+This is because classes such as `C(#fff)` and `C(#FFF)` would not duplicate the declaration but would add an unnecessary selector to the style sheet.
 
 ### Why are "descendant classes" not relying on the namespace? Why are those styles using `!important`?
 
@@ -383,14 +385,14 @@ For example this would not work:
 ```html
 <html id="atomic" class="open">
     ...
-    <div class="open_D-b">...</div>
+    <div class="open_D(b)">...</div>
 </div>
 ```
 
 This is because, by default, Atomic classes are &quot;sandboxed&quot; via a namespace (eg. `#atomic`) which would create the following rule:
 
 ```css
-#atomic .open .open_D-b {
+#atomic .open .open_D(b) {
     display: block;
 }
 ```
@@ -400,12 +402,14 @@ since `open` is not a descendant of `atomic`, but its sibling, the selector does
 To prevent this issue we have chosen to add `!important` to contextual classes rather than using the namespace. Hence the rule is written like so:
 
 ```css
-.open .open_D-b {
+.open .open(Db) {
     display: block !important;
 }
 ```
 
 <p class="noteBox warning">Keep this in mind in case you need to style that same node with JavaScript.</p>
+
+<p class="noteBox info">This is not relevant when there is no namespace set up. In that case, the rule is not written using `!important`.</p>
 
 ### How can one remember Atomic class names?
 
@@ -420,9 +424,9 @@ The [syntax](../guides/syntax.html) and [reference](reference) pages are meant t
 <hr class="Mt-50px">
 
 <ul id="footnote" class="ul-list">
-    <li>[\[1\]](#footnote-1) Specificity of Atomic rules can be increased via namespace. You'd use a type selector for `0.0.1.1`, a class for `0.0.2.0`, and an id for `0.1.1.0`.</li>
-    <li>[\[2\]](#footnote-2)[\[3\]](#footnote-3) Maximum number of rules for IE9: 4,095 (65,534 for IE10+).</li>
-    <li>[\[4\]](#footnote-4) [microformats](http://microformats.org/) is a different story.</li>
-    <li>[\[5\]](#footnote-5) Thanks to some uglification.</li>
-    <li>[\[6\]](#footnote-6) Choosing a `id` for the namespace (i.e. `#atomic`) guarantees that Atomic CSS styles overwrite any other rule in a project based on classes &mdash; regardless how many classes are being used. <br> We do not use `!important` as such styling would overwrite inline styles as well as other rules in a project that could be using an `id` to create more specific styling.</li>
+    <li>1. Specificity of Atomic rules can be increased via namespace. You'd use a type selector for `0.0.1.1`, a class for `0.0.2.0`, and an id for `0.1.1.0` [\[↩\]](#footnote-1).</li>
+    <li>2. Maximum number of rules for IE9: 4,095 (65,534 for IE10+) [\[↩\]](#footnote-2)[\[3\]](#footnote-3).</li>
+    <li>3. [microformats](http://microformats.org/) is a different story [\[↩\]](#footnote-4).</li>
+    <li>4. Thanks to some uglification [\[↩\]](#footnote-5).</li>
+    <li>5. Choosing a `id` for the namespace (i.e. `#atomic`) guarantees that Atomic CSS styles overwrite any other rule in a project based on classes &mdash; regardless how many classes are being used. <br> We do not use `!important` as such styling would overwrite inline styles as well as other rules in a project that could be using an `id` to create more specific styling [\[↩\]](#footnote-6).</li>
 </ul>
