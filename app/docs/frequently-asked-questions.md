@@ -49,7 +49,7 @@ For more information about Atomic CSS, we recommend that you read [Challenging C
 
 <dl class="dl-list">
     <dt>Inline styling, the bad parts:</dt>
-    <dd>The high specificity, the verbosity, the impossibility to deal with pseudo-classes or pseudo-elements, and the fact that those bytes are not cached.</dd>
+    <dd>High specificity, verbosity, the inability to deal with pseudo-classes or pseudo-elements, and the fact that those bytes are not cached</dd>
     <dt>Inline styling, the good parts:</dt>
     <dd>Scope is limited to the element onto which the classes are  applied to and the styling is <em>portable</em> because that styling is <em>not</em> contextual.</dd>
 </dl>
@@ -238,7 +238,7 @@ Atomic's "footprint" is limited to what a project uses - meaning there is no "en
     </div>
 </blockquote>
 
-Classes are for developers, they don’t make a document more &quot;semantic&quot; [\[3\]](#footnote)<a id="footnote-3" class="D(ib)"></a>.
+The sole purpose of classes is to provide hooks for styling and behavior. They are not exposed to end users, nor parsed by screen-readers or search engines [\[3\]](#footnote)<a id="footnote-3" class="D(ib)"></a>.
 
 The main goal of Atomic CSS is to reduce bloat, so to better achieve this we must ignore content and context as much as possible.
 
