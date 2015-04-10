@@ -423,10 +423,10 @@ The [syntax](../guides/syntax.html) and [reference](reference) pages are meant t
 
 <hr class="Mt(50px)">
 
-<ul id="footnote" class="ul-list">
+<ol id="footnote" class="ol-list">
     <li>1. Specificity of Atomic rules can be increased via namespace. You'd use a `type` selector for `0.0.1.1`, a `class` for `0.0.2.0`, and an `id` for `0.1.1.0` [\[↩\]](#footnote-1).</li>
     <li>2. Maximum number of rules for IE9: 4,095 (65,534 for IE10+) [\[↩\]](#footnote-2)[\[↩\]](#footnote-2b).</li>
     <li>3. [microformats](http://microformats.org/) is a different story [\[↩\]](#footnote-3).</li>
     <li>4. Thanks to some uglification [\[↩\]](#footnote-4).</li>
     <li>5. Choosing a `id` for the namespace (i.e. `#atomic`) guarantees that Atomic CSS styles overwrite any other rule in a project based on classes &mdash; regardless how many classes are being used. <br> We do not use `!important` as such styling would overwrite inline styles as well as other rules in a project that could be using an `id` to create more specific styling [\[↩\]](#footnote-5).</li>
-</ul>
+</ol>
