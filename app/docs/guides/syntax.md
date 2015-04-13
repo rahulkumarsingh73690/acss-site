@@ -8,7 +8,7 @@ Adopting a *common* syntax favors better collaboration between teams and project
 ## The building blocks
 
 <pre>
-[&lt;ancestor>][:&lt;pseudo-class>][_ || > || +]<strong>&lt;Style></strong>[(<strong>&lt;value>,&lt;value>?,&lt;value>?</strong>!)][<!>][:&lt;pseudo-class>][::&lt;pseudo-element>][--&lt;breakpoint_identifier>]
+[&lt;ancestor>][:&lt;pseudo-class>][_ || > || +]<strong>&lt;Style></strong>[(<strong>&lt;value>,&lt;value>?,&lt;value>?</strong>!)][<!>][:&lt;pseudo-class>][--&lt;breakpoint_identifier>]
 </pre>
 
 <p class="Pt(20px)">Where:</p>
@@ -238,12 +238,6 @@ Example:
 ```
 
 <p class="noteBox info">Pseudo-classes *can be chained* (i.e. `Op(1):h:f`).</p>
-
-### &lt;pseudo-element>
-
-Optional.
-
-A suffix indicating that this class applies to [pseudo-elements](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements) only. This should be all lower-case with no abbreviations. Words should be separated by one dash, exactly like the original pseudo element (e.g. `D(n)::before`).
 
 ### --&lt;breakpoint_identifier>
 
