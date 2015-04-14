@@ -34,72 +34,52 @@ creates 3 classes/declarations:
 
 ## Aliases
 
-Atomic CSS uses aliases for properties that rely on values using parentheses (i.e. `blur(2px)`). For example, most `transform` properties have aliases:
+Atomic CSS uses aliases for "most" properties [\[1\]](#footnote)<a id="footnote-1" class="D(ib)"></a> that rely on [Functional Notation](http://www.w3.org/TR/css3-values/#functional-notation). Those are the type of component value that can represent more complex types (or invoke special processing).
 
 <table class="Ta(start) W(100%)">
-    <caption class="Hidden">Aliases for Atomic classes</caption>
+    <caption class="Hidden">Aliases for values based on functional notation</caption>
     <thead>
         <tr>
-            <th scope="col" class="P(10px)">Atomic classes</th>
-            <th scope="col" class="P(10px)">Styles</th>
             <th scope="col" class="P(10px)">Aliases</th>
+            <th scope="col" class="P(10px)">Styles</th>
         </tr>
     </thead>
     <tbody>
         <tr class="BdT Bdc-#cecece">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Trfr(90deg)`</th>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Rotate(90deg)`</th>
             <td class="Va(t) P(10px)">`transform:rotate(90°)`</td>
-            <td class="Va(t) P(10px)">`Rot(90deg)`</td>
         </tr>
         <tr class="BdT Bdc-#cecece">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Trfsc(1,2)`</th>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Scale(1,2)`</th>
             <td class="Va(t) P(10px)">`transform:scale(1,2)`</td>
-            <td class="Va(t) P(10px)">`Scale(1,2)`</td>
         </tr>
         <tr class="BdT Bdc-#cecece">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Trfscx(2)`</th>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)">`ScaleX(2)`</th>
             <td class="Va(t) P(10px)">`transform:scaleX(2)`</td>
-            <td class="Va(t) P(10px)">`ScaleX(2)`</td>
         </tr>
         <tr class="BdT Bdc-#cecece">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Trfscy(2)`</th>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)">`ScaleY(2)`</th>
             <td class="Va(t) P(10px)">`transform:scaleY(2)`</td>
-            <td class="Va(t) P(10px)">`ScaleY(2)`</td>
         </tr>
         <tr class="BdT Bdc-#cecece">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Trfskx(20deg)`</th>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)">`SkewX(20deg)`</th>
             <td class="Va(t) P(10px)">`transform:skewX(20°)`</td>
-            <td class="Va(t) P(10px)">`SkewX(20deg)`</td>
         </tr>
         <tr class="BdT Bdc-#cecece">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Trfsky(-20deg)`</th>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)">`SkewY(-20deg)`</th>
             <td class="Va(t) P(10px)">`transform:skewY(-20°)`</td>
-            <td class="Va(t) P(10px)">`SkewY(-20deg)`</td>
         </tr>
         <tr class="BdT Bdc-#cecece">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Trft(10px,20px)`</th>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Translate(10px,20px)`</th>
             <td class="Va(t) P(10px)">`transform:translate(10px,20px)`</td>
-            <td class="Va(t) P(10px)">`Trans(10px,20px)`</td>
         </tr>
         <tr class="BdT Bdc-#cecece">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Trftx(10px)`</th>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)">`TranslateX(10px)`</th>
             <td class="Va(t) P(10px)">`transform:translateX(10px)`</td>
-            <td class="Va(t) P(10px)">`TransX(10px)`</td>
         </tr>
         <tr class="BdT Bdc-#cecece">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Trfty(10px)`</th>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)">`TranslateY(10px)`</th>
             <td class="Va(t) P(10px)">`transform:translateY(10px)`</td>
-            <td class="Va(t) P(10px)">`TransY(10px)`</td>
-        </tr>
-        <tr class="BdT Bdc-#cecece">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Trfo(50%)`</th>
-            <td class="Va(t) P(10px)">`transform-origin:50%`</td>
-            <td class="Va(t) P(10px)">No alias</td>
-        </tr>
-        <tr class="BdT Bdc-#cecece">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Trfs(p3)`</th>
-            <td class="Va(t) P(10px)">`transform-style:preserve-3d(2)`</td>
-            <td class="Va(t) P(10px)">No alias</td>
         </tr>
     </tbody>
 </table>
@@ -221,3 +201,10 @@ For example, `border-width`, `style`, and `color` can be specified in any order 
 </ul>
 
 Which would create 6 different rules for the exact same styling.
+
+
+<hr class="Mt(50px)">
+
+<ol id="footnote" class="ol-list">
+    <li>1. We use the function name whenever it is bound to a `property`; for example `Rotate()` for `transform` or `Blur()` for `filter`. `calc()`, `rgba()`, etc. are examples of functions for which we do not have aliases for. [\[↩\]](#footnote-1).</li>
+</ol>
