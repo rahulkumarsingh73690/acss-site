@@ -207,4 +207,17 @@ More info about [breakpoints and responsive web design](../tutorials/responsive-
 
 ## Shorthand notation
 
-Atomic CSS is all about *optimization*, so we do not offer shorthand notation for the most common properties (i.e. `margin`, `padding`, etc.). The reason for this is that shorthand allows users to express styles in many ways which would create more classes/selectors in `atomic.css`.
+Atomic CSS is all about *optimization*, so we do not offer shorthand notation for the most common properties (i.e. `margin`, `padding`, etc.). The reason for this is that shorthand allows users to express styles in many ways which would create more classes/selectors/declarations in `atomic.css`.
+
+For example, `border-width`, `style`, and `color` can be specified in any order which could lead to classes like these (to style a box with a 1px border):
+
+<ul class="ul-list">
+    <li>`Bd(1px,solid,#000)`</li>
+    <li>`Bd(1px,#000,solid)`</li>
+    <li>`Bd(solid,#000,1px)`</li>
+    <li>`Bd(solid,1px,#000)`</li>
+    <li>`Bd(#000,1px,solid)`</li>
+    <li>`Bd(#000,solid,1px)`</li>
+</ul>
+
+Which would create 6 different rules for the exact same styling.
