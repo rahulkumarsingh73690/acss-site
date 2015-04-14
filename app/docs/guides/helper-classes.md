@@ -2,7 +2,7 @@
 
 ## `Bd*` (Borders)
 
-Styling elements with a border requires at least 2 properties (border color inherits its value from the `color` property):
+Styling elements with a border requires at least 2 properties [\[1\]](#footnote)<a id="footnote-1" class="D(ib)"></a> (border color inherits its value from the `color` property):
 
 <ul class="ul-list">
     <li>`border-style`</li>
@@ -183,3 +183,9 @@ This is handy to create boxes with a [intrinsic aspect ratio](http://alistapart.
 ## `Zoom`
 
 Use the class `Zoom` if you support old IE and needs to [give a box a layout](http://www.satzansatz.de/cssd/onhavinglayout.html).
+
+<hr class="Mt(50px)">
+
+<ol id="footnote" class="ol-list">
+    <li>1. Unless you want the initial value (`medium`) for `border-width` [\[↩\]](#footnote-1).</li>
+</ol>
