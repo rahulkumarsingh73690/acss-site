@@ -9,12 +9,19 @@ var escapeStringRegexp = require('escape-string-regexp');
 var React = require('react');
 var Rules = require('atomizer/src/rules');
 
+var Atomizer = require('atomizer');
+var atomizer = new Atomizer();
+
 // stores
 var ReferenceStore = require('../stores/ReferenceStore');
 
 // mixins
 var FluxibleMixin = require('fluxible').Mixin;
 
+
+function replaceRTLTokens(str) {
+    return str.replace('__START__', 'left').replace('__END__', 'right');
+}
 
 /**
  * Reference docs for the ruleset
@@ -38,15 +45,6 @@ var ReferenceRules = React.createClass({
         this.setState(state);
     },
 
-    hasClassUsingPrefix: function (prefix, classnames) {
-        var value;
-        for (var i=0, iLen=classnames.length; iLen; i++) {
-            value = classnames[i];
-            if (value.indexOf(prefix) === 0) { return true; }
-        }
-        return false;
-    },
-
     /**
      * Refer to React documentation render
      *
@@ -54,37 +52,33 @@ var ReferenceRules = React.createClass({
      * @return {Object} HTML head section
      */
     render: function () {
-        var searchRE = false;
-        if (this.state.currentQuery) {
-            var escapedString = escapeStringRegexp(this.state.currentQuery);
-            searchRE = new RegExp(escapedString, 'i');
-        } 
-        var customConfig = this.state.customConfigObj;
-        var hasConfig = !!customConfig;
+        var searchRE = false,
+            customConfig = this.state.customConfigObj || {},
+            hasConfig = !!this.state.customConfigObj,
+            parsedConfig = atomizer.parseConfig(customConfig);
 
-        if (!hasConfig) {
-            customConfig = {};
+        if (this.state.currentQuery) {
+            searchRE = new RegExp(escapeStringRegexp(this.state.currentQuery), 'i');
         }
 
         var items = Rules.map(function (recipe) {
-            var usingClass = false,
-                values = [],
+            var values = [],
                 classDefinitions = [],
-                declarationBlock,
+                declaration,
+                rawDeclarationBlock = [],
+                styledDeclarationBlock = [],
                 searching = !!this.state.currentQuery,
                 searchTitleMatches = null,
                 showRecipeBlock = false,
                 custom,
                 value,
                 suffix,
-                recipeConfig;
-
-            if (customConfig.classNames && customConfig.classNames.length) {
-                usingClass = this.hasClassUsingPrefix(recipe.prefix, customConfig.classNames);
-            }
+                recipeConfig,
+                prefix = recipe.prefix,
+                usesClass = parsedConfig[prefix];
 
             // If config is provided, filter any rules not used in config
-            if (hasConfig && !usingClass) {
+            if (hasConfig && !usesClass) {
                 return;
             }
 
@@ -93,81 +87,70 @@ var ReferenceRules = React.createClass({
             }
 
             if (recipe.type === 'pattern') {
-                // Some entries allow custom values to be provided in configuration
-                if (recipe.allowCustom) {
-                    if (!hasConfig) {
-                        // No config provided, show generic info
-                        if (recipe.allowSuffixToValue) {
-                            custom = [{ 
-                                suffix: "[custom suffix|value]",
-                                values: ['custom value|value']
-                            }];
-                        } else {
-                            custom = [{ 
-                                suffix: "[custom suffix]",
-                                values: ['custom value']
-                            }]; 
-                        }
-                    } else if (customConfig.custom) {
-                        // Config provided, show custom values
-                        // custom = ???; filter the customConfig.custom array
-                        // by prefix
 
-                    } else {
-                        custom = [];
-                    }
-                    for (var i = 0; i < custom.length; i++) {
-                        suffix = custom[i].suffix;
-                        selector = recipe.prefix + '(' + suffix + ')';
-                        value = custom[i].values.join(' ');
-                        values.push({
-                            rawSelector: selector,
-                            rawValue: value,
-                            selector: <b>{recipe.prefix}({ hasConfig ? suffix : <em>{suffix}</em>})</b>,
-                            value: hasConfig ? value : <em className="C(#07f)">{value}</em>
-                        });
-                        if (custom[i].breakPoints) {
-                            var bp = custom[i].breakPoints;
-                            if (bp && bp.length) {
-                                for (var j = 0; j < bp.length; j++) {
-                                    var bpSelector = selector + '--' + bp[j];
-                                    values.push({
-                                        rawSelector: bpSelector, 
-                                        rawValue: value,
-                                        selector: <b>{bpSelector}</b>, 
-                                        value: value
-                                    });
-                                }
-                            }
+                if (!hasConfig) {
+                    if (recipe.allowCustom) {
+                        if (recipe.allowSuffixToValue) {
+                            suffix = "[custom suffix|value]";
+                            value = 'custom value|value';
+                        } else {
+                            suffix = "[custom suffix]";
+                            value = 'custom value';
                         }
+
+                        for (var x = 0; x < recipe.properties.length; x++) {
+                            var property = replaceRTLTokens(recipe.properties[x]);
+                            rawDeclarationBlock.push(property + ": " + value);
+                            styledDeclarationBlock.push(<div>{property}: <em className="C(#07f)">{value}</em></div>);
+                        }
+                        values.push({
+                            rawSelector: prefix + "(" + suffix + ")",
+                            rawDeclaration: rawDeclarationBlock,
+                            selector: <b>{prefix}(<em>{suffix}</em>)</b>,
+                            declaration: styledDeclarationBlock
+                        });
                     }
-                }
-                // Some have pre-defined classes/values
-                if (recipe.rules) {
-                    for (var i = 0; i < recipe.rules.length; i++) {
-                        var rule = recipe.rules[i];
-                        if (!recipeConfig || recipeConfig[rule.suffix]) {
+                    if (recipe.rules) {
+                        for (var i = 0; i < recipe.rules.length; i++) {
+                            rawDeclarationBlock = [];
+                            styledDeclarationBlock = [];
+                            var rule = recipe.rules[i];
                             var selector = recipe.prefix + '(' + rule.suffix + ')';
-                            var value = rule.values.join(' ').replace('__START__', 'left').replace('__END__', 'right');
+                            var value = rule.values.join(' ');
+                            for (var x = 0; x < recipe.properties.length; x++) {
+                                var property = recipe.properties[x];
+                                declaration = property + ": " + value;
+                                rawDeclarationBlock.push(replaceRTLTokens(declaration));
+                            }
                             values.push({
                                 rawSelector: selector, 
-                                rawValue: value,
+                                rawDeclaration: rawDeclarationBlock,
                                 selector: <b>{selector}</b>, 
-                                value: value
+                                declaration: rawDeclarationBlock
                             });
-                            if (recipeConfig && typeof recipeConfig[rule.suffix] === 'object') {
-                                var bp = recipeConfig[rule.suffix].breakPoints;
-                                if (bp && bp.length) {
-                                    for (var j = 0; j < bp.length; j++) {
-                                        var bpSelector = selector + '--' + bp[j];
-                                        values.push({
-                                            rawSelector: bpSelector, 
-                                            rawValue: value,
-                                            selector: <b>{bpSelector}</b>, 
-                                            value: value
-                                        });
-                                    }
+                        }
+                    }
+                } else if (usesClass) {
+                    for (var x=0; x < parsedConfig[prefix].length; x++) {
+                        var prefixConfig = parsedConfig[prefix][x];
+                        for (var i=0; i < prefixConfig.values.length; i++) {
+                            var valueObj = prefixConfig.values[i];
+                            rawDeclarationBlock = [];
+                            styledDeclarationBlock = [];
+
+                            if (valueObj && valueObj.declaration) {
+                                for (var property in valueObj.declaration) {
+                                    declaration = replaceRTLTokens(property) + ": " + valueObj.declaration[property];
+                                    rawDeclarationBlock.push(declaration);
+                                    styledDeclarationBlock.push(<div>{declaration}</div>);
                                 }
+
+                                values.push({
+                                    rawSelector: prefixConfig.className,
+                                    rawDeclaration: rawDeclarationBlock,
+                                    selector: <b>{prefixConfig.className}</b>,
+                                    declaration: styledDeclarationBlock
+                                });
                             }
                         }
                     }
@@ -177,25 +160,25 @@ var ReferenceRules = React.createClass({
                 for (var x=0; x < values.length; x++) {
                     var v = values[x];
                     var showRuleset = false;
-                    if (recipe.properties && recipe.properties.length) {
-                        var rawDeclarationBlock = [];
-                        var styledDeclarationBlock = [];
-
-                        for (var i=0; i < recipe.properties.length; i++) {
-                            var property = recipe.properties[i].replace('__START__', 'left').replace('__END__', 'right');
-                            rawDeclarationBlock.push(property + ": " + v.rawValue + ";");
-                            styledDeclarationBlock.push(<div>{property}: {v.value};</div>);
-                        }
-
+                    if (v.declaration) {
                         // Filter with search
                         if (!searching || 
                                 searchTitleMatches || 
                                 v.rawSelector.search(searchRE) > -1 || 
-                                rawDeclarationBlock.join('\n').search(searchRE) > -1) {
+                                v.rawDeclarationBlock.join('\n').search(searchRE) > -1) {
                             showRuleset = true;
                             showRecipeBlock = true;
-                        } 
-                        classDefinitions.push([<dt className={showRuleset ? 'Pend(10px) Fl(start) Cl(start)' : 'D(n)'}>{v.selector}</dt>, <dd className={showRuleset ? 'Ov(h) M(0) P(0) C(#f2438c)' : 'D(n)'}>{styledDeclarationBlock}</dd>]);
+                        }
+                        var termClasses = 'Pend(10px) Fl(start) Cl(start)';
+                        var defClasses = 'Ov(h) M(0) P(0) C(#f2438c)';
+                        if (!showRuleset) {
+                            termClasses += ' D(n)';
+                            defClasses += ' D(n)';
+                        }
+                        classDefinitions.push([
+                            <dt className={termClasses}>{v.selector}</dt>,
+                            <dd className={defClasses}>{v.declaration}</dd>
+                        ]);
                     }
                 };
             }
