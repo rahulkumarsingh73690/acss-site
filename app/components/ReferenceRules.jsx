@@ -70,10 +70,8 @@ var ReferenceRules = React.createClass({
                 searching = !!this.state.currentQuery,
                 searchTitleMatches = null,
                 showRecipeBlock = false,
-                custom,
                 value,
                 suffix,
-                recipeConfig,
                 prefix = recipe.prefix,
                 usesClass = parsedConfig[prefix];
 
