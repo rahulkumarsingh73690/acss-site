@@ -124,11 +124,9 @@ Required.
 
 CSS property or [helper class](helper-classes.html). [Capitalized](http://en.wikipedia.org/wiki/Capitalization) following [Emmet](http://docs.emmet.io/cheat-sheet/) syntax with no separator between words such as dashes or new capitals.
 
-### [&lt;value>,&lt;value>?,&lt;value>?] !
+### &lt;value>
 
 Optional for helpers, required for CSS properties.
-
-One or multiple values (depending on styles), separated by commas (`,`) &mdash; *without space between the parentheses*.
 
 Examples:
 
@@ -136,12 +134,12 @@ Examples:
 .Ta(c) {
     text-align: center;
 }
-.Bgp(20px,50px) {
-    background-position: 20px 50px;
+.M(20px) {
+    margin: 20px;
 }
 ```
 
-<p class="noteBox info">For most properties, we do not offer [shorthand notation](atomic-classes.html#shorthand-notation) (i.e. `Bd(1px,s,#555)`.</p>
+<p class="noteBox info">Note that we do not offer [shorthand notation](shorthand-notation.html "Shorthand notation would lead to bloat") for all properties.</p>
 
 #### Value types
 
@@ -335,10 +333,6 @@ The `width` of the box is `auto` below `500px`, then `50%` between `500px` and `
         <tr class="BdT Bdc(#0280ae.3)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)">`Mend(0)`</th>
             <td class="Va-t P(10px)">This is mapped to `margin-right: 0` in a LTR context [\[3\]](#footnote)<a id="footnote-3" class="D(ib)"></a></td>
-        </tr>
-        <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Bgp(start,t)`</th>
-            <td class="Va-t P(10px)">This is mapped to `background-position:left top` in a LTR context [\[3\]](#footnote)<a id="footnote-3" class="D(ib)"></a></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)">`Ta(start)`</th>

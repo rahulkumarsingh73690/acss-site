@@ -16,13 +16,13 @@ Styling elements with a border requires 3 properties [\[1\]](#footnote)<a id="fo
 
 You can combine one of the class above with a `border-color` of your choice (i.e. `Bdc(#ff6347)`) to get a border color different than the text color of the box.
 
-Example with the initial color (and `border-width` set to `1px`):
+Example with a initial border color (and `border-width` set to `1px`):
 
 ```html
-<p class="Bd P(10px)">Lorem ipsum dolor sit amet, id oratio graeco nostrum sit, latine eligendi scribentur mea ex. Tota dolorem voluptua eos at. Ei nec reque viderer facilis. Aliquip necessitatibus ex pri, pertinax atomorum ei sea. Ea omittam appetere posidonium per, te meliore volutpat duo, dolorem ponderum interpretaris sea ut.</p>
+<p class="Bd C(#0b0) P(10px)">Lorem ipsum dolor sit amet, id oratio graeco nostrum sit, latine eligendi scribentur mea ex. Tota dolorem voluptua eos at. Ei nec reque viderer facilis. Aliquip necessitatibus ex pri, pertinax atomorum ei sea. Ea omittam appetere posidonium per, te meliore volutpat duo, dolorem ponderum interpretaris sea ut.</p>
 ```
 
-<p class="Bd P(10px)">Lorem ipsum dolor sit amet, id oratio graeco nostrum sit, latine eligendi scribentur mea ex. Tota dolorem voluptua eos at. Ei nec reque viderer facilis. Aliquip necessitatibus ex pri, pertinax atomorum ei sea. Ea omittam appetere posidonium per, te meliore volutpat duo, dolorem ponderum interpretaris sea ut.</p>
+<p class="Bd C(#0b0) P(10px)">Lorem ipsum dolor sit amet, id oratio graeco nostrum sit, latine eligendi scribentur mea ex. Tota dolorem voluptua eos at. Ei nec reque viderer facilis. Aliquip necessitatibus ex pri, pertinax atomorum ei sea. Ea omittam appetere posidonium per, te meliore volutpat duo, dolorem ponderum interpretaris sea ut.</p>
 
 Example with a custom color:
 
@@ -35,7 +35,8 @@ Example with a custom color:
 <p>We have chosen to set the default `width` of those helpers to be `1px` as it is the most common use case. If you want to use a different `width` or `style` value, then you can either</p>
 <ul class="ul-list">
     <li>use a granular approach, for example: `Bdw(5px) Bds(s) Bdc(#555)`</li>
-    <li>create a custom class, for example: `Bd(myCustomBorder)` via the config object.</li>
+    <li>create a custom class, for example: `Bd(myCustomBorder)` via the config object</li>
+    <li>use **the same helper classes** with [different values](helper-classes.htmlthe-special-case-of-border-)</li>
 </ul>
 
 <p class="noteBox info">You can find abbreviated versions of `style` keywords in [rules.js](https://github.com/yahoo/atomizer/blob/master/src/rules.js#L289).</p>
@@ -174,11 +175,11 @@ This is handy to create boxes with a [intrinsic aspect ratio](http://alistapart.
 
 ```html
 <div class="Pos(r) H(0) Pt(10%)">
-    <div class="StretchedBox Bgc(#0b0)">I am a box with an intrinsic aspect ratio</div>
+    <div class="StretchedBox Bgc(#0b0) P(10px) C(#fff)">I am a box with an intrinsic aspect ratio</div>
 </div>
 ```
 <div class="Pos(r) H(0) Pt(10%)">
-    <div class="StretchedBox Bgc(#0b0)"></div>
+    <div class="StretchedBox Bgc(#0b0) P(10px) C(#fff)">I am a box with an intrinsic aspect ratio</div>
 </div>
 
 ## `Zoom`
