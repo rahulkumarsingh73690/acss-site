@@ -145,7 +145,7 @@ Same class on a node outside the scope of `.foo`:
 
 <p>The following text is <b class="foo_C(#0b0)">lime</b>.</p>
 
-<p class="noteBox info"><strong>Practical example</strong>:<br> we use the class `home-page(D-b)` to style `#main` differently on  [acss.io](http://www.acss.io) home page.</p>
+<p class="noteBox info"><strong>Practical example</strong>:<br> we use the class `home-page_D(b)` to style `#main` differently on  [acss.io](http://www.acss.io) home page.</p>
 
 #### pseudo-classes on ancestors
 
@@ -184,24 +184,6 @@ breakPoints: {
 The class `P(10px)--sm` will style a box with a `padding` of `10px` inside the `sm` breakpoint while the class `P(20px)--lg` will style a box with a `padding` of `20px` inside the `lg` breakpoint.
 
 More info about [breakpoints and responsive web design](../tutorials/responsive-web-design.html).
-
-## Shorthand notation
-
-Atomic CSS is all about *optimization*, so we do not offer shorthand notation for the most common properties (i.e. `margin`, `padding`, etc.). The reason for this is that shorthand allows users to express styles in many ways which would create more classes/selectors/declarations in `atomic.css`.
-
-For example, `border-width`, `style`, and `color` can be specified in any order which could lead to classes like these (to style a box with a 1px border):
-
-<ul class="ul-list">
-    <li>`Bd(1px,solid,#000)`</li>
-    <li>`Bd(1px,#000,solid)`</li>
-    <li>`Bd(solid,#000,1px)`</li>
-    <li>`Bd(solid,1px,#000)`</li>
-    <li>`Bd(#000,1px,solid)`</li>
-    <li>`Bd(#000,solid,1px)`</li>
-</ul>
-
-Which would create 6 different rules for the exact same styling.
-
 
 <hr class="Mt(50px)">
 
