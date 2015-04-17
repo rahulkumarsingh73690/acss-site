@@ -18,6 +18,7 @@ var ReferenceStore = require('../stores/ReferenceStore');
 // mixins
 var FluxibleMixin = require('fluxible').Mixin;
 
+var styleRegex = new RegExp(/\$(\d+?)/g);
 
 function replaceRTLTokens(str) {
     return str.replace('__START__', 'left').replace('__END__', 'right');
@@ -72,7 +73,7 @@ var ReferenceRules = React.createClass({
                 showRecipeBlock = false,
                 value,
                 suffix,
-                prefix = recipe.prefix,
+                prefix = recipe.matcher,
                 usesClass = parsedConfig[prefix];
 
             // If config is provided, filter any rules not used in config
@@ -87,37 +88,38 @@ var ReferenceRules = React.createClass({
             if (recipe.type === 'pattern') {
 
                 if (!hasConfig) {
-                    if (recipe.allowCustom) {
-                        if (recipe.allowSuffixToValue) {
-                            suffix = "[custom suffix|value]";
-                            value = 'custom value|value';
-                        } else {
-                            suffix = "[custom suffix]";
-                            value = 'custom value';
-                        }
-
-                        for (var x = 0; x < recipe.properties.length; x++) {
-                            var property = replaceRTLTokens(recipe.properties[x]);
-                            rawDeclarationBlock.push(property + ": " + value);
-                            styledDeclarationBlock.push(<div>{property}: <em className="C(#07f)">{value}</em></div>);
-                        }
-                        values.push({
-                            rawSelector: prefix + "(" + suffix + ")",
-                            rawDeclaration: rawDeclarationBlock,
-                            selector: <b>{prefix}(<em>{suffix}</em>)</b>,
-                            declaration: styledDeclarationBlock
-                        });
+                    suffix = "custom-param";
+                    value = "value";
+                    if (recipe.allowParamToValue) {
+                        suffix = "value|" + suffix;
                     }
-                    if (recipe.rules) {
-                        for (var i = 0; i < recipe.rules.length; i++) {
+                    for (var property in recipe.styles) {
+                        value = recipe.styles[property].replace(styleRegex, value);
+                        property = replaceRTLTokens(property);
+                        rawDeclarationBlock.push(property + ": " + value);
+                        styledDeclarationBlock.push(<div>{property}: <em className="C(#07f)">{value}</em></div>);
+                    }
+                    values.push({
+                        rawSelector: prefix + "([" + suffix + "])",
+                        rawDeclaration: rawDeclarationBlock,
+                        selector: <b>{prefix}(<em>[{suffix}]</em>)</b>,
+                        declaration: styledDeclarationBlock
+                    });
+
+                    if (recipe.arguments) {
+                        // We're cheating for now and assuming only a single set of arguments
+                        // for however many params are present.  We currently aren't supporting
+                        // multiple value params in any of our rules, though that could change
+                        // someday.  If that happens, we'll need to rethink how we render the docs
+                        // since we won't want to output every possible combination of valid param
+                        var args = recipe.arguments[0];
+                        for (var paramKey in args) {
+                            var selector = prefix + '(' + paramKey + ')';
+                            var value = args[paramKey];
                             rawDeclarationBlock = [];
-                            styledDeclarationBlock = [];
-                            var rule = recipe.rules[i];
-                            var selector = recipe.prefix + '(' + rule.suffix + ')';
-                            var value = rule.values.join(' ');
-                            for (var x = 0; x < recipe.properties.length; x++) {
-                                var property = recipe.properties[x];
-                                declaration = property + ": " + value;
+                            // styledDeclarationBlock = [];
+                            for (var property in recipe.styles) {
+                                declaration = property + ": " + recipe.styles[property].replace(styleRegex, value);
                                 rawDeclarationBlock.push(replaceRTLTokens(declaration));
                             }
                             values.push({
@@ -163,7 +165,7 @@ var ReferenceRules = React.createClass({
                         if (!searching || 
                                 searchTitleMatches || 
                                 v.rawSelector.search(searchRE) > -1 || 
-                                v.rawDeclarationBlock.join('\n').search(searchRE) > -1) {
+                                v.rawDeclaration.join('\n').search(searchRE) > -1) {
                             showRuleset = true;
                             showRecipeBlock = true;
                         }
@@ -183,7 +185,7 @@ var ReferenceRules = React.createClass({
 
             var displayclassDefinitions = "Va(t) W(50%)--sm " + (showRecipeBlock ? "D(ib)--sm" : "D(n)");
             return (
-                <div key={'id-' + recipe.prefix} className={displayclassDefinitions}>
+                <div key={'id-' + recipe.matcher} className={displayclassDefinitions}>
                     <h3 className="M(0) Mt(10px) P(10px)">{recipe.name}</h3>
                     <dl className="M(0) P(10px) Pt(0) Pend(50px)--sm Ff(m)">{classDefinitions}</dl>
                 </div>
