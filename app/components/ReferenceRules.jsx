@@ -170,7 +170,7 @@ var ReferenceRules = React.createClass({
                             showRecipeBlock = true;
                         }
                         var termClasses = 'Pend(10px) Fl(start) Cl(start)';
-                        var defClasses = 'Ov(h) M(0) P(0) C(#f2438c)';
+                        var defClasses = 'M(0) P(0) C(#f2438c)';
                         if (!showRuleset) {
                             termClasses += ' D(n)';
                             defClasses += ' D(n)';
