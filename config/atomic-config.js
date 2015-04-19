@@ -8,7 +8,6 @@ module.exports = {
     // custom atomic classes mapped to their values
     'custom': {
         '$columnWidth': '20px',
-        'Bg(splash)': 'url("../images/splash_background.jpg") no-repeat #0262AA',
         'Bgi(hamburger)': 'url(../images/menu.png)',
         'Tsh(1)': '0 1px 0 rgba(0, 0, 0, 0.8)',
         'Bxsh(light)': '0 2px 3px rgba(0, 0, 0, 0.2)',
