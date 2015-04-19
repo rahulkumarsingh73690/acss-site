@@ -1,19 +1,13 @@
 ##
 
 <div class="Bxz(bb) D(ib) Va(t) W(100%) Pend(20px)--sm W(50%)--sm">
-<h2 class="Bdw(0)! P(0) M(0)">Styles with `class`</h2>
+<h2 class="Bdw(0)! P(0) M(0)">Style with &quot;class&quot;</h2>
 <p>Build whatever you want, the way you want it.<br>
 [Atomizer](atomizer.html) creates a [collection of single purpose styling units](http://coding.smashingmagazine.com/2013/10/21/challenging-css-best-practices-atomic-approach/) that are **relevant to your project**. A grunt task monitors your files and clean up rules that are no more needed.</p>
 </div><!--
 --><div class="Bxz(bb) D(ib) Va(t) W(100%) Pstart(20px)--sm W(50%)--sm">
-<h2 class="Bdw(0)! P(0) M(0)">No &quot;entry cost&quot;</h2>
-<p>Simply installing [Atomizer](atomizer.html) in your project <em>does not</em> add any byte to your pages &mdash; which makes Atomic the perfect solution for common template and component libraries such as:</p>
-<ul class="D(tb) W(100%)">
-    <li class="D(ib) Mb(30px)--xs D(tbc)--sm W(50%) Va(m) Ta(c) W(25%)--sm"><img src="/public/images/react.png" alt="React" width="100" /></li><!--
-    --><li class="D(ib) Mb(30px)--xs D(tbc)--sm W(50%) Va(m) Ta(c) W(25%)--sm"><img src="/public/images/ember.png" alt="Ember" width="100" /></li><!--
-    --><li class="D(ib) Mb(30px)--xs D(tbc)--sm W(50%) Va(m) Ta(c) W(25%)--sm"><img src="/public/images/dust.png" alt="Dust" width="100" /></li><!--
-    --><li class="D(ib) Mb(30px)--xs D(tbc)--sm W(50%) Va(m) Ta(c) W(25%)--sm"><img src="/public/images/handlebars.png" alt="Handlebars" width="100" /></li>
-</ul>
+<h2 class="Bdw(0)! P(0) M(0)">&quot;Pay&quot; as you go</h2>
+<p>Simply installing [Atomizer](atomizer.html) in your project <em>does not</em> add any byte to your pages &mdash; there is no &quot;entry cost&quot;. This means Atomic can be used with any project at any time.</p>
 </div>
 
 ## Colors
