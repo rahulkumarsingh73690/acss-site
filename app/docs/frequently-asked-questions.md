@@ -24,6 +24,7 @@ This section is intended to answer common questions related to Atomic CSS. Do no
    <li><a href="#why-do-i-have-to-use-lowercase-for-color-values-">Why do I have to use lowercase for colors?</a></li>
    <li><a href="#why-are-descendant-classes-not-relying-on-the-namespace-why-are-those-styles-using-important-">Why are "descendant classes" not relying on the namespace? Why are those styles using `!important`</a>?</li>
    <li><a href="#how-can-one-remember-atomic-class-names-">How can one remember Atomic class names?</a></li>
+   <li><a href="#how-come-atomizer-is-not-creating-some-classes-for-me-">How come Atomizer is not creating some classes for me?</a></li>
 </ul>
 
 ## Answers related to the Atomic CSS architecture
@@ -420,6 +421,41 @@ Like Emmet shortcuts, Atomic classes are for the most part simple abbreviations.
 Also, note that we do not use `left` and `right` but instead `start` and `end`. So we can easily output a RTL style sheet.
 
 The [syntax](../guides/syntax.html) and [reference](reference) pages are meant to help you with this; and we may have a plugin for your IDE in the near future...
+
+### How come Atomizer is not creating some classes for me?
+
+Make sure your grunt config is set up to scan all the files onto which Atomic classes are applied. See **&lt;path to files to be scanned>** below:
+
+```javascript
+module.exports = function (grunt) {
+    grunt.config.set('atomizer', {
+        dev: {
+            options: {
+                configFile: './configs/atomizer.json',
+                configOutput: './configs/atomizer.json',
+                namespace: '#Stencil'
+            },
+            files: [{
+                src: ['components/**/*.jsx'],
+                dest: 'build/css/atomic.css'
+            }]
+        },
+        dist: {
+            options: {
+                configFile: './configs/atomizer.json',
+                configOutput: './configs/atomizer.json',
+                namespace: '#atomic'
+            },
+            files: [{
+                src: ['<path to files to be scanned>'],
+                dest: 'build/css/atomic.css'
+            }]
+        }
+    });
+
+    grunt.loadNpmTasks('grunt-atomizer');
+};
+```
 
 <hr class="Mt(50px)">
 
