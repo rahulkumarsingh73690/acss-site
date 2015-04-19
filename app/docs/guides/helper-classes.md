@@ -1,5 +1,7 @@
 # Helper classes
 
+These classes are tailored to help with common styling patterns. You can either use the helpers offered through Atomic or create your own set of helper classes.
+
 ## `Bd*` (Borders)
 
 Styling elements with a border requires 3 properties [\[1\]](#footnote)<a id="footnote-1" class="D(ib)"></a> so to make styling via classes a bit less verbose, we have the following helpers that combine `border-style` (set to `solid`) and `border-width` (set to `1px`):
@@ -140,19 +142,19 @@ Example:
 
 The background of the wrapper shows which proves the box contains floats.
 
-## `SpaceBetween`
+## `SpaceBetween()`
 
-Use the class `SpaceBetween` whenever you want to separate boxes from each other while allowing them to [wrap on the same side](http://cssmojo.com/magic_boxes/#things-you-should-know-about).
+Use the class `SpaceBetween` whenever you want to separate boxes from each other while allowing them to [wrap on the same side](http://cssmojo.com/magic_boxes/#things-you-should-know-about). The param to pass is the `line-height` value for the inner boxes (usually the same as for `<body>`).
 
 Example:
 
 ```html
-<div class="SpaceBetween">
+<div class="SpaceBetween(1.4)">
     <div class="D(ib) W(300px) Ta(c) Mt(30px) P(10px) Bgc(#ccc)">Box-1</div>
     <div class="D(ib) W(300px) Ta(c) Mt(30px) P(10px) Bgc(#999)">Box-2</div>
 </div>
 ```
-<div class="SpaceBetween">
+<div class="SpaceBetween(1.4)">
     <div class="D(ib) W(300px) Ta(c) Mt(30px) P(10px) Bgc(#ccc)">Box-1</div>
     <div class="D(ib) W(300px) Ta(c) Mt(30px) P(10px) Bgc(#999)">Box-2</div>
 </div>
