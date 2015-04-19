@@ -191,5 +191,5 @@ Use the class `Zoom` if you support old IE and needs to [give a box a layout](ht
 <hr class="Mt(50px)">
 
 <ol id="footnote" class="ol-list">
-    <li>1. Unless one wants the initial value of `border-width` and `border-color` [\[↩\]](#footnote-1).</li>
+    <li>Unless one wants the initial value of `border-width` and `border-color` [\[↩\]](#footnote-1).</li>
 </ol>

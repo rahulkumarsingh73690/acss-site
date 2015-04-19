@@ -252,6 +252,6 @@ If you do not run [Atomizer](https://github.com/yahoo/atomizer), you then must a
 <hr class="Mt(50px)">
 
 <ol id="footnote" class="ol-list">
-    <li>1. Atomic.css provides a patch for oldIE [\[↩\]](#footnote-1).</li>
-    <li>2. Atomic.css relies on `start` and `end` instead of `left` and `right` which allows the usage of the **same** classes regardless of script context [\[↩\]](#footnote-2).</li>
+    <li>Atomizer provides a patch for oldIE [\[↩\]](#footnote-1).</li>
+    <li>Atomizer relies on `start` and `end` instead of `left` and `right` which allows the usage of the **same** classes regardless of script context [\[↩\]](#footnote-2).</li>
 </ol>

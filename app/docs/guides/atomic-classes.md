@@ -280,6 +280,6 @@ More info about [breakpoints and responsive web design](../tutorials/responsive-
 <hr class="Mt(50px)">
 
 <ol id="footnote" class="ol-list">
-    <li>1. We use the function name whenever it is bound to a `property`; for example `Rotate()` for `transform` or `Blur()` for `filter`. However, we do not have yet aliases for `calc()`, `rgba()`, etc. [\[↩\]](#footnote-1).</li>
-    <li>2. Use the config object to set custom values for `Matrix()` and `Matrix3d()`. [\[↩\]](#footnote-2) [\[↩\]](#footnote-3).</li>
+    <li>We use the function name whenever it is bound to a `property`; for example `Rotate()` for `transform` or `Blur()` for `filter`. However, we do not have yet aliases for `calc()`, `rgba()`, etc. [\[↩\]](#footnote-1).</li>
+    <li>Use the config object to set custom values for `Matrix()` and `Matrix3d()`. [\[↩\]](#footnote-2) [\[↩\]](#footnote-3).</li>
 </ol>
