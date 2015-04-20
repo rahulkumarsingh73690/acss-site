@@ -193,7 +193,7 @@
         <p>In this example, we are using `LineClamp()` which takes 2 parameters.</p>
     </div>
     <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
-<pre><code class="lang-html">&lt;p class="Fz(<span class="hljs-number">12</span>px) Lh(<span class="hljs-number">1</span>.<span class="hljs-number">5</span>) LineClamp(<span class="hljs-number">2</span>,<span class="hljs-number">54</span>px)"&gt;
+<pre><code class="lang-html">&lt;p class="Fz(<span class="hljs-number">12</span>px) Lh(<span class="hljs-number">1</span>.<span class="hljs-number">5</span>) LineClamp(<span class="hljs-number">3</span>,<span class="hljs-number">54</span>px)"&gt;
     <span class="hljs-comment">Lorem ipsum dolor sit amet, id oratio graeco nostrum sit, latine eligendi scribentur mea ex. Tota dolorem voluptua eos at. Ei nec reque viderer facilis. Aliquip necessitatibus ex pri, pertinax atomorum ei sea. Ea omittam appetere posidonium per, te meliore volutpat duo, dolorem ponderum interpretaris sea ut.</span>
 &lt;/p&gt;
 </code></pre>
