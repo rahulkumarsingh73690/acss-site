@@ -2,12 +2,12 @@
 
 <div class="Bxz(bb) D(ib) Va(t) W(100%) Pend(20px)--sm W(50%)--sm">
 <h2 class="Bdw(0)! P(0) M(0)">Style with &quot;class&quot;</h2>
-<p>Build whatever you want, the way you want it.<br>
-[Atomizer](atomizer.html) creates a [collection of single purpose styling units](http://coding.smashingmagazine.com/2013/10/21/challenging-css-best-practices-atomic-approach/) that are **relevant to your project**. A grunt task monitors your files and clean up rules that are no more needed.</p>
+<p>Build whatever you want, the way you want it.<br> Adopting a [Atomic CSS architecture](frequently-asked-questions.html#what-are-the-benefits-of-atomic-css-) guarantees to lower payload, moves specificity out of the way, removes dependencies, allows to share content and assets, leverages cache, and facilitates LTR/RTL interfaces switch.</p>
 </div><!--
 --><div class="Bxz(bb) D(ib) Va(t) W(100%) Pstart(20px)--sm W(50%)--sm">
 <h2 class="Bdw(0)! P(0) M(0)">&quot;Pay&quot; as you go</h2>
-<p>Simply installing [Atomizer](atomizer.html) in your project <em>does not</em> add any byte to your pages &mdash; there is no &quot;entry cost&quot;. This means Atomic can be used with any project at any time.</p>
+<p>Simply installing [Atomizer](atomizer.html) in your project <em>does not</em> add any byte to your pages &mdash; there is no &quot;entry cost&quot;. [Atomizer](atomizer.html) creates a [collection of single purpose styling units](http://coding.smashingmagazine.com/2013/10/21/challenging-css-best-practices-atomic-approach/) that are **relevant to your project**. A grunt task monitors your files and clean up rules that are no more needed.<br>
+ This means Atomic can be used with any project at any time.</p>
 </div>
 
 ## Colors
