@@ -142,25 +142,6 @@ Example:
 
 The background of the wrapper shows which proves the box contains floats.
 
-## `SpaceBetween()`
-
-Use the class `SpaceBetween` whenever you want to separate boxes from each other while allowing them to [wrap on the same side](http://cssmojo.com/magic_boxes/#things-you-should-know-about). The param to pass is the `line-height` value for the inner boxes (usually the same as for `<body>`).
-
-Example:
-
-```html
-<div class="SpaceBetween(1.4)">
-    <div class="D(ib) W(300px) Ta(c) Mt(30px) P(10px) Bgc(#ccc)">Box-1</div>
-    <div class="D(ib) W(300px) Ta(c) Mt(30px) P(10px) Bgc(#999)">Box-2</div>
-</div>
-```
-<div class="SpaceBetween(1.4)">
-    <div class="D(ib) W(300px) Ta(c) Mt(30px) P(10px) Bgc(#ccc)">Box-1</div>
-    <div class="D(ib) W(300px) Ta(c) Mt(30px) P(10px) Bgc(#999)">Box-2</div>
-</div>
-
-<p class="noteBox info">You can resize the viewport to see how the boxes behave when there is not enough room for them to show side-by-side. You can also compare this styling with the one from the `Row` example above, where 2 boxes are floated in opposite direction.</p>
-
 ## `StretchedBox`
 
 Use the class `StretchedBox` to stretch a box inside its 'containing block' as this class is mapped to the following declarations:
