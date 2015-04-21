@@ -102,7 +102,7 @@ var ReferenceRules = React.createClass({
                     values.push({
                         rawSelector: prefix + "([" + suffix + "])",
                         rawDeclaration: rawDeclarationBlock,
-                        selector: <b>{prefix}(<b className="C(#000)">[{suffix}]</b>)</b>,
+                        selector: <b>{prefix}(<b className="C(#000)">{suffix}</b>)</b>,
                         declaration: styledDeclarationBlock
                     });
 
