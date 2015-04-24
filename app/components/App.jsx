@@ -50,7 +50,6 @@ var App = React.createClass({
     },
 
     render: function () {
-        console.log(this.constructor.displayName);
         var Component = this.state.route && this.state.route.config && this.state.route.config.component;
 
         if ('500' === this.state.currentPageName) {
