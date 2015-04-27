@@ -119,39 +119,50 @@
                 <p class="Op(0) foo:h>Op(1)">Lorem ipsum</p>
             </div>
         </div>
-        <p class="Cl(b) W(60%) Fl(n)--xs W(a)--xs Bxz(bb) noteBox info"><abbr title="Accessibility">A11Y</abbr> tip: never reveal content via mouseover alone.</p>
+
+<p class="Cl(b) W(60%) Fl(n)--xs W(a)--xs Bxz(bb) noteBox info"><abbr title="Accessibility">A11Y</abbr> tip: never reveal content via mouseover alone.</p>
+
 </div>
 
 ## Grids
 
 <div class="Row">
     <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs">
-        <p>What do you fancy? Floats? Flexbox? Inline-block? We have it all, and you can use any width you want with that (fraction, percentage, em, rem, px, whatever).</p>
+        <p>What do you fancy? Floats? Flexbox? Inline-block? CSS table? We have it all, and you can use any width you want with that (fraction, percentage, em, rem, px, whatever).</p>
     </div>
     <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"Row"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"Fl(start) W(1/2) Bgc(#0280ae.5) H(90px)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"Fl(start) W(1/2) Bgc(#0280ae) H(90px)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"D(tb) W(100%)"</span> <span class="hljs-attribute">role</span>=<span class="hljs-value">"presentation"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">" D(tbc) Bgc(#0280ae) H(90px)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">" D(tbc) Bgc(#0280ae.5) H(90px)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"IbBox W(50%) Bgc(#0280ae.5) H(90px)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span><span class="hljs-comment">&lt;!--
+--&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"IbBox W(50%) Bgc(#0280ae) H(90px)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"D(f)"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">" Flxg(1) Bgc(#0280ae) H(90px)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">" Flxg(1) Bgc(#0280ae.5) H(90px)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
-   <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"D(ib) W(50%) Bgc(#0280ae.5) H(90px)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span><span class="hljs-comment">&lt;!--
---&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"D(ib) W(50%) Bgc(#0280ae) H(90px)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
 </code></pre>
+<p class="noteBox info"><abbr title="Accessibility">A11Y</abbr> tip: Use `role="presentation"` on the &quot;table&quot; to prevent its semantics from being mapped to the accessibility API.</p>
     </div>
     <div class="Fl(end) W(30%) My(1em) Fl(n)--xs W(a)--xs">
         <div class="Row">
             <div class="Fl(start) W(1/2) Bgc(#0280ae.5) H(90px)"></div>
             <div class="Fl(start) W(1/2) Bgc(#0280ae) H(90px)"></div>
         </div>
+        <div class="D(tb) W(100%)" role="presentation">
+            <div class=" D(tbc) Bgc(#0280ae) H(90px)"></div>
+            <div class=" D(tbc) Bgc(#0280ae.5) H(90px)"></div>
+        </div>
+        <div class="IbBox W(50%) Bgc(#0280ae.5) H(90px)"></div><!--
+     --><div class="IbBox W(50%) Bgc(#0280ae) H(90px)"></div>
         <div class="D(f)">
             <div class=" Flxg(1) Bgc(#0280ae) H(90px)"></div>
             <div class=" Flxg(1) Bgc(#0280ae.5) H(90px)"></div>
         </div>
-        <div class="D(ib) W(50%) Bgc(#0280ae.5) H(90px)"></div><!--
-     --><div class="D(ib) W(50%) Bgc(#0280ae) H(90px)"></div>
     </div>
 </div>
 
