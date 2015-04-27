@@ -146,7 +146,7 @@
     <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">" Flxg(1) Bgc(#0280ae.5) H(90px)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
 </code></pre>
-<p class="noteBox info"><abbr title="Accessibility">A11Y</abbr> tip: Use `role="presentation"` on the &quot;table&quot; to prevent its semantics from being mapped to the accessibility API.</p>
+<p class="noteBox info"><abbr title="Accessibility">A11Y</abbr> tip: Use `role="presentation"` on &quot;CSS tables&quot; to prevent their semantics from being mapped to the accessibility API.</p>
     </div>
     <div class="Fl(end) W(30%) My(1em) Fl(n)--xs W(a)--xs">
         <div class="Row">
