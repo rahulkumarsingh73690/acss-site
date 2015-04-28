@@ -196,7 +196,7 @@
 
 <p class="Cl(b) W(60%) Fl(n)--xs W(a)--xs Bxz(bb) noteBox info">Note that *any style* can be attached to a breakpoint (i.e. `C(#fff)--sm`).</p>
 
-### Classes mapped to a single breakpoint
+### Classes mapped to multiple breakpoints
 
 <div class="Row">
     <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs">

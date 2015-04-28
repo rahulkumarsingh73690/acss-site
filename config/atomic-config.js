@@ -14,10 +14,10 @@ module.exports = {
         '$brandColor': '#0280ae',
         'Bgc(selected)': '#e5e1ea!important',
         'Fz($RWD-fontSize)': {
-            'xs': '12px',
-            'sm': '22px',
-            'md': '32px',
-            'lg': '42px'
+            'xs': '40px',
+            'sm': '19px',
+            'md': '28px',
+            'lg': '55px'
         }
     }
 };
