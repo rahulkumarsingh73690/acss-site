@@ -2,12 +2,11 @@
 
 <div class="Bxz(bb) D(ib) Va(t) W(100%) Pend(20px)--sm W(50%)--sm">
 <h2 class="Bdw(0)! P(0) M(0)">Style with &quot;class&quot;</h2>
-<p>Build whatever you want, the way you want it.<br> Adopting a [Atomic CSS architecture](frequently-asked-questions.html#what-are-the-benefits-of-atomic-css-) guarantees to lower payload, moves specificity out of the way, removes dependencies, leverages cache, and facilitates LTR/RTL interfaces switch.</p>
+<p>Build whatever you want, the way you want it.<br> Adopting a [Atomic CSS architecture](frequently-asked-questions.html#what-are-the-benefits-of-atomic-css-) guarantees to lower payload, reduces style scope, removes dependencies, leverages cache, and facilitates LTR/RTL interfaces switch.</p>
 </div><!--
 --><div class="Bxz(bb) D(ib) Va(t) W(100%) Pstart(20px)--sm W(50%)--sm">
 <h2 class="Bdw(0)! P(0) M(0)">&quot;Pay&quot; as you go</h2>
-<p>Simply installing [Atomizer](atomizer.html) in your project <em>does not</em> add any byte to your pages (there is no &quot;entry cost&quot;). [Atomizer](atomizer.html) only creates rules that are relevant to your project.<br>
- This means **Atomic can be used with any project at any time**.</p>
+<p>Simply installing [Atomizer](atomizer.html) in your project <em>does not</em> add any byte to your pages (there is no &quot;entry cost&quot;). [Atomizer](atomizer.html) only creates rules that are relevant to your project. &mdash; which means **Atomic can be used with any project at any time**.</p>
 </div>
 
 ## Colors
@@ -200,7 +199,7 @@
 
 <div class="Row">
     <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs">
-        <p>Those classes have different values associated to breakpoint; meaning the same class applies different styles depending on media queries.</p>
+        <p>Those classes have different values associated to different breakpoints; meaning the same class applies different styles depending on media queries.</p>
     </div>
     <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
 <pre><code class="lang-javascript"><span class="hljs-string">'Fz($RWD-fontSize)'</span>: {
