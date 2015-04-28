@@ -33,7 +33,7 @@
 
 <div class="Row">
     <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs">
-        <p>&quot;Variables&quot; are usefull for theming and the like but they can also be used to share a common value across properties.</p>
+        <p>&quot;[Variables](/guides/atomic-classes.html#variables)&quot; are usefull for theming and the like but they can also be used to share a common value across properties.</p>
         <p>In this example, `$brandColor` is responsible for setting the text color, the background color, and the border color while `$columnWidth` dictates the width of the 1st box and the left offset of its sibling.</p>
     </div>
     <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
@@ -61,7 +61,7 @@
 
 <div class="Row">
     <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs">
-        <p>Atomic syntax allows to style elements depending on their ancestors. The same way you'd create styles based on descendant or child combinators.</p>
+        <p>Atomic syntax allows to style elements [depending on their ancestors](/guides/atomic-classes.html#descendant-selectors). The same way you'd create styles based on descendant or child combinators.</p>
         <p>In this example, the same 2 boxes (same markup) are styled differently depending on which element they are nested into. They show side by side unless they are nested in an element with the class `foo` applied to it.</p>
     </div>
     <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
@@ -128,7 +128,7 @@
 
 <div class="Row">
     <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs">
-        <p>What do you fancy? Floats? Flexbox? Inline-block? CSS table? We have it all, and you can use any width you want with that (fraction, percentage, em, rem, px, whatever).</p>
+        <p>What do you fancy? Floats? Flexbox? Inline-block? CSS table? [We have it all](/tutorials/grid-system.html#layouts), and you can use [any width you want](/tutorials/grid-system.html#widths) with that (fraction, percentage, em, rem, px, whatever).</p>
     </div>
     <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"Row"</span>&gt;</span>
@@ -168,9 +168,11 @@
 
 ## RWD
 
+### Classes mapped to a single breakpoint
+
 <div class="Row">
     <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs">
-        <p>Atomic classes can relate to media queries. Those classes have a breakpoint &quot;name&quot; for suffix, the breakpoints themselves are set up via the config object.</p>
+        <p>Those classes have a breakpoint &quot;name&quot; for suffix, the breakpoints themselves are set up via the config object.</p>
         <p>In this example, the 4 boxes are styled as `inline-block`, with a `width` of `25%` when the viewport is more than `700px` wide.</p>
     </div>
     <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
@@ -192,15 +194,34 @@
     </div>
 </div>
 
-
 <p class="Cl(b) W(60%) Fl(n)--xs W(a)--xs Bxz(bb) noteBox info">Note that *any style* can be attached to a breakpoint (i.e. `C(#fff)--sm`).</p>
 
+### Classes mapped to a single breakpoint
+
+<div class="Row">
+    <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs">
+        <p>Those classes have different values associated to breakpoint; meaning the same class applies different styles depending on media queries.</p>
+    </div>
+    <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
+<pre><code class="lang-javascript"><span class="hljs-string">'Fz($RWD-fontSize)'</span>: {
+    <span class="hljs-string">'xs'</span>: <span class="hljs-string">'12px'</span>,
+    <span class="hljs-string">'sm'</span>: <span class="hljs-string">'22px'</span>,
+    <span class="hljs-string">'md'</span>: <span class="hljs-string">'32px'</span>,
+    <span class="hljs-string">'lg'</span>: <span class="hljs-string">'42px'</span>
+}</code></pre>
+<pre><code class="lang-html">&lt;<span class="hljs-keyword">div</span> <span class="hljs-type">class</span>=<span class="hljs-string">"Fz($RWD-fontSize)"</span>&gt;Responsive font-size&lt;/<span class="hljs-keyword">div</span>&gt;
+</code></pre>
+    </div>
+    <div class="Fl(end) W(30%) My(1em) Fl(n)--xs W(a)--xs">
+        <div class="Fz($RWD-fontSize)">Responsive font-size</div>
+    </div>
+</div>
 
 ## Helpers
 
 <div class="Row">
     <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs">
-        <p>Atomic offers a bunch of helpers. To clear floats (`Cf` for clearfix), to help [setting borders](guides/helper-classes.html#-bd-borders-), to truncate text with ellipsis (`Ell`), to visually hide text (`Hidden`), etc.</p>
+        <p>Atomic offers a bunch of [helpers](/guides/helper-classes.html). To clear floats (`Cf` for clearfix), to help [setting borders](guides/helper-classes.html#-bd-borders-), to truncate text with ellipsis (`Ell`), to visually hide text (`Hidden`), etc.</p>
         <p>In this example, we are using `LineClamp()` which takes 2 parameters.</p>
     </div>
     <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
