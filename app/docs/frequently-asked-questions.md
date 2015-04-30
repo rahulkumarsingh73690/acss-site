@@ -221,7 +221,7 @@ Such approach produces less of everything:
 
 Atomic CSS is not a framework; it does not contain UI components nor a grid system. It is a solution that allows you to to create **your own UI** while preventing bloat.
 
-Atomic's "footprint" is limited to what a project uses - meaning there is no "entry cost". Simply installing [Atomizer](atomizer.html) in your project does not add any bytes to your pages.
+Atomic's "footprint" is limited to what a project uses - meaning there is no "entry cost". Simply installing [Atomizer](/guides/atomizer.html) in your project does not add any bytes to your pages.
 
 ### I have always been told to use classes related to content, *not to presentation*. Isn't Atomic CSS promoting bad practice?
 

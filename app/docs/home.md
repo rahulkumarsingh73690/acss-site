@@ -6,7 +6,7 @@
 </div><!--
 --><div class="Bxz(bb) D(ib) Va(t) W(100%) Pstart(20px)--sm W(50%)--sm">
 <h2 class="Bdw(0)! P(0) M(0)">&quot;Pay&quot; as you go</h2>
-<p>Simply installing [Atomizer](atomizer.html) in your project <em>does not</em> add any bytes to your pages (there is no &quot;entry cost&quot;). [Atomizer](atomizer.html) only creates rules that are relevant to your project. &mdash; which means **Atomic can be used with any project at any time**.</p>
+<p>Simply installing [Atomizer](/guides/atomizer.html) in your project <em>does not</em> add any bytes to your pages (there is no &quot;entry cost&quot;). [Atomizer](/guides/atomizer.html) only creates rules that are relevant to your project. &mdash; which means **Atomic can be used with any project at any time**.</p>
 </div>
 
 ## Colors
