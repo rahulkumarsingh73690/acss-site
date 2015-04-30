@@ -6,7 +6,7 @@
 </div><!--
 --><div class="Bxz(bb) D(ib) Va(t) W(100%) Pstart(20px)--sm W(50%)--sm">
 <h2 class="Bdw(0)! P(0) M(0)">&quot;Pay&quot; as you go</h2>
-<p>Simply installing [Atomizer](atomizer.html) in your project <em>does not</em> add any byte to your pages (there is no &quot;entry cost&quot;). [Atomizer](atomizer.html) only creates rules that are relevant to your project. &mdash; which means **Atomic can be used with any project at any time**.</p>
+<p>Simply installing [Atomizer](atomizer.html) in your project <em>does not</em> add any bytes to your pages (there is no &quot;entry cost&quot;). [Atomizer](atomizer.html) only creates rules that are relevant to your project. &mdash; which means **Atomic can be used with any project at any time**.</p>
 </div>
 
 ## Colors
@@ -32,8 +32,8 @@
 
 <div class="Row">
     <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs">
-        <p>&quot;[Variables](/guides/atomic-classes.html#variables)&quot; are usefull for theming and the like but they can also be used to share a common value across properties.</p>
-        <p>In this example, `$brandColor` is responsible for setting the text color, the background color, and the border color while `$columnWidth` dictates the width of the 1st box and the left offset of its sibling.</p>
+        <p>&quot;[Variables](/guides/atomic-classes.html#variables)&quot; are useful for theming and the like but they can also be used to share a common value across properties.</p>
+        <p>In this example, `$brandColor` is responsible for setting the text color, the background color, and the border color, while `$columnWidth` dictates the width of the 1st box and the left offset of its sibling.</p>
     </div>
     <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
 <pre><code class="lang-javascript"><span class="hljs-comment">// config object</span>
@@ -60,7 +60,7 @@
 
 <div class="Row">
     <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs">
-        <p>Atomic syntax allows to style elements [depending on their ancestors](/guides/atomic-classes.html#descendant-selectors). The same way you'd create styles based on descendant or child combinators.</p>
+        <p>Atomic syntax allows you to style elements [depending on their ancestors](/guides/atomic-classes.html#descendant-selectors). The same way you'd create styles based on descendant or child combinators.</p>
         <p>In this example, the same 2 boxes (same markup) are styled differently depending on which element they are nested into. They show side by side unless they are nested in an element with the class `foo` applied to it.</p>
     </div>
     <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
