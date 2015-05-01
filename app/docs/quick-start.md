@@ -26,7 +26,7 @@ Now try this:
 
 The browser should reload the page, displaying all your changes. Check the [atomic.css](http://localhost:3000/css/atomic.css) file to see that it only contains the rules for the classes that are being used in the project.
 
-Edit `Gruntfile.js` (in the root of &quot;atomizer-examples&quot;) to set the files to watch:
+If needed, edit `Gruntfile.js` (in the root of &quot;atomizer-examples&quot;) to set the files to watch:
 
 ```javascript
 // watch for changes and run tasks
@@ -43,6 +43,6 @@ watch: {
 }
 ```
 
-From here, we recommend learning about [Atomic CSS Architecture](/thinking-in-atomic.html), reading our [FAQ](http://localhost:3000/frequently-asked-questions.html), learn about [Atomic classes](/guides/atomic-classes.html), and the [syntax](/guides/syntax.html).
+From here, we recommend learning about [Atomic CSS Architecture](/thinking-in-atomic.html), reading our [FAQ](http://localhost:3000/frequently-asked-questions.html), checking [Atomic classes](/guides/atomic-classes.html) and their [syntax](/guides/syntax.html).
 
 Please visit the [Atomizer](https://github.com/yahoo/atomizer) and [grunt-atomizer](https://github.com/yahoo/grunt-atomizer) repositories for more information.
