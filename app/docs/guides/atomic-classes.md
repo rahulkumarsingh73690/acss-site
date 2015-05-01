@@ -219,7 +219,7 @@ Changing any value in the config changes all occurrences in the style sheet.
 
 ### Computed values
 
-The config is a JS file, so you can rely on JavaScript to do the math:
+The config is a JS file, so you can rely on JavaScript to do some math:
 
 ```javascript
 var widthOfNav   = 200,
@@ -238,7 +238,11 @@ module.exports = {
 ```
 
 ```html
-<div class="wrapper W($wrapper-width) Mx(a)">...</div>
+<div class="wrapper W($wrapper-width) Mx(a)">
+    <div class="nav W($nav-width) Fl(start)">...</div>
+    <div class="main W($main-width) Fl(start) Mx($gutter-width)">...</div>
+    <div class="rail W($rail-width) Fl(start)">...</div>
+</div>
 ```
 
 
