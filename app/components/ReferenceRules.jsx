@@ -137,6 +137,7 @@ var ReferenceRules = React.createClass({
                         var args = recipe.arguments.reduce(function (prevValue, currentValue, currentIndex) {
                             var obj = {};
                             for (var p in prevValue) {
+                                obj[p] = prevValue[p];
                                 for (var c in currentValue) {
                                     var key = p + ',' + c;
                                     obj[key] = [prevValue[p], currentValue[c]]
