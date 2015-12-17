@@ -48,9 +48,9 @@ So how do you integrate Atomizer into your project? You can use Grunt, Gulp, Web
 
 Here's a few open source projects we know about:
 
-  * [grunt-atomizer](https://www.npmjs.com/package/grunt-atomizer) (Created by the Atomizer team)
-  * [atomic-loader](https://www.npmjs.com/package/atomic-loader)
-  * [gulp-atomizer](https://www.npmjs.com/package/gulp-atomizer)
+  * Grunt: [grunt-atomizer](https://www.npmjs.com/package/grunt-atomizer) (Created by the Atomizer team)
+  * Webpack: [atomic-loader](https://www.npmjs.com/package/atomic-loader)
+  * Gulp: [gulp-atomizer](https://www.npmjs.com/package/gulp-atomizer)
 
 ### Example: Grunt
 
