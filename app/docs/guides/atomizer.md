@@ -53,7 +53,7 @@ Here's a few open source projects we know about:
   * Grunt: [grunt-atomizer](https://www.npmjs.com/package/grunt-atomizer) (Created by the Atomizer team)
   * Webpack: [atomic-loader](https://www.npmjs.com/package/atomic-loader)
   * Gulp: [gulp-atomizer](https://www.npmjs.com/package/gulp-atomizer)
-  * [Boot-Task](https://github.com/boot-clj/boot): [boot-atomizer](https://github.com/azizzaeny/boot-atomizer) (Build tooling for clojure(script) community)
+  * Clojure : [boot-atomizer](https://github.com/azizzaeny/boot-atomizer) ([Boot-Task](https://github.com/boot-clj/boot) for clojurescript )
 
 If you create your own, please [let us know!](/support.html)
 
