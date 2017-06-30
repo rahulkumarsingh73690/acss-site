@@ -57,7 +57,6 @@ var ReferenceRules = React.createClass({
         }
 
         var items = Rules.map(function (recipe) {
-            console.log(recipe);
             var usingClass = false,
                 searching = !!this.state.currentQuery,
                 searchMatches = null;
