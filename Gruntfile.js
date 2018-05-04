@@ -18,11 +18,6 @@ module.exports = function(grunt) {
             docs: './docs'
         },
 
-        // clean build
-        clean: {
-            'build': '<%= project.build %>'
-        },
-
         // ------------------------------------------------------------------------------
         // DEV TASKS --------------------------------------------------------------------
         // ------------------------------------------------------------------------------
@@ -189,7 +184,6 @@ module.exports = function(grunt) {
 
     // dev
     grunt.registerTask('default', [
-        'clean:build',
         'mark',
         'atomizer:docs',
         'cssmin:docs',
@@ -198,7 +192,6 @@ module.exports = function(grunt) {
     ]);
 
     grunt.registerTask('build', [
-        'clean:build',
         'mark',
         'atomizer:docs',
         'cssmin:docs',
