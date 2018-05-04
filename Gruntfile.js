@@ -8,13 +8,13 @@ var webpack = require('webpack');
 module.exports = function(grunt) {
     // Load grunt tasks automatically
     require('load-grunt-tasks')(grunt);
+    grunt.loadTasks('./grunt/tasks');
 
     grunt.initConfig({
 
         // project variables
         project: {
             app: './app',
-            build: '<%= project.app %>/build',
             docs: './docs'
         },
 
@@ -82,6 +82,16 @@ module.exports = function(grunt) {
                     dest: '<%= project.docs %>/assets/ie.css'
                 }]
             },
+        },
+
+        mark: {
+            docs: {
+                options: {
+                    filterPath: './app/docs'
+                },
+                src: ['./app/docs/**/*.md'],
+                dest: './docs'
+            }
         },
 
         postcss: {
@@ -180,6 +190,7 @@ module.exports = function(grunt) {
     // dev
     grunt.registerTask('default', [
         'clean:build',
+        'mark',
         'atomizer:docs',
         'cssmin:docs',
         'postcss:docs',
@@ -188,6 +199,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask('build', [
         'clean:build',
+        'mark',
         'atomizer:docs',
         'cssmin:docs',
         'postcss:docs',
