@@ -104,6 +104,7 @@ title: Class syntax
 <p>Use the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/General_sibling_combinator">general sibling combinator</a> to style only if the sibling of an particular element.</p>
 <p>Example:</p>
 <pre><code class="lang-html">&lt;<span class="hljs-keyword">div</span> <span class="hljs-type">class</span>=<span class="hljs-string">"foo"</span>&gt;&lt;/<span class="hljs-keyword">div</span>&gt;
+&lt;<span class="hljs-keyword">div</span> <span class="hljs-type">class</span>=<span class="hljs-string">"bar"</span>&gt;&lt;/<span class="hljs-keyword">div</span>&gt;
 &lt;<span class="hljs-keyword">div</span> <span class="hljs-type">class</span>=<span class="hljs-string">"foo~D(n)"</span>&gt;&lt;/<span class="hljs-keyword">div</span>&gt;
 </code></pre>
 <p>This class hides the element if one of its previous siblings has the class <code>foo</code> attached to it.</p>
