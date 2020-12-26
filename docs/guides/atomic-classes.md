@@ -12,7 +12,7 @@ title: Atomic classes
 <div class="noteBox info">The <a href="/reference">searchable reference page</a> gives you a complete listing of Atomic classes and their supported values.</div>
 
 <h2 id="aliases">Aliases</h2>
-<p>Atomic CSS provides aliases for most properties <a href="#footnote">[1]</a><a id="footnote-1" class="D(ib)"></a> that rely on <a href="http://www.w3.org/TR/css3-values/#functional-notation">Functional Notation</a>:</p>
+<p>ACSS provides aliases for most properties <a href="#footnote">[1]</a><a id="footnote-1" class="D(ib)"></a> that rely on <a href="http://www.w3.org/TR/css3-values/#functional-notation">Functional Notation</a>:</p>
 <table class="Ta(start) W(100%)">
     <caption class="Hidden">Aliases for values based on functional notation</caption>
     <thead>
