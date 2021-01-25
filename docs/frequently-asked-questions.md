@@ -4,7 +4,7 @@ layout: docs
 title: Frequently Asked Questions
 ---
 
-<p>This section is intended to answer common questions related to Atomic CSS, <b class="Fw(b)">ACSS</b>, and Atomizer. If you&#39;re unable to find an answer to your question, <a href="/support.html">you can find support here</a>.</p>
+<p>This section is intended to answer common questions related to Atomic CSS, <b class="Fw(b)">ACSS</b>, and Atomizer. If you&#39;re unable to find an answer to your question, <a href="/support.html">you can find support here</a> or <a href="https://github.com/acss-io/acss-site/discussions">start a discussion here</a>.</p>
 <h2 id="questions-related-to-the-atomic-css-architecture">Questions related to the Atomic CSS architecture</h2>
 <ul class="ul-list">
    <li><a href="#what-is-atomic-css-">What is Atomic CSS?</a></li>
